@@ -41,18 +41,19 @@ include "../conexion.php";
 
 
     $dni = $_GET['id'];
-    $sql= mysqli_query($conection,"SELECT u.email,u.name,u.surname,u.username FROM users_admin u WHERE dni =$dni ");
+    $sql= mysqli_query($conection,"SELECT u.email,u.name,u.surname,u.username FROM users_admin u WHERE dni = $dni ");
     $result_sql = mysqli_num_rows($sql);
-    echo result_sql;exit;
+    //echo result_sql;exit;
 
     if($result_sql > 0){
         header('Location: listado_usuarios.php');
     }else{
       while($data = mysqli_fetch_array($sql)){
-          $dni        = $data['email'];
+          $dni        = $data['dni'];
           $nombre     = $data['name'];
           $apellidos  = $data['surname'];
           $nomusuario = $data['username'];
+          $correo = $data['email'];
       }  
     }
 
@@ -82,9 +83,9 @@ include "../conexion.php";
             <label for="dni">DNI</label>
             <input type="text" name="dni" id="dni" placeholder="dni" value="<?php echo $dni;?>">
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" placeholder="email" value="<?php echo $email;?>">
+            <input type="email" name="email" id="email" placeholder="email" value="<?php echo $correo;?>">
             <label for="username">Nombre de usuario</label>
-            <input type="text" name="username" id="username" placeholder="Nombre de usuario" value="<?php echo $nombre;?>">
+            <input type="text" name="username" id="username" placeholder="Nombre de usuario" value="<?php echo $nomusuario;?>">
             <label for="password">Contraseña</label>
             <input type="password" name="password" id="password" placeholder="password">
             <input type="submit" value="Guardar cambios" class="btn_save">
