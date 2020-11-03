@@ -4,11 +4,12 @@ include "../conexion.php";
     {
         $alert='';
         if(empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['dni']) || empty($_POST['email'])
-        || empty($_POST['username']) || empty($_POST['password']))
+        || empty($_POST['username']))
         {
             $alert='<p class="msg_error">Todos los campos son obligatorios</p>';// funciona bien
         }else{
-            include "../conexion.php";
+            //include "../conexion.php";
+            $iduser = $_POST['idusuario'];
             $nombre = $_POST['nombre'];
             $apellidos = $_POST['apellido'];
             $dni = $_POST['dni'];
@@ -17,8 +18,10 @@ include "../conexion.php";
             $pass = md5($_POST['password']);
 
             //echo "SELECT * FROM users_admin WHERE dni = '$dni' ";
-            $query = mysqli_query($conection,"SELECT * FROM users_admin WHERE dni = '$dni' OR email ='$correo' OR password = '$pass' ");
+            $query = mysqli_query($conection,"SELECT * FROM users_admin 
+                                                        WHERE dni = '$dni' OR email ='$correo' OR password = '$pass' ");
             $result = mysqli_fetch_array($query);
+            
             if($result > 0){
                 $alert= '<p class="msg_error">El usuario ya existe.</p>';//no me funciona ya que duplica las entradas
             }else{
@@ -39,13 +42,9 @@ include "../conexion.php";
         header('Location: listado_usuarios.php');
     }
 
-
     $iduser = $_GET['id'];
-    //echo $dni;exit;
     $sql= mysqli_query($conection,"SELECT u.email,u.dni,u.name,u.surname,u.username FROM users_admin u WHERE id_user_admin = $iduser ");
-    //echo $sql;exit;
     $result_sql = mysqli_num_rows($sql);
-    //echo $result_sql;exit;
 
     if($result_sql == 0){
         header('Location: listado_usuarios.php');
@@ -78,6 +77,7 @@ include "../conexion.php";
             <div class="alert"><?php echo isset($alert) ? $alert :''; ?></div>
 
             <form action="" method="post">
+            <input type="hidden" name="idusuario" value="<?php echo $iduser; ?>">
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="<?php echo $nombre;?>">
             <label for="apellido">Apellido</label>
