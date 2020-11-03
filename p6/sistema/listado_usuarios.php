@@ -37,7 +37,8 @@ include "../conexion.php";
                     <td><?php echo $data["dni"]; ?></td>
                     <td><?php echo $data["email"] ?></td>
                     <td>
-                        <a class="link_edit" href="edit_admin.php?id=<?php echo $data["dni"]; ?>">Editar</a>
+                        <a class="link_edit" href="edit_admin.php?id=<?php echo $data["dni"];
+                             ?>">Editar</a>
                         |
                         <a class="link_delete" href="#">Eliminar</a>
                     </td>

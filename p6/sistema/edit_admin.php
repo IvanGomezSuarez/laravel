@@ -33,17 +33,19 @@ include "../conexion.php";
             }
         }
     }
-
-    //Mostrar datos
-    if(empty($_GET['dni']))
+    // mostrar datos
+    /*if(empty($_GET['dni']))
     {
         header('Location: listado_usuarios.php');
-    }
-    $dni = $_GET['dni'];
+    }*/
+
+
+    $dni = $_GET['id'];
     $sql= mysqli_query($conection,"SELECT u.email,u.name,u.surname,u.username FROM users_admin u WHERE dni =$dni ");
     $result_sql = mysqli_num_rows($sql);
+    echo result_sql;exit;
 
-    if($result_sql == 0){
+    if($result_sql > 0){
         header('Location: listado_usuarios.php');
     }else{
       while($data = mysqli_fetch_array($sql)){
@@ -53,6 +55,7 @@ include "../conexion.php";
           $nomusuario = $data['username'];
       }  
     }
+
 
 ?>
 
