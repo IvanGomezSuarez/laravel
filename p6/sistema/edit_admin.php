@@ -42,7 +42,7 @@ include "../conexion.php";
 
     $iduser = $_GET['id'];
     //echo $dni;exit;
-    $sql= mysqli_query($conection,"SELECT u.email,u.name,u.surname,u.username FROM users_admin u WHERE id_user_admin = $iduser ");
+    $sql= mysqli_query($conection,"SELECT u.email,u.dni,u.name,u.surname,u.username FROM users_admin u WHERE id_user_admin = $iduser ");
     //echo $sql;exit;
     $result_sql = mysqli_num_rows($sql);
     //echo $result_sql;exit;
