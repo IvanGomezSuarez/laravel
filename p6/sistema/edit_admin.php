@@ -34,10 +34,10 @@ include "../conexion.php";
         }
     }
     // mostrar datos
-    /*if(empty($_GET['id']))
+    if(empty($_GET['id']))
     {
         header('Location: listado_usuarios.php');
-    }*/
+    }
 
 
     $iduser = $_GET['id'];
