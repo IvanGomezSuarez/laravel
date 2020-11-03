@@ -34,20 +34,20 @@ include "../conexion.php";
         }
     }
     // mostrar datos
-    /*if(empty($_GET['dni']))
+    /*if(empty($_GET['id']))
     {
         header('Location: listado_usuarios.php');
     }*/
 
 
-    $dni = $_GET['id'];
-    echo $dni;exit;
-    $sql= mysqli_query($conection,"SELECT u.email,u.name,u.surname,u.username FROM users_admin u WHERE dni = $dni ");
-    echo $sql;exit;
+    $iduser = $_GET['id'];
+    //echo $dni;exit;
+    $sql= mysqli_query($conection,"SELECT u.email,u.name,u.surname,u.username FROM users_admin u WHERE id_user_admin = $iduser ");
+    //echo $sql;exit;
     $result_sql = mysqli_num_rows($sql);
-    echo $result_sql;exit;
+    //echo $result_sql;exit;
 
-    if($result_sql > 0){
+    if($result_sql == 0){
         header('Location: listado_usuarios.php');
     }else{
       while($data = mysqli_fetch_array($sql)){
