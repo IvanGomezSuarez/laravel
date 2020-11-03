@@ -41,9 +41,11 @@ include "../conexion.php";
 
 
     $dni = $_GET['id'];
+    echo $dni;exit;
     $sql= mysqli_query($conection,"SELECT u.email,u.name,u.surname,u.username FROM users_admin u WHERE dni = $dni ");
+    echo $sql;exit;
     $result_sql = mysqli_num_rows($sql);
-    //echo result_sql;exit;
+    echo $result_sql;exit;
 
     if($result_sql > 0){
         header('Location: listado_usuarios.php');
