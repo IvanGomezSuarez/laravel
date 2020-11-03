@@ -31,13 +31,13 @@ include "../conexion.php";
                 while ($data = mysqli_fetch_array($query)){
             ?>
                 <tr>
-                    <td><?php echo $data["name"] ?></td>
-                    <td><?php echo $data["surname"] ?></td>
-                    <td><?php echo $data["username"] ?></td>
-                    <td><?php echo $data["dni"] ?></td>
+                    <td><?php echo $data["name"]; ?></td>
+                    <td><?php echo $data["surname"]; ?></td>
+                    <td><?php echo $data["username"]; ?></td>
+                    <td><?php echo $data["dni"]; ?></td>
                     <td><?php echo $data["email"] ?></td>
                     <td>
-                        <a class="link_edit" href="edit_admin.php">Editar</a>
+                        <a class="link_edit" href="edit_admin.php?id=<?php echo $data["name"]; ?>">Editar</a>
                         |
                         <a class="link_delete" href="#">Eliminar</a>
                     </td>
