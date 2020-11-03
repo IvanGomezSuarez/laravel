@@ -33,6 +33,15 @@ include "../conexion.php";
             }
         }
     }
+
+    //Mostrar datos
+    if(empty($_GET['dni']))
+    {
+        header('Location: listado_usuarios.php');
+    }
+    $dni = @$_GET['dni'];
+    $sql= mysqli_query($conection,"SELECT u.email,u.name,u.surname,u.username FROM users_admin u WHERE dni ='47617367f'");
+
 ?>
 
 <!DOCTYPE html>
