@@ -18,7 +18,7 @@ include "../conexion.php";
             $pass = md5($_POST['password']);
 //comprobamos que los campos son distintos 
             $query = mysqli_query($conection,"SELECT * FROM users_admin 
-                                                        WHERE (username = '$nomusuario' AND  id_user_admin != $iduser)
+                                                        WHERE (dni = '$dni' AND  id_user_admin != $iduser)
                                                         OR (email ='$correo' AND id_user_admin != $iduser) ");
             $result = mysqli_fetch_array($query);
             
