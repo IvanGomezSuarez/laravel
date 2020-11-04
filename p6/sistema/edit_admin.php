@@ -16,12 +16,10 @@ include "../conexion.php";
             $correo = $_POST['email'];
             $nomusuario = $_POST['username'];
             $pass = md5($_POST['password']);
-
-            //echo "SELECT * FROM users_admin WHERE dni = '$dni' ";
-
+//comprobamos que los campos son distintos 
             $query = mysqli_query($conection,"SELECT * FROM users_admin 
                                                         WHERE (username = '$nomusuario' AND  id_user_admin != $iduser)
-                                                        OR (name ='$nombre' AND id_user_admin != $iduser) ");
+                                                        OR (email ='$correo' AND id_user_admin != $iduser) ");
             $result = mysqli_fetch_array($query);
             
             if($result > 0){
@@ -36,12 +34,9 @@ include "../conexion.php";
 
                 }else{
                     $sql_update = mysqli_query($conection, "UPDATE users_admin 
-                    SET id_user_admin='$uduser', name='$nombre',surname = '$apellidos',dni='$dni',email='$correo',username='$nomusuario',password='$pass'
-                    WHERE id_user_admin=$iduser ");
+                                                            SET id_user_admin='$uduser', name='$nombre',surname = '$apellidos',dni='$dni',email='$correo',username='$nomusuario',password='$pass'
+                                                            WHERE id_user_admin=$iduser ");
                 }
-
-                /*$query_insert = mysqli_query($conection, "INSERT INTO users_admin(username,name,surname,dni,email,pass) 
-                VALUES('$nomusuario','$nombre','$apellidos','$dni','$correo','$pass')");*/
 
                 if($sql_update){
                     $alert='<p class="msg_save">Usuario actualiado correctamente</p>';
