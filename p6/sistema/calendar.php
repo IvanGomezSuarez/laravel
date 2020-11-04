@@ -5,23 +5,25 @@
     <script src="js/jquery.min.js"></script>
     <?php include "includes/scripts.php"; ?>
     <?php include "includes/header.php"; ?>	
-    <script src="js/moment.min.js"></script>
-    <link rel="stylesheet" href="css/fullcalendar.min.css">
+    <link rel='stylesheet' type='text/css' href='css/fullcalendar.css' />
+    <script type='text/javascript' src='/js/jquery.js'></script>
+    <script type='text/javascript' src='js/fullcalendar.js'></script>
 	<title>Calendario</title>
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col"></div>
-            <div class="col-7"> <div id="calendario"></div></div>
-            <div class="col"></div>
-            </div>
-    </div>
-
+    <div id='calendar'></div>
     <script>
-        $(document).ready(function(){
-            $('calendario').fullCalendar();
+        $(document.ready(function() {
+
+        // page is now ready, initialize the calendar...
+
+        $('#calendar').fullCalendar({
+        // put your options and callbacks here
+        })
+
         });
     </script>
+</head>
+<body>
+    <div id="calendar"></div>
+
 </body>
 </html>
