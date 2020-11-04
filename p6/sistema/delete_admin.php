@@ -1,10 +1,24 @@
 <?php
+include "../conexion.php";
+
+if(!empty($_POST)){
+
+    $idusuario= $_POST['idusuario'];
+    $query_delete = mysqli_query($conection, "DELETE FROM users_admin WHERE id_user_admin =$idusuario ");
+
+    if($query_delete){
+        header('Location: listado_usuarios.php');
+    }else{
+        echo "Error al eliminar";
+    }
+}
+
 //si el id en el request no existe nos redirije siempre al listado_usuarios
     if (empty($_REQUEST['id']))
     {
         header('Location: listado_usuarios.php');
     }else{
-        include "../conexion.php";
+    
         $idusuario = $_REQUEST['id'];
 
         $query = mysqli_query($conection,"SELECT u.name, u.username, u.dni FROM users_admin u WHERE u.id_user_admin = $idusuario ");
@@ -40,7 +54,8 @@
             <p>Nombre de usuario: <span><?php echo $username; ?></span></p>
             <p>DNI: <span><?php echo $dni; ?></span></p>
 
-            <form>
+            <form method="post" action="">
+            <input type="hidden" name="idusuario" value="<?php echo $idusuario; ?>">
                 <a href="listado_usuarios.php" class="btn_cancel">Cancelar</a>
                 <input type="submit" value="Aceptar" class="btn_ok">
             </form>
