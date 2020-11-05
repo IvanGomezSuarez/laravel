@@ -4,7 +4,8 @@ include "../conexion.php";
 if(!empty($_POST)){
 
     $idusuario= $_POST['idusuario'];
-    $query_delete = mysqli_query($conection, "DELETE FROM users_admin WHERE id_user_admin =$idusuario ");
+    //$query_delete = mysqli_query($conection, "DELETE FROM users_admin WHERE id_user_admin =$idusuario ");
+    $query_delete = mysqli_query($conection, "UPDATE users_admin SET status = 0 WHERE id_user_admin = $idusuario ");
 
     if($query_delete){
         header('Location: listado_usuarios.php');

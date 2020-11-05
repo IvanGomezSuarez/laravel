@@ -26,7 +26,7 @@ include "../conexion.php";
                 <th>Acciones</th>
             </tr>
             <?php
-            $query = mysqli_query($conection, "SELECT id_user_admin,username, name, email, surname,dni FROM users_admin");
+            $query = mysqli_query($conection, "SELECT id_user_admin,username, name, email, surname,dni FROM users_admin WHERE status = 1");
             $result = mysqli_num_rows($query);
             if($result > 0){
                 while ($data = mysqli_fetch_array($query)){
