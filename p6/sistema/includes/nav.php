@@ -11,9 +11,9 @@
 				<li class="principal">
 					<a href="#">Profesor</a>
 					<ul>
-						<li><a href="incipal">
+						<li><a href="principal">
 					<a href="../sistema/registro_profesor.php">Nuevo profesor</a></li>
-						<li><a href="#">Lista de Profesores</a></li>
+						<li><a href="listado_profesores.php">Lista de Profesores</a></li>
 					</ul>
 				</li>
 				<li class="principal">

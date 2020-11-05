@@ -4,7 +4,7 @@
     {
         $alert='';
         if(empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['telefono']) || empty($_POST['dni'])
-        || empty($_POST['email']))
+        || empty($_POST['email']) || empty($_POST['password']))
         {
             $alert='<p class="msg_error">Todos los campos son obligatorios</p>';// funciona bien
         }else{
@@ -14,6 +14,7 @@
             $tel = $_POST['telefono'];
             $dni = $_POST['dni'];
             $correo = $_POST['email'];
+            $pass = md5($_POST['password']);
 
             //echo "SELECT * FROM users_admin WHERE dni = '$dni' ";
             $query = mysqli_query($conection,"SELECT * FROM teachers WHERE  telephone = '$tel' OR nif= '$dni' ");
@@ -21,8 +22,8 @@
             if($result > 0){
                 $alert= '<p class="msg_error">El profesor ya existe.</p>';//no me funciona ya que duplica las entradas
             }else{
-                $query_insert = mysqli_query($conection, "INSERT INTO teachers(name,surname,telephone,nif,email) 
-                VALUES('$nombre','$apellido','$tel','$dni','$correo')");
+                $query_insert = mysqli_query($conection, "INSERT INTO teachers(name,surname,telephone,nif,email,password) 
+                VALUES('$nombre','$apellido','$tel','$dni','$correo','$pass')");
 
                 if($query_insert){
                     $alert='<p class="msg_save">Profesor creado</p>';
@@ -54,12 +55,14 @@
             <input type="text" name="nombre" id="nombre" placeholder="Nombre">
             <label for="apellido">Apellido</label>
             <input type="text" name="apellido" id="apellido" placeholder="Apellido">
-            <label for="telefono">Nombre de usuario</label>
+            <label for="telefono">Telefono</label>
             <input type="text" name="telefono" id="telefono" placeholder="Telefono">
             <label for="dni">DNI</label>
             <input type="text" name="dni" id="dni" placeholder="dni">
             <label for="email">Email</label>
             <input type="email" name="email" id="email" placeholder="email">
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" id="password" placeholder="password">
             <input type="submit" value="Crear nuevo Profesor" class="btn_save">
             </form>
         </div>

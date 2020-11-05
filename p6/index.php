@@ -1,5 +1,6 @@
 <?php
 $alert = '';
+//OJO hay que hacer cambios para que se reconoca quien se loguea, si es profesor, alumno etc....
 session_start();//inicialiamos la session
 if(!empty($_SESSION['active'])) //si la sesion es true nos dirige a la pagina del administrador
 {
