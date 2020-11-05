@@ -1,7 +1,13 @@
 <?php
 include "../conexion.php";
-
+//este post se ejecuta al pulsar aceptar
 if(!empty($_POST)){
+
+    //eliminamos la vulnerabilidad que permitiria eliminar el usuario master cambiando el id a 1 en el inspector hmtl
+    if($_POST['idusuario'] ==1){
+        header('Location: listado_usuarios.php');
+        exit;
+    }
 
     $idusuario= $_POST['idusuario'];
     //$query_delete = mysqli_query($conection, "DELETE FROM users_admin WHERE id_user_admin =$idusuario ");
