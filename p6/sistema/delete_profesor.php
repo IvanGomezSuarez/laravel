@@ -23,7 +23,7 @@ if(!empty($_POST)){
 //si el id en el request no existe nos redirije siempre al listado_usuarios
     if (empty($_REQUEST['id']) || $_REQUEST['id'] ==1 )
     {
-        header('Location: listado_profesores.php');
+       header('Location: listado_profesores.php');
     }else{
     
         $idusuario = $_REQUEST['id'];
@@ -38,7 +38,7 @@ if(!empty($_POST)){
                 $dni = $data['nif'];
             }
         }else{
-            header('Location: listado_profesores.php');
+            //header('Location: listado_profesores.php');
         }
     }
 

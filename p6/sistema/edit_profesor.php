@@ -9,7 +9,7 @@ include "../conexion.php";
             $alert='<p class="msg_error">Todos los campos son obligatorios</p>';// funciona bien
         }else{
             //include "../conexion.php";
-            $idteacher = $_POST['idusuario'];
+            $idteacher = $_POST['idteacher'];
             $nombre = $_POST['nombre'];
             $apellidos = $_POST['apellido'];
             $dni = $_POST['dni'];
@@ -57,13 +57,13 @@ include "../conexion.php";
     $result_sql = mysqli_num_rows($sql);
 
     if($result_sql == 0){
-        header('Location: listado_profesores.php');
+       // header('Location: listado_profesores.php');
     }else{
       while($data = mysqli_fetch_array($sql)){
-          $dni        = $data['dni'];
+          $dni        = $data['nif'];
           $nombre     = $data['name'];
           $apellidos  = $data['surname'];
-          $tel = $data['username'];
+          $tel = $data['telephone'];
           $correo = $data['email'];
       }  
     }
