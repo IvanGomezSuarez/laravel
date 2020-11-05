@@ -40,8 +40,11 @@ include "../conexion.php";
                     <td><?php echo $data["email"] ?></td>
                     <td>
                         <a class="link_edit" href="edit_admin.php?id=<?php echo $data["id_user_admin"];?>">Editar</a>
+
+                        <?php if($data["id_user_admin"] !=1){ ?>
                         |
                         <a class="link_delete" href="delete_admin.php?id=<?php echo $data["id_user_admin"];?>">Eliminar</a>
+                        <?php } ?>
                     </td>
                 </tr>
 
