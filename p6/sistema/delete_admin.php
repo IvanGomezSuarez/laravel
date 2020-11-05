@@ -15,7 +15,7 @@ if(!empty($_POST)){
 }
 
 //si el id en el request no existe nos redirije siempre al listado_usuarios
-    if (empty($_REQUEST['id']))
+    if (empty($_REQUEST['id']) || $_REQUEST['id'] ==1 )
     {
         header('Location: listado_usuarios.php');
     }else{
