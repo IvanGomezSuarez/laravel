@@ -16,7 +16,8 @@ include "../conexion.php";
             $correo = $_POST['email'];
             $tel = $_POST['telephone'];
             $pass = md5($_POST['password']);
-//comprobamos que los campos son distintos 
+            
+            //comprobamos que los campos son distintos 
             $query = mysqli_query($conection,"SELECT * FROM teachers 
                                                         WHERE (nif = '$dni' AND  id_teacher != $idteacher)
                                                         OR (email ='$correo' AND id_user_admin != $idteacher) ");
@@ -53,7 +54,7 @@ include "../conexion.php";
     }
 
     $iduser = $_GET['id'];
-    $sql= mysqli_query($conection,"SELECT t.email,t.nif,t.name,t.surname,t.telephone FROM teachers t WHERE id_teacher = $idteacher ");
+    $sql= mysqli_query($conection,"SELECT t.nif,t.name,t.surname,t.telephone,t.email FROM teachers t WHERE id_teacher = $idteacher ");
     $result_sql = mysqli_num_rows($sql);
 
     if($result_sql == 0){

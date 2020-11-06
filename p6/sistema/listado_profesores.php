@@ -36,7 +36,7 @@ include "../conexion.php";
                     <td><?php echo $data["surname"]; ?></td>
                     <td><?php echo $data["telephone"]; ?></td>
                     <td><?php echo $data["nif"]; ?></td>
-                    <td><?php echo $data["email"] ?></td>
+                    <td><?php echo $data["email"]; ?></td>
                     <td>
                         <a class="link_edit" href="edit_profesor.php?id=<?php echo $data["id_teacher"];?>">Editar</a>
 

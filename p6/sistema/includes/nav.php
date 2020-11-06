@@ -20,7 +20,7 @@
 					<a href="#">Cursos</a>
 					<ul>
 						<li><a href="../sistema/registro_cursos.php">Nuevo Curso</a></li>
-						<li><a href="#">Lista de Cursos</a></li>
+						<li><a href="listado_cursos.php">Lista de Cursos</a></li>
 					</ul>
 				</li>
 				<li class="principal">
