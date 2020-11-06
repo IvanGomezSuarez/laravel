@@ -1,4 +1,5 @@
 <?php 
+//no me edita bien el profesor
 include "../conexion.php";
     if(!empty($_POST))
     {
@@ -17,9 +18,12 @@ include "../conexion.php";
             $tel = $_POST['telephone'];
             $pass = md5($_POST['password']);
 //comprobamos que los campos son distintos 
+
             $query = mysqli_query($conection,"SELECT * FROM teachers 
                                                         WHERE (nif = '$dni' AND  id_teacher != $idteacher)
-                                                        OR (email ='$correo' AND id_user_admin != $idteacher) ");
+                                                        OR (email ='$correo' AND id_teacher != $idteacher) ");
+
+            
             $result = mysqli_fetch_array($query);
             
             if($result > 0){
@@ -28,6 +32,7 @@ include "../conexion.php";
 
                 if(empty($_POST['password']))
                 {
+                    
                     $sql_update = mysqli_query($conection, "UPDATE teachers
                                                             SET id_teacher='$idteacher', name='$nombre',surname = '$apellidos',nif='$dni',email='$correo',telephone='$tel'
                                                             WHERE id_teacher=$idteacher ");

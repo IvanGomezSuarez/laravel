@@ -1,5 +1,5 @@
 <?php 
-// se ha de adaptar pero no hasta que no se haga el listado_asign
+// funciona todo correctamente
 include "../conexion.php";
     if(!empty($_POST))
     {

@@ -34,7 +34,7 @@ include "../conexion.php";
 
                 }else{
                     $sql_update = mysqli_query($conection, "UPDATE users_admin 
-                                                             SET id_user_admin='$iduser', name='$nombre',surname = '$apellidos',dni='$dni',email='$correo',username='$nomusuario'
+                                                             SET id_user_admin='$iduser', name='$nombre',surname = '$apellidos',dni='$dni',email='$correo',username='$nomusuario',password='$pass'
                                                             WHERE id_user_admin=$iduser ");
                 }
 
