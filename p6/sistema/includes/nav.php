@@ -27,14 +27,14 @@
 					<a href="#">Asignaturas</a>
 					<ul>
 						<li><a href="../sistema/registro_asig.php">Nueva asignatura</a></li>
-						<li><a href="#">Lista de asignaturas</a></li>
+						<li><a href="listado_asign.php">Lista de asignaturas</a></li>
 					</ul>
 				</li>
 				<li class="principal">
 					<a href="#">Alumnos</a>
 					<ul>
 						<li><a href="../sistema/registro_alumno.php">Nueva alumno</a></li>
-						<li><a href="#">Lista de alumnos</a></li>
+						<li><a href="listado_alumnos.php">Lista de alumnos</a></li>
 					</ul>
 				</li>
 			</ul>

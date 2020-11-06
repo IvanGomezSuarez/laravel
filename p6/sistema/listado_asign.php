@@ -1,6 +1,6 @@
 <?php
 include "../conexion.php";
-
+//no esta acabado, se hará cuando funcione el registro.
 
 ?>
 <!DOCTYPE html>
@@ -8,20 +8,21 @@ include "../conexion.php";
 <head>
     <meta charset="UTF-8">
     <?php include "includes/scripts.php"; ?>
-	<title>Listado de cursos</title>
+	<title>Listado de asignaturas</title>
 </head>
 <body>
 	<?php include "includes/header.php"; ?>	
 	<section id="container">
-        <h1>Listado de cursos</h1>
-        <a href="registro_cursos.php" class="btn_new">Crear curso</a>
+        <h1>Listado de asiganturas</h1>
+        <a href="registro_asig.php" class="btn_new">Crear asignatura</a>
         <table>
             <tr>
                 <th>Id</th>
+                <th>Profesor</th>
                 <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Fecha de inicio</th>
-                <th>Fecha de fin</th>
+                <th>Curso aplicable</th>
+                <th>Horario</th>
+                <th>Color asociado</th>
                 <th>Acciones</th>
             </tr>
             <?php
