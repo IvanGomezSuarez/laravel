@@ -5,7 +5,7 @@ include "../conexion.php";
     {
         $alert='';
         if(empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['dni']) || empty($_POST['email'])
-        || empty($_POST['username']) || empty($_POST['password']) || empty($_POST['telefono']) || empty($_POST['start']))
+        || empty($_POST['username']) || empty($_POST['telefono']) || empty($_POST['start']))
         {
             $alert='<p class="msg_error">Todos los campos son obligatorios</p>';// funciona bien
         }else{
@@ -21,9 +21,7 @@ include "../conexion.php";
             $dregister = $_POST['start'];
 
 //comprobamos que los campos son distintos 
-            $query = mysqli_query($conection,"SELECT * FROM students
-                                                        WHERE (dni = '$dni' AND  id != $iduser)
-                                                        OR (email ='$correo' AND id != $iduser) ");
+            $query = mysqli_query($conection,"SELECT * FROM students WHERE (nif = '$dni' AND  id != $iduser) OR (email ='$correo' AND id != $iduser) ");
             $result = mysqli_fetch_array($query);
             
             if($result > 0){
@@ -32,13 +30,18 @@ include "../conexion.php";
 
                 if(empty($_POST['password']))
                 {
+                    /*echo "UPDATE students
+                            SET id='$iduser', name='$nombre', surname = '$apellidos',nif='$dni',email='$correo',telephone='$tel',username='$nomusuario',date_registered='$dregister'
+                             WHERE id =$iduser ";
+
+                             exit;*/
                     $sql_update = mysqli_query($conection, "UPDATE students
-                                                            SET id='$iduser', name='$nombre',surname = '$apellidos',dni='$dni',email='$correo',username='$nomusuario',password='$pass',telephone='$tel',date_registered='$dregister'
+                                                            SET id='$iduser', name='$nombre', surname = '$apellidos',nif='$dni',email='$correo',telephone='$tel',username='$nomusuario',date_registered='$dregister'
                                                             WHERE id =$iduser ");
 
                 }else{
                     $sql_update = mysqli_query($conection, "UPDATE students
-                                                            SET id='$iduser', name='$nombre',surname = '$apellidos',dni='$dni',email='$correo',username='$nomusuario',password='$pass',telephone='$tel',date_registered='$dregister'
+                                                            SET id='$iduser', name='$nombre', surname = '$apellidos',nif='$dni',email='$correo',telephone='$tel',username='$nomusuario', pass='$pass',date_registered='$dregister'
                                                             WHERE id =$iduser ");
                 }
 
