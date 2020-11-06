@@ -28,7 +28,7 @@ if(!empty($_POST)){
     
         $idusuario = $_REQUEST['id'];
 
-        $query = mysqli_query($conection,"SELECT t.name, t.email, t.dni FROM teachers t WHERE t.id_teacher = $idteacher ");
+        $query = mysqli_query($conection,"SELECT t.name, t.email, t.dni FROM teachers t WHERE t.id_teacher = $idusuario ");
         $result = mysqli_num_rows($query);
 
         if($result >0){
