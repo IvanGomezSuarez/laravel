@@ -57,19 +57,54 @@
             <label for="favcolor">Select el color de la asignatura</label>
             <input type="color" id="favcolor" name="favcolor" value="#ff0000"><br><br>
             <label for="profesor">Profesor</label>
-            <select name="sel_profe">
-            <?php 
-                 while($datos = mysqli_fetch_array($query_teachers))
-                    {
-            ?>
-                     <option value="1"><?php echo $datos['name']?></option>
+            <select>
+                <option value="0">Seleccione:</option>
             <?php
-                    }
-            ?>
+            include '../conexion.php';
+            // Realizamos la consulta para extraer los datos
+                $query = mysqli_query($conection, " SELECT * FROM teachers");
+                while ($valores = mysqli_fetch_array($query)) {
+            // En esta sección estamos llenando el select con datos extraidos de una base de datos.
+                    echo '<option value="'.$valores[id_teacher].'">'.$valores[name].'</option>';
+                }
+                ?>
             </select>
 
+            <label for="Curso">Curso</label>
+            <select>
+                <option value="0">Seleccione:</option>
+            <?php
+            include '../conexion.php';
+            // Realizamos la consulta para extraer los datos
+                $query = mysqli_query($conection, " SELECT * FROM courses");
+                while ($valores = mysqli_fetch_array($query)) {
+            // En esta sección estamos llenando el select con datos extraidos de una base de datos.
+                    echo '<option value="'.$valores[id_course].'">'.$valores[name].'</option>';
+                }
+                ?>
+            </select>
+    
+            <label for="Horario">Horario</label>
+            <select>
+                <option value="0">Seleccione:</option>
+            <?php
+            include '../conexion.php';
+            // Realizamos la consulta para extraer los datos
+                $query = mysqli_query($conection, " SELECT * FROM schedule");
+                while ($valores = mysqli_fetch_array($query)) {
+            // En esta sección estamos llenando el select con datos extraidos de una base de datos.
+                    echo '<option value="'.$valores[id_schedule].'">'.$valores[day].' '.$valores[time_start].'</option>';
+                }
+                ?>
+            </select>
 
-            <input type="submit" value="Crear nueva asignatura" class="btn_save">
+ 
+
+
+
+
+
+            <input type="submit" value="Crear nuevo curso" class="btn_save">
             </form>
         </div>
 	</section>
