@@ -77,13 +77,13 @@ include "../conexion.php";
 <head>
 	<meta charset="UTF-8">
     <?php include "includes/scripts.php"; ?>
-	<title>Editar Usuario</title>
+	<title>Editar asignatura</title>
 </head>
 <body>
 	<?php include "includes/header.php"; ?>	
 	<section id="container">
 		<div class="form_register">
-            <h1>Editar Usuario Administrador</h1>
+            <h1>Editar asignatura</h1>
             <hr>
             <div class="alert"><?php echo isset($alert) ? $alert :''; ?></div>
 

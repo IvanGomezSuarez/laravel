@@ -89,7 +89,7 @@
                 <option value="0">Seleccione:</option>
             <?php
             include '../conexion.php';
-            // Realizamos la consulta para extraer los datos
+            // Realizamos la consulta para extraer los datos, en este select se deben mostrar los horarios solo de la asignatura seleccionada
                 $query = mysqli_query($conection, " SELECT * FROM schedule");
                 while ($valores = mysqli_fetch_array($query)) {
             // En esta sección estamos llenando el select con datos extraidos de una base de datos.
@@ -97,14 +97,7 @@
                 }
                 ?>
             </select>
-
- 
-
-
-
-
-
-            <input type="submit" value="Crear nuevo curso" class="btn_save">
+            <input type="submit" value="Crear nueva asignatura" class="btn_save">
             </form>
         </div>
 	</section>

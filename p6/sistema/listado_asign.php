@@ -20,28 +20,33 @@ include "../conexion.php";
                 <th>Id</th>
                 <th>Profesor</th>
                 <th>Nombre</th>
-                <th>Curso aplicable</th>
+                <th>Curso </th>
                 <th>Horario</th>
                 <th>Color asociado</th>
                 <th>Acciones</th>
             </tr>
             <?php
             
-            $query = mysqli_query($conection, "SELECT id_course,name,description,date_start,date_end FROM courses WHERE active = 1 ORDER BY id_course ASC");
+            $query = mysqli_query($conection, "SELECT c.id_class, c.name,c.color, co.id_course, s.id_schedule, t.id_teacher FROM class c 
+                                                                                                                        INNER JOIN courses co ON c.id_course= co.id_course 
+                                                                                                                        INNER JOIN schedule s ON c.id_schedule = s.id_schedule 
+                                                                                                                        INNER JOIN teachers t ON c.id_teacher = t.id_teacher 
+                                                                                                                        ORDER BY c.id_class ASC");
             $result = mysqli_num_rows($query);
             if($result > 0){
                 while ($data = mysqli_fetch_array($query)){
             ?>
                 <tr>
-                    <td><?php echo $data["id_course"]; ?></td>
+                    <td><?php echo $data["id_class"]; ?></td>
+                    <td><?php echo $data["id_teacher"]; ?></td>
                     <td><?php echo $data["name"]; ?></td>
-                    <td><?php echo $data["description"]; ?></td>
-                    <td><?php echo $data["date_start"]; ?></td>
-                    <td><?php echo $data["date_end"]; ?></td>
+                    <td><?php echo $data["id_course"]; ?></td>
+                    <td><?php echo $data["id_schedule"]; ?></td>
+                    <td><?php echo $data["color"]; ?></td>
                     <td>
-                        <a class="link_edit" href="edit_course.php?id=<?php echo $data["id_course"];?>">Editar</a>
+                        <a class="link_edit" href="edit_asign.php?id=<?php echo $data["id_class"];?>">Editar</a>
                         |
-                        <a class="link_delete" href="delete_course.php?id=<?php echo $data["id_course"];?>">Eliminar</a>
+                        <a class="link_delete" href="delete_asign.php?id=<?php echo $data["id_class"];?>">Eliminar</a>
                         
                     </td>
                 </tr>
