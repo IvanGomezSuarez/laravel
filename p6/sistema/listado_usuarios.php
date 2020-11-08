@@ -13,8 +13,8 @@ include "../conexion.php";
 <body>
 	<?php include "includes/header.php"; ?>	
 	<section id="container">
-        <h1>Listado de usuarios administradores</h1>
-        <a href="registro_admin.php" class="btn_new">Crear usuario</a>
+        <h1><i class="fas fa-users"></i> Listado de usuarios administradores</h1>
+        <a href="registro_admin.php" class="btn_new"><i class="fas fa-users"></i> Crear usuario</a>
         <table>
             <tr>
                 <th>Id</th>
@@ -40,11 +40,11 @@ include "../conexion.php";
                     <td><?php echo $data["username"]; ?></td>
                     <td><?php echo $data["email"] ?></td>
                     <td>
-                        <a class="link_edit" href="edit_admin.php?id=<?php echo $data["id_user_admin"];?>">Editar</a>
+                        <a class="link_edit" href="edit_admin.php?id=<?php echo $data["id_user_admin"];?>"><i class="fas fa-edit"></i></a>
 
                         <?php if($data["id_user_admin"] !=1){ ?>
                         |
-                        <a class="link_delete" href="delete_admin.php?id=<?php echo $data["id_user_admin"];?>">Eliminar</a>
+                        <a class="link_delete" href="delete_admin.php?id=<?php echo $data["id_user_admin"];?>"><i class="fas fa-trash-alt"></i></a>
                         <?php } ?>
                     </td>
                 </tr>

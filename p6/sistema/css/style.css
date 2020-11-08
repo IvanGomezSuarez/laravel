@@ -184,3 +184,7 @@ nav li ul li:last-child{
 	display: -o-flex;
 	display: flex;
 }
+
+.titlePanelControl{
+	width: 100%;
+}

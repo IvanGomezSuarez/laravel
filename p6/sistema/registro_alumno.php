@@ -48,7 +48,7 @@
 	<?php include "includes/header.php"; ?>	
 	<section id="container">
 		<div class="form_register">
-            <h1>Registro de Alumnos</h1>
+            <h1><i class="fas fa-user"></i> Registro de Alumnos</h1>
             <hr>
             <div class="alert"><?php echo isset($alert) ? $alert :''; ?></div>
 

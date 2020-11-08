@@ -1,0 +1,17 @@
+.titlePanelControl{
+	width: 100%;
+	background: #fff;
+	padding: 5px 15px;
+    margin-bottom: 10px;
+    font-size: 18px !important;
+    color: #0A4661;
+}
+.dashboard{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between ;
+    width: 100%;
+    margin: auto;
+}
