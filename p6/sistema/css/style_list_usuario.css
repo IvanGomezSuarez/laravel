@@ -72,3 +72,20 @@ table td{
 	padding: 5px 15px;
 	margin-bottom: 10px;
 }
+
+.dashboard{
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around ;
+    width: 100%;
+    margin: auto;
+}
+.dashboard{
+    color: #898989;
+    width: calc(100% / 5);
+}
