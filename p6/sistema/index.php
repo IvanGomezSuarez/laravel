@@ -9,9 +9,19 @@
 	<title>Administracion</title>
 </head>
 <body>
-	<?php include "includes/header.php"; ?>	
+	<?php include "includes/header.php"; 
+	include "../conexion.php";
+	$query_dash = mysqli_query($conection,"CALL dataDashboard();");
+	echo $sql;exit;
+	$result_dash = mysqli_num_rows($query_dash);
+	if(result_dash > 0){
+		$data_dash = mysqli_fetch_assoc($query_dash);
+		mysqli_close($conection);
+	}
+	?>	
 	
 	<section id="container">
+		<div class="divContainer">
 		<div>
 			<h1 class="titlePanelControl">Panel de control</h1>
 		</div>
@@ -20,7 +30,7 @@
 				<i class="fas fa-users"></i>
 				<p>
 					<strong>Administradores</strong><br>
-					<span>40</span>
+					<span><?echo $data_dash['admins']; ?></span>
 				</p>
 			</a>
 			<div class="dashboard">
@@ -28,7 +38,7 @@
 				<i class="fas fa-users"></i>
 				<p>
 					<strong>Profesores</strong><br>
-					<span>40</span>
+					<span><?echo $data_dash['profesores']; ?></span>
 				</p>
 			</a>
 			<div class="dashboard">
@@ -36,7 +46,7 @@
 				<i class="fas fa-users"></i>
 				<p>
 					<strong>Cursos</strong><br>
-					<span>40</span>
+					<span><?echo $data_dash['cursos']; ?></span>
 				</p>
 			</a>
 			<div class="dashboard">
@@ -44,7 +54,7 @@
 				<i class="fas fa-users"></i>
 				<p>
 					<strong>Asignaturas</strong><br>
-					<span>40</span>
+					<span><?echo $data_dash['asignaturas']; ?></span>
 				</p>
 			</a>
 			<div class="dashboard">
@@ -52,12 +62,26 @@
 				<i class="fas fa-users"></i>
 				<p>
 					<strong>Alumnos</strong><br>
-					<span>40</span>
+					<span><?echo $data_dash['alumnos']; ?></span>
 				</p>
 			</a>
 		
 		</div>
-	</section>	
+
+
+</div>
+	</section>
+	<div class="divInfoSistema">
+			<div>
+				<h1 class="titlePanelControl">Configuracion</h1>
+			</div>
+				<div class="ContainerPerfil">
+					<div class="ContainerDataUser">
+					<i class="fas fa-users"></i>
+					</div>
+				</div>
+			</div>
+		</div>	
 	<?php include "includes/footer.php"; ?>
 </body>
 </html>
@@ -72,10 +96,16 @@
     color: #0A4661;
 }
 
+.divContainer{
+	margin-bottom: 100px;
+	display: inline;
+}
+
+
 .dashboard{
  
     display: flex;
-    justify-content: space-around ;
+    justify-content: space-around;
     width: 100%;
     margin: auto;
 }
@@ -99,5 +129,8 @@
     font-weight: bold;
     font-size: 20pt;
 }
+
+
+
 
 </style>
