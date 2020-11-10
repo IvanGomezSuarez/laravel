@@ -1,57 +1,48 @@
 <?php 
-//no me edita bien el profesor
+// se ha de adaptar pero no hasta que no se haga el listado_asign
 include "../conexion.php";
     if(!empty($_POST))
     {
         $alert='';
         if(empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['dni']) || empty($_POST['email'])
-        || empty($_POST['telephone']))
+        || empty($_POST['username']))
         {
             $alert='<p class="msg_error">Todos los campos son obligatorios</p>';// funciona bien
         }else{
             //include "../conexion.php";
-            $idteacher = $_POST['idteacher'];
+            $iduser = $_POST['idusuario'];
             $nombre = $_POST['nombre'];
             $apellidos = $_POST['apellido'];
             $dni = $_POST['dni'];
             $correo = $_POST['email'];
-            $tel = $_POST['telephone'];
+            $nomusuario = $_POST['username'];
             $pass = md5($_POST['password']);
-<<<<<<< HEAD
-            
-            //comprobamos que los campos son distintos 
-=======
 //comprobamos que los campos son distintos 
-
->>>>>>> ebf08ea0e90797e9fda3ec34011df406bbe19b22
-            $query = mysqli_query($conection,"SELECT * FROM teachers 
-                                                        WHERE (nif = '$dni' AND  id_teacher != $idteacher)
-                                                        OR (email ='$correo' AND id_teacher != $idteacher) ");
-
-            
+            $query = mysqli_query($conection,"SELECT * FROM users_admin 
+                                                        WHERE (dni = '$dni' AND  id_user_admin != $iduser)
+                                                        OR (email ='$correo' AND id_user_admin != $iduser) ");
             $result = mysqli_fetch_array($query);
             
             if($result > 0){
-                $alert= '<p class="msg_error">El profesor ya existe.</p>';
+                $alert= '<p class="msg_error">El usuario ya existe.</p>';//no me funciona ya que duplica las entradas
             }else{
 
                 if(empty($_POST['password']))
                 {
-                    
-                    $sql_update = mysqli_query($conection, "UPDATE teachers
-                                                            SET id_teacher='$idteacher', name='$nombre',surname = '$apellidos',nif='$dni',email='$correo',telephone='$tel'
-                                                            WHERE id_teacher=$idteacher ");
+                    $sql_update = mysqli_query($conection, "UPDATE users_admin 
+                                                            SET id_user_admin='$iduser', name='$nombre',surname = '$apellidos',dni='$dni',email='$correo',username='$nomusuario'
+                                                            WHERE id_user_admin=$iduser ");
 
                 }else{
-                    $sql_update = mysqli_query($conection, "UPDATE teachers 
-                                                            SET id_teacher='$uduser', name='$nombre',surname = '$apellidos',nif='$dni',email='$correo',telephone='$tel',password='$pass'
-                                                            WHERE id_teacher=$idteacher ");
+                    $sql_update = mysqli_query($conection, "UPDATE users_admin 
+                                                            SET id_user_admin='$uduser', name='$nombre',surname = '$apellidos',dni='$dni',email='$correo',username='$nomusuario',password='$pass'
+                                                            WHERE id_user_admin=$iduser ");
                 }
 
                 if($sql_update){
-                    $alert='<p class="msg_save">Profesor actualizado correctamente</p>';
+                    $alert='<p class="msg_save">Usuario actualiado correctamente</p>';
                 }else{
-                    $alert='<p class="msg_error">Error al actualizar el profesor</p>';
+                    $alert='<p class="msg_error">Error al actualiar el usuario</p>';
                 }
             }
         }
@@ -59,25 +50,21 @@ include "../conexion.php";
     // mostrar datos
     if(empty($_GET['id']))
     {
-        header('Location: listado_profesores.php');
+        header('Location: listado_usuarios.php');
     }
 
     $iduser = $_GET['id'];
-<<<<<<< HEAD
-    $sql= mysqli_query($conection,"SELECT t.nif,t.name,t.surname,t.telephone,t.email FROM teachers t WHERE id_teacher = $idteacher ");
-=======
-    $sql= mysqli_query($conection,"SELECT email,nif,name,surname,telephone FROM teachers  WHERE id_teacher = $iduser ");
->>>>>>> ebf08ea0e90797e9fda3ec34011df406bbe19b22
+    $sql= mysqli_query($conection,"SELECT u.email,u.dni,u.name,u.surname,u.username FROM users_admin u WHERE id_user_admin = $iduser ");
     $result_sql = mysqli_num_rows($sql);
 
     if($result_sql == 0){
-       // header('Location: listado_profesores.php');
+        header('Location: listado_usuarios.php');
     }else{
       while($data = mysqli_fetch_array($sql)){
-          $dni        = $data['nif'];
+          $dni        = $data['dni'];
           $nombre     = $data['name'];
           $apellidos  = $data['surname'];
-          $tel = $data['telephone'];
+          $nomusuario = $data['username'];
           $correo = $data['email'];
       }  
     }
@@ -90,28 +77,28 @@ include "../conexion.php";
 <head>
 	<meta charset="UTF-8">
     <?php include "includes/scripts.php"; ?>
-	<title>Editar Profesor</title>
+	<title>Editar asignatura</title>
 </head>
 <body>
 	<?php include "includes/header.php"; ?>	
 	<section id="container">
 		<div class="form_register">
-            <h1>Editar Profesor</h1>
+            <h1>Editar asignatura</h1>
             <hr>
             <div class="alert"><?php echo isset($alert) ? $alert :''; ?></div>
 
             <form action="" method="post">
-            <input type="hidden" name="idteacher" value="<?php echo $idteacher; ?>">
+            <input type="hidden" name="idusuario" value="<?php echo $iduser; ?>">
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="<?php echo $nombre;?>">
             <label for="apellido">Apellido</label>
             <input type="text" name="apellido" id="apellido" placeholder="Apellido" value="<?php echo $apellidos;?>">
-            <label for="telefono">Telefono</label>
-            <input type="text" name="telefono" id="telefono" placeholder="Telefono" value="<?php echo $tel;?>">
             <label for="dni">DNI</label>
             <input type="text" name="dni" id="dni" placeholder="dni" value="<?php echo $dni;?>">
             <label for="email">Email</label>
             <input type="email" name="email" id="email" placeholder="email" value="<?php echo $correo;?>">
+            <label for="username">Nombre de usuario</label>
+            <input type="text" name="username" id="username" placeholder="Nombre de usuario" value="<?php echo $nomusuario;?>">
             <label for="password">Contraseña</label>
             <input type="password" name="password" id="password" placeholder="password">
             <input type="submit" value="Guardar cambios" class="btn_save">

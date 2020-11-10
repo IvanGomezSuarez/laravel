@@ -55,16 +55,17 @@ if(!empty($_POST)){
 <body>
 	<?php include "includes/header.php"; ?>	
 	<section id="container">
-		<div class="data_delete">
-            <h2>¿Está seguro de eliminar el siguiente resgistro?</h2>
+		<div class="data_delete"><i class="fas fa-user-times fa-7x" style="color: red"></i>
+            <h2>¿Está seguro de eliminar el siguiente registro?</h2>
             <p>Nombre: <span><?php echo $name; ?></span></p>
             <p>Nombre de usuario: <span><?php echo $username; ?></span></p>
             <p>DNI: <span><?php echo $dni; ?></span></p>
 
             <form method="post" action="">
             <input type="hidden" name="idusuario" value="<?php echo $idusuario; ?>">
-                <a href="listado_usuarios.php" class="btn_cancel">Cancelar</a>
-                <input type="submit" value="Aceptar" class="btn_ok">
+                <a href="listado_usuarios.php" class="btn_cancel"><i class="fas fa-ban"></i> Cancelar</a>
+                <button type="submit" class="btn_ok"><i class="fas fa-check-circle"></i> Aceptar </button>
+                
             </form>
         </div>
 	</section>

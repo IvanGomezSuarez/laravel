@@ -8,6 +8,7 @@
 .form_register h1{
     color: #3c93b0;
     text-align: center;
+    margin-top: 20px;
 	}
 	hr{
 		border: 0;
@@ -46,6 +47,8 @@
         border: 0;
         cursor: pointer;
         margin: 15px auto;
+        display: block !important;
+        border-radius: 5px !important;
     }
     .alert{
         width: 100%;

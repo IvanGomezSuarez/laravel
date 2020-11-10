@@ -46,7 +46,7 @@
 	<?php include "includes/header.php"; ?>	
 	<section id="container">
 		<div class="form_register">
-            <h1>Registro de Usuario</h1>
+            <h1><i class="fas fa-user-plus"></i> Registro de Usuario</h1>
             <hr>
             <div class="alert"><?php echo isset($alert) ? $alert :''; ?></div>
 
@@ -63,7 +63,7 @@
             <input type="text" name="username" id="username" placeholder="Nombre de usuario">
             <label for="password">Contraseña</label>
             <input type="password" name="password" id="password" placeholder="password">
-            <input type="submit" value="Crear nuevo Administrador" class="btn_save">
+            <button type="submit" class="btn_save"><i class="fas fa-save"></i> Crear administrador</button>
             </form>
         </div>
 	</section>

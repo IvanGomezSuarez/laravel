@@ -14,7 +14,7 @@
             $fechafin = $_POST['finish'];
 
             //echo "SELECT * FROM users_admin WHERE dni = '$dni' ";
-            $query = mysqli_query($conection,"SELECT * FROM courses WHERE name = '$nombre' OR description ='$description' OR date_start = '$start'  OR date_end = '$finish' ");
+            $query = mysqli_query($conection,"SELECT * FROM courses WHERE name = '$nombre' OR description ='$descripcion' OR date_start = '$fechainicio'  OR date_end = '$fechafin' ");
             $result = mysqli_fetch_array($query);
             if($result > 0){
                 $alert= '<p class="msg_error">El curso ya existe.</p>';//no me funciona ya que duplica las entradas

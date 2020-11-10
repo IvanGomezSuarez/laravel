@@ -45,6 +45,8 @@
         border: 0;
         cursor: pointer;
         margin: 15px auto;
+        display: block !important;
+        border-radius: 5px !important;
     }
     .alert{
         width: 100%;
