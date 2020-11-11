@@ -78,7 +78,7 @@
 			</div>
 				<div class="ContainerPerfil">
 					<div class="ContainerDataUser">
-					<i class="fas fa-users fa-7x "></i>
+						<img src="img/user_dash.png">
 					</div>
 						<div class="divDataUser">
 							<h4>Información personal"</h4>
@@ -86,14 +86,14 @@
 						<label>Nombre:</label> <span>Ivan</span>
 						</div>
 						<div>
-						<label>Nombre:</label> <span>Ivan</span>
+						<label>Correo:</label> <span>ejemplo@gmail.com</span>
 						</div>
 						<h4>Datos de usuario</h4> <span>Ivan2020</span>
 						<h4>Cambiar contraseña</h4> 
 						<form-action="" method="post" name="frmChangePass" id="frmChangePass">
 							<div>
 							<input type="password" name="txtPassUser" id="txtPassUser" 
-							placeholder="Contreseña actual" required>
+							placeholder="Contraseña actual" required>
 							</div>
 							<div>
 							<input type="password" name="txtNewPassUser" id="txtNewPassUser" 
@@ -168,13 +168,72 @@
 	flex-wrap: wrap;
 }
 .ContainerDataUser{
-	width: 500px;
+	width: 400px;
 	background-color: #fff;
 	padding: 20px;
+	margin: 10px;
+	border-radius: 5%;
 }
 .divDataUser{
 	padding: 10px;
 	margin: auto;
 }
+.divDataUser > div{
+    display: -webkit-flex;
+    display: flex;
+	display: -ms-flexbox;
 
+}
+
+.divDataUser label{
+    width: 150px;
+    margin: 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.divDataUser span{
+	padding: 5px;
+	
+}
+
+.user_dash {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 2px;
+    border-radius: 100%;
+    margin: 10px auto;
+    padding: 25px;
+    background: #E9E9E9;
+}
+.divInfoSistema h4{
+background: #3279a7;
+width: 400px;
+padding: 5px 10px;
+color: #fff;
+border-radius: 5px;
+text-align: center;
+margin-bottom: 10px;
+}
+.divInfoSistema form{
+    padding: 20px;
+}
+
+.divInfoSistema input{
+   margin-bottom: 0px;
+   padding: 10px; 
+   margin: 10px;
+   width: 300px;
+
+   margin-top: 10px;
+}
+.divInfoSistema button{
+	width: 20%;
+	margin: 25px;
+}
+
+ 
 </style>
