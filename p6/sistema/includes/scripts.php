@@ -7,6 +7,6 @@
 <link rel="stylesheet" type = "text/css" href="../sistema/css/styleDeleteAdmin.css">
 <script src="js/jquery.min.js"></script>
 <script src="js/icons.js"></script>
-<link rel="stylesheet" href="css/fullcalendar.min.css">
+<!-- <link rel="stylesheet" href="css/fullcalendar.min.css"> -->
 <script type="text/javascript" src="js/functions.js"></script>
 <?php include "functions.php"; ?>

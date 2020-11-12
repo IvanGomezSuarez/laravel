@@ -12,7 +12,6 @@ if(isset($_SESSION['role'])){
 }
 
 if (isset($_POST["login"])) {
-    echo("esto esfadfadfa");
     if(empty($_POST['usuario']) || empty($_POST['clave'])) //comprueba que se haya escrito en los imputbox
         {
             $alert = "Ingrese su usuario y contraseña";
