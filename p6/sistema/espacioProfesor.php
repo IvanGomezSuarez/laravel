@@ -8,7 +8,6 @@ if(!isset($_SESSION['role'])){
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +50,7 @@ $(document).ready(function() {
 <header>
 		<div class="header">
 			
-			<h1>Centro educativo</h1>
+			<h1>Área del profesor</h1>
 			<div class="optionsBar">
 				<p>España, <?php echo fechaC(); ?></p>
 				<span>|</span>
