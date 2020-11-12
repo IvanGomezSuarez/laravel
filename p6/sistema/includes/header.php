@@ -1,5 +1,10 @@
 <?php 
 session_start();
+if(!isset($_SESSION['role'])){
+		header('location: ../index.php');
+}elseif($_SESSION['role'] == "student"){
+        header('location: calendar.php');
+}
 ?>
 <header>
 		<div class="header">
