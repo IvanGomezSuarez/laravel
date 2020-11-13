@@ -14,11 +14,12 @@ class usuario extends conectar{
     function existeUsuario($nombre,$clave) {
         $sqlAdmin = "SELECT * FROM users_admin WHERE username='$nombre' and password='$clave'";
         $sqlStud = "SELECT * FROM students WHERE username='$nombre' and pass='$clave'";
+        $sqlTeacher = "SELECT * FROM teachers WHERE name='$nombre' and password='$clave'";
         $buscaAdmin = $this->_db->query($sqlAdmin);
         $buscaStud = $this->_db->query($sqlStud);
+        $buscaTeacher = $this->_db->query($sqlTeacher);
         
         if(mysqli_num_rows($buscaAdmin)==1){
-            //session_start();
             $_SESSION['nombreusuario'] = $nombre;
             $_SESSION['role'] = "admin";
             return 1;
@@ -30,7 +31,14 @@ class usuario extends conectar{
             return 2;
             $buscaStud->close();
             $this->_db->close();           
-        } else {
+        } elseif (mysqli_num_rows($buscaTeacher)==1){
+            $_SESSION['nombreusuario'] = $nombre;
+            $_SESSION['role'] = "teacher";
+            return 3;
+            $buscaTeacher->close();
+            $this->_db->close();    
+        }  else {     
             return 0;
-    }    
+   
+        }    
 }}
