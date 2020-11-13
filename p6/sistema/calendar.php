@@ -4,8 +4,13 @@ if(!isset($_SESSION['role'])){
 		header('location: ../index.php');
 }elseif($_SESSION['role'] == "admin"){
     header('location: index.php');
+}elseif($_SESSION['role'] == "teacher"){
+    header('location: espacioProfesor.php');
 }
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,10 +21,10 @@ if(!isset($_SESSION['role'])){
     <link href='fullcalendar/main.css' rel='stylesheet' />
     <script src='fullcalendar/main.js'></script>
     <script src='fullcalendar/es.js'></script>
-
 	<title>Calendario</title>
 
     <script>
+
 
         document.addEventListener('DOMContentLoaded', function() {
 
@@ -41,6 +46,7 @@ if(!isset($_SESSION['role'])){
             });
             calendar.render();
         });
+
 
     </script>
 <style>
