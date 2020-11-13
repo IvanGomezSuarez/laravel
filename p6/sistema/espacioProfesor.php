@@ -1,11 +1,13 @@
-<?php 
+<?php
 session_start();
-if(!isset($_SESSION['role'])){
-		header('location: ../index.php');
-}elseif($_SESSION['role'] == "admin"){
-    header('location: index.php');
-}
 
+if(!isset($_SESSION['role'])){
+    header('location: ../index.php');
+    }elseif($_SESSION['role'] == "student"){
+        header('location: calendar.php');
+    }elseif($_SESSION['role'] == "admin"){
+        header('location: index.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -19,8 +21,8 @@ if(!isset($_SESSION['role'])){
     <script type='text/javascript' src='js/jquery.js'></script>
     <script type='text/javascript' src='js/fullcalendar.js'></script>
 	<title>Calendario</title>
-    <div id='calendar'></div>
-    <script>
+    <!-- <div id='calendar'></div> -->
+    <!-- <script>
 $(document).ready(function() {
     // página cargada, inicializamos el calendario...
     $('#calendar').fullCalendar({
@@ -44,7 +46,7 @@ $(document).ready(function() {
     ]
     })
 });
-    </script>
+    </script> -->
 </head>
 <body>
 <header>
@@ -54,14 +56,14 @@ $(document).ready(function() {
 			<div class="optionsBar">
 				<p>España, <?php echo fechaC(); ?></p>
 				<span>|</span>
-				<span class="user"><?php echo $_SESSION['nombreusuario'];?></span> 
+                <span class="user"><?php echo $_SESSION['nombreusuario'];?></span> 
 				<img class="photouser" src="img/user.png" alt="Usuario">
 				<a href="salir.php"><img class="close" src="img/salir.png" alt="Salir del sistema" title="Salir"></a>
 			</div>
 		</div>
 
 </header>
-<div id="calendar"></div>
+<!-- <div id="calendar"></div> -->
 
 </body>
 </html>

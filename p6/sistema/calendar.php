@@ -4,6 +4,8 @@ if(!isset($_SESSION['role'])){
 		header('location: ../index.php');
 }elseif($_SESSION['role'] == "admin"){
     header('location: index.php');
+}elseif($_SESSION['role'] == "teacher"){
+    header('location: espacioProfesor.php');
 }
 
 ?>

@@ -14,7 +14,6 @@ if(isset($_SESSION['role'])){
 }
 
 if (isset($_POST["login"])) {
-    //echo("esto esfadfadfa");
     if(empty($_POST['usuario']) || empty($_POST['clave'])) //comprueba que se haya escrito en los imputbox
         {
             $alert = "Ingrese su usuario y contraseña";
@@ -22,7 +21,7 @@ if (isset($_POST["login"])) {
             require_once 'sistema/base/usuario.php';
             $usuario = new usuario();
             $respuesta = $usuario->existeUsuario($_POST["usuario"],md5($_POST["clave"]));
-            //echo $respuesta;exit;
+            //echo $respuesta;//exit;
             if ($respuesta==1) {
                 $_SESSION['active'] = true;
                 //$_SESSION['idusername'] = $data['id_user_admin'];
@@ -46,12 +45,13 @@ if (isset($_POST["login"])) {
                 //$_SESSION['nombre'] = $data['name'];
                 //$_SESSION['mail'] = $data['email'];
                 //$_SESSION['passw'] = $data['password'];
-                header('location: sistema/espacioProfesor.php');{
+                header('location: sistema/espacioProfesor.php');                
                     
-                }
+            }elseif($respuesta==0){
                 $alert = 'El usuario o la clave son incorrectos';
                 session_destroy();
             }
+            
         }
     }
 ?>

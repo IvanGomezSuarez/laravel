@@ -9,10 +9,11 @@
 	<title>Administracion</title>
 </head>
 <body>
-	<?php include "includes/header.php"; 
+	<?php	
+	include "includes/header.php"; 
 	include "../conexion.php";
+	
 	$query_dash = mysqli_query($conection,"CALL dataDashboard();");
-	//echo $sql;exit;
 	$result_dash = mysqli_num_rows($query_dash);
 	if(result_dash > 0){
 		$data_dash = mysqli_fetch_assoc($query_dash);

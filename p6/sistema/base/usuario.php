@@ -20,7 +20,6 @@ class usuario extends conectar{
         $buscaTeacher = $this->_db->query($sqlTeacher);
         
         if(mysqli_num_rows($buscaAdmin)==1){
-            //session_start();
             $_SESSION['nombreusuario'] = $nombre;
             $_SESSION['role'] = "admin";
             return 1;
