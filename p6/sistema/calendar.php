@@ -38,6 +38,51 @@ if(!isset($_SESSION['role'])){
                 //editable: true,
                 navLinks: true, // can click day/week names to navigate views
                 dayMaxEvents: true, // allow "more" link when too many events
+                events: [
+                    {
+                    title: 'Todo el día editable',
+                    editable: true,// permitir edición, no es necesario
+                    start: '2020-11-01'                    
+                    },
+                    {
+                    groupId: 999,//agrupado
+                    title: 'Practicas',
+                    start: '2020-11-09T16:00:00'
+                    },
+                    {
+                    groupId: 999,//agrupado
+                    title: 'Practicas',
+                    start: '2020-11-16T16:00:00'
+                    },
+                    {
+                    title: 'Conference',
+                    start: '2020-11-11',
+                    end: '2020-11-14'
+                    },
+                    {
+                    title: 'Física',
+                    color: 'green',// afecta a bordercolor y backgroundcolor
+                    start: '2020-11-10',//Solo date evento todo el día
+                    //end: '2020-11-12T12:30:00'
+                    },
+                    {
+                    title: 'Matematicas',
+                    color: 'red',// afecta a bordercolor y backgroundcolor
+                    start: '2020-11-12T10:30:00',
+                    end: '2020-11-12T12:30:00'
+                    },
+                    {
+                    title: 'Matematicas',
+                    backgroundColor : 'red',//afecta al relleno en la vista día y semana
+                    borderColor: 'black', //afecta al circulito
+                    start: '2020-11-13T10:30:00'
+                    },
+                    {
+                    title: 'Click for Google',
+                    url: 'http://google.com/',
+                    start: '2020-09-28'
+                    }
+                ]
             });
             calendar.render();
         });
