@@ -22,7 +22,7 @@ if (isset($_POST["login"])) {
             require_once 'sistema/base/usuario.php';
             $usuario = new usuario();
             $respuesta = $usuario->existeUsuario($_POST["usuario"],md5($_POST["clave"]));
-            echo $respuesta;exit;
+            //echo $respuesta;exit;
             if ($respuesta==1) {
                 $_SESSION['active'] = true;
                 //$_SESSION['idusername'] = $data['id_user_admin'];
