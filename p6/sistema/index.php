@@ -128,7 +128,9 @@
 				<th>Asignatura</th>
 				<th>Color</th>
 				<th>Profesor</th>
-				<th>Horario</th>
+				<th>Dia de inicio</th>
+				<th>Hora inicio</th>
+				<th>Hora fin</th>
 				<th>Acciones</th>
 			</tr>
 			<?php
@@ -149,6 +151,12 @@
 					<tr>
 						<td><?php echo $data["id_schedule"]; ?></td>
 						<td><?php echo $data["name"]; ?></td>
+						<td><?php echo $data["color"]; ?></td>
+						<td><?php echo $data["color"]; ?></td>
+						<td><?php echo $data["color"]; ?></td>
+						<td><?php echo $data["color"]; ?></td>
+						<td><?php echo $data["color"]; ?></td>
+						<td><?php echo $data["color"]; ?></td>
 						<td><?php echo $data["color"]; ?></td>
 
 						<td>
