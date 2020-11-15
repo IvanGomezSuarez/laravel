@@ -133,15 +133,24 @@
 			</tr>
 			<?php
 			include "../conexion.php";
-			$query = mysqli_query($conection, "SELECT id_enrollment,id_student,id_course FROM enrollment WHERE status=1 ORDER BY id_enrollment");
+
+			$query = mysqli_query($conection, "SELECT sc.id_schedule, cl.name, cl.color FROM students s
+			INNER JOIN enrollment e ON s.id = e.id_student
+			INNER JOIN courses c ON e.id_course = c.id_course
+			INNER JOIN class cl ON c.id_course = cl.id_course
+			INNER JOIN schedule sc ON cl.id_schedule = sc.id_schedule
+			WHERE s.id = 7"
+		);
+
 			$result = mysqli_num_rows($query);
 			if ($result > 0) {
 				while ($data = mysqli_fetch_array($query)) {
 			?>
 					<tr>
-						<td><?php echo $data["id_enrollment"]; ?></td>
-						<td><?php echo $data["id_student"]; ?></td>
-						<td><?php echo $data["id_course"]; ?></td>
+						<td><?php echo $data["id_schedule"]; ?></td>
+						<td><?php echo $data["name"]; ?></td>
+						<td><?php echo $data["color"]; ?></td>
+
 						<td>
 							<a class="link_edit" href="edit_alumno.php?id=<?php echo $data["id"]; ?>">Editar</a>
 							|
@@ -155,7 +164,9 @@
 			}
 			?>
 		</table>
+		
 	</div>
+	
 		</section>
 <div class="selectores">
 		
@@ -227,7 +238,7 @@
                 }
                 ?>
             </select>
-
+			<input type="submit" value="Crear nuevo horario" class="btn_save">
 			</div>
 	<?php include "includes/footer.php"; ?>
 </body>
