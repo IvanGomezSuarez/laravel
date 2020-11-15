@@ -1,11 +1,25 @@
-
 <?php 
 session_start();
+
 if(!isset($_SESSION['role'])){
 		header('location: ../index.php');
 }elseif($_SESSION['role'] == "admin"){
     header('location: index.php');
 }
+
+include "../conexion.php";
+$query = mysqli_query($conection, "SELECT sc.id_schedule, cl.name, cl.color, c.description, sc.day, sc.time_start, sc.time_end  FROM students s
+                                    INNER JOIN enrollment e ON s.id = e.id_student
+                                    INNER JOIN courses c ON e.id_course = c.id_course
+                                    INNER JOIN class cl ON c.id_course = cl.id_course
+                                    INNER JOIN schedule sc ON cl.id_schedule = sc.id_schedule
+                                    WHERE s.id = 7"
+                                );
+
+// require_once 'base/eventoCalendario.php';
+// $calendario = new eventoCalendario();
+            
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -40,50 +54,22 @@ if(!isset($_SESSION['role'])){
                 navLinks: true, // can click day/week names to navigate views
                 dayMaxEvents: true, // allow "more" link when too many events
                 events: [
+                    <?php                    
+                    while ($events = mysqli_fetch_assoc($query)) {
+                    //while ($events = $eventoCalendario->getCalendariobyId(7)) {
+                    ?>
                     {
-                    title: 'Todo el día editable',
-                    editable: true,// permitir edición, no es necesario
-                    start: '2020-11-01'                    
+                        title: '<?php echo $events["name"]?>',
+                        start: '<?php echo $events["day"]."T".$events["time_start"]?>',
+                        end: '<?php echo $events["day"]."T".$events["time_end"]?>',
+                        //display: 'background',
+                        //COLOR: You can use any of the CSS color formats such #f00, #ff0000, rgb(255,0,0), or red.
+                        color: '<?php echo $events["color"]; ?>'
                     },
-                    {
-                    groupId: 999,//agrupado
-                    title: 'Practicas',
-                    start: '2020-11-09T16:00:00'
-                    },
-                    {
-                    groupId: 999,//agrupado
-                    title: 'Practicas',
-                    start: '2020-11-16T16:00:00'
-                    },
-                    {
-                    title: 'Conference',
-                    start: '2020-11-11',
-                    end: '2020-11-14'
-                    },
-                    {
-                    title: 'Física',
-                    color: 'green',// afecta a bordercolor y backgroundcolor
-                    start: '2020-11-10',//Solo date evento todo el día
-                    //end: '2020-11-12T12:30:00'
-                    },
-                    {
-                    title: 'Matematicas',
-                    color: 'red',// afecta a bordercolor y backgroundcolor
-                    start: '2020-11-12T10:30:00',
-                    end: '2020-11-12T12:30:00'
-                    },
-                    {
-                    title: 'Matematicas',
-                    backgroundColor : 'red',//afecta al relleno en la vista día y semana
-                    borderColor: 'black', //afecta al circulito
-                    start: '2020-11-13T10:30:00'
-                    },
-                    {
-                    title: 'Click for Google',
-                    url: 'http://google.com/',
-                    start: '2020-09-28'
+                    <?php
                     }
-                ]
+                    ?>          
+                ],
             });
             calendar.render();
         });
@@ -115,6 +101,7 @@ if(!isset($_SESSION['role'])){
 <header>
     <div class="header">			
         <h1>Centro educativo</h1>
+        
         <div class="optionsBar">
             <p>España, <?php echo fechaC(); ?></p>
             <span>|</span>
@@ -128,5 +115,4 @@ if(!isset($_SESSION['role'])){
 <div id="calendar"></div>
 </div>
 </body>
-
 </html>
