@@ -1,16 +1,26 @@
 <?php 
 session_start();
+
 if(!isset($_SESSION['role'])){
 		header('location: ../index.php');
 }elseif($_SESSION['role'] == "admin"){
     header('location: index.php');
-}elseif($_SESSION['role'] == "teacher"){
-    header('location: espacioProfesor.php');
 }
 
+include "../conexion.php";
+$query = mysqli_query($conection, "SELECT sc.id_schedule, cl.name, cl.color, sc.day, sc.time_start, sc.time_end  FROM students s
+                                    INNER JOIN enrollment e ON s.id = e.id_student
+                                    INNER JOIN courses c ON e.id_course = c.id_course
+                                    INNER JOIN class cl ON c.id_course = cl.id_course
+                                    INNER JOIN schedule sc ON cl.id_schedule = sc.id_schedule
+                                    WHERE s.id = 7"
+                                );
+
+// require_once 'base/eventoCalendario.php';
+// $calendario = new eventoCalendario();
+            
+
 ?>
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,10 +31,10 @@ if(!isset($_SESSION['role'])){
     <link href='fullcalendar/main.css' rel='stylesheet' />
     <script src='fullcalendar/main.js'></script>
     <script src='fullcalendar/es.js'></script>
+
 	<title>Calendario</title>
 
     <script>
-
 
         document.addEventListener('DOMContentLoaded', function() {
 
@@ -43,10 +53,26 @@ if(!isset($_SESSION['role'])){
                 //editable: true,
                 navLinks: true, // can click day/week names to navigate views
                 dayMaxEvents: true, // allow "more" link when too many events
+                events: [
+                    <?php                    
+                    while ($events = mysqli_fetch_assoc($query)) {
+                    //while ($events = $eventoCalendario->getCalendariobyId(7)) {
+                    ?>
+                    {
+                        title: '<?php echo $events["name"]?>',
+                        start: '<?php echo $events["day"]."T".$events["time_start"]?>',
+                        end: '<?php echo $events["day"]."T".$events["time_end"]?>',
+                        //display: 'background',
+                        //COLOR: You can use any of the CSS color formats such #f00, #ff0000, rgb(255,0,0), or red.
+                        color: '<?php echo $events["color"]; ?>'
+                    },
+                    <?php
+                    }
+                    ?>          
+                ],
             });
             calendar.render();
         });
-
 
     </script>
 <style>
@@ -75,6 +101,7 @@ if(!isset($_SESSION['role'])){
 <header>
     <div class="header">			
         <h1>Centro educativo</h1>
+        
         <div class="optionsBar">
             <p>España, <?php echo fechaC(); ?></p>
             <span>|</span>
