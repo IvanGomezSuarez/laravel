@@ -158,8 +158,52 @@
 	</div>
 		</section>
 <div class="selectores">
-		<select class="select-css">
-                <option name="profesor" value="0">Seleccione:</option>
+		
+			<select class="select-css">
+                <option name="alumno" value="0">Seleccione al alumno:</option>
+            <?php
+            include '../conexion.php';
+            // Realizamos la consulta para extraer los datos, en este select se deben mostrar los horarios solo de la asignatura seleccionada
+                $query = mysqli_query($conection, " SELECT * FROM students");
+                while ($valores = mysqli_fetch_array($query)) {
+            // En esta sección estamos llenando el select con datos extraidos de una base de datos.
+                    echo '<option value="'.$valores['id'].'">'.$valores['name'].'</option>';
+                }
+                ?>
+			</select>
+
+			<select class="select-css">
+                <option name="curso" value="0">Seleccione el curso:</option>
+            <?php
+            include '../conexion.php';
+            // Realizamos la consulta para extraer los datos
+                $query = mysqli_query($conection, " SELECT * FROM courses");
+                while ($valores = mysqli_fetch_array($query)) {
+            // En esta sección estamos llenando el select con datos extraidos de una base de datos.
+                    echo '<option value="'.$valores['id_course'].'">'.$valores['name'].'</option>';
+                }
+                ?>
+			</select>
+			
+			<select class="select-css">
+                <option name="asignatura" value="0">Seleccione la asignatura:</option>
+            <?php
+            include '../conexion.php';
+            // Realizamos la consulta para extraer los datos, en este select se deben mostrar los horarios solo de la asignatura seleccionada
+                $query = mysqli_query($conection, " SELECT * FROM class");
+                while ($valores = mysqli_fetch_array($query)) {
+            // En esta sección estamos llenando el select con datos extraidos de una base de datos.
+                    echo '<option value="'.$valores['id_class'].'">'.$valores['name'].'</option>';
+                }
+                ?>
+			</select>
+
+
+			<label for="favcolor">Seleccione el color de la asignatura</label>
+			<input type="color" id="favcolor" name="favcolor" value="#ff0000"><br><br>
+			
+			<select class="select-css">
+                <option name="profesor" value="0">Seleccione el profesor:</option>
             <?php
             include '../conexion.php';
             // Realizamos la consulta para extraer los datos
@@ -170,6 +214,20 @@
                 }
                 ?>
 			</select>
+
+			<select class="select-css">
+                <option name="horario" value="0">Seleccione el horario:</option>
+            <?php
+            include '../conexion.php';
+            // Realizamos la consulta para extraer los datos, en este select se deben mostrar los horarios solo de la asignatura seleccionada
+                $query = mysqli_query($conection, " SELECT * FROM schedule");
+                while ($valores = mysqli_fetch_array($query)) {
+            // En esta sección estamos llenando el select con datos extraidos de una base de datos.
+                    echo '<option value="'.$valores['id_schedule'].'">'.$valores['day'].' '.$valores['time_start'].'</option>';
+                }
+                ?>
+            </select>
+
 			</div>
 	<?php include "includes/footer.php"; ?>
 </body>
@@ -329,7 +387,8 @@ padding: 90px 15px 15px;
 
 .selectores{
 	float:left;
-	padding: 0px 300px 10px;
+	padding: 0px 200px 0px;
+	margin-top: 0px;
 }
 .select-css {
  display: block;
@@ -342,7 +401,8 @@ padding: 90px 15px 15px;
  width: 400px;
  max-width: 100%; 
  box-sizing: border-box;
- margin: 0;
+ margin: 5;
+ margin-top: 15px;
  border: 1px solid #aaa;
  box-shadow: 0 1px 0 1px rgba(0,0,0,.03);
  border-radius: .3em;
