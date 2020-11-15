@@ -174,16 +174,6 @@ nav li ul li:last-child{
 	border-radius: 4px;
 	margin: 20px;
 }
-.paginador ul{
-	padding: 15px;
-	list-style: none;
-	background-attachment: #fff;
-	margin-top: 15px;
-	display: -webkit-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-}
 
 .titlePanelControl{
 	width: 100%;

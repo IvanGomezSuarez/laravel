@@ -64,7 +64,7 @@
                 $query = mysqli_query($conection, " SELECT * FROM teachers");
                 while ($valores = mysqli_fetch_array($query)) {
             // En esta sección estamos llenando el select con datos extraidos de una base de datos.
-                    echo '<option value="'.$valores[id_teacher].'">'.$valores[name].'</option>';
+                    echo '<option value="'.$valores['id_teacher'].'">'.$valores['name'].'</option>';
                 }
                 ?>
             </select>
@@ -78,7 +78,7 @@
                 $query = mysqli_query($conection, " SELECT * FROM courses");
                 while ($valores = mysqli_fetch_array($query)) {
             // En esta sección estamos llenando el select con datos extraidos de una base de datos.
-                    echo '<option value="'.$valores[id_course].'">'.$valores[name].'</option>';
+                    echo '<option value="'.$valores['id_course'].'">'.$valores['name'].'</option>';
                 }
                 ?>
             </select>
@@ -92,7 +92,7 @@
                 $query = mysqli_query($conection, " SELECT * FROM schedule");
                 while ($valores = mysqli_fetch_array($query)) {
             // En esta sección estamos llenando el select con datos extraidos de una base de datos.
-                    echo '<option value="'.$valores[id_schedule].'">'.$valores[day].' '.$valores[time_start].'</option>';
+                    echo '<option value="'.$valores['id_schedule'].'">'.$valores['day'].' '.$valores['time_start'].'</option>';
                 }
                 ?>
             </select>
