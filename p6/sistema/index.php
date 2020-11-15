@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<?php include "includes/scripts.php"; ?>
-	<link rel="stylesheet" type = "text/css" href="css/styleDashboard.css">
+	
 
 	<title>Administracion</title>
 </head>
@@ -15,7 +14,7 @@
 	
 	$query_dash = mysqli_query($conection,"CALL dataDashboard();");
 	$result_dash = mysqli_num_rows($query_dash);
-	if(result_dash > 0){
+	if($result_dash > 0){
 		$data_dash = mysqli_fetch_assoc($query_dash);
 		mysqli_close($conection);
 	}
@@ -37,7 +36,7 @@
 			</a>
 			<div class="dashboard">
 			<a href="listado_profesores.php">
-				<i class="fas fa-users"></i>
+				<i class="fas fa-chalkboard-teacher"></i>
 				<p>
 					<strong>Profesores</strong><br>
 					<span><? echo $data_dash['profesores']; ?></span>
@@ -45,7 +44,7 @@
 			</a>
 			<div class="dashboard">
 			<a href="listado_cursos.php">
-				<i class="fas fa-users"></i>
+				<i class="fab fa-discourse"></i>
 				<p>
 					<strong>Cursos</strong><br>
 					<span><? echo $data_dash['cursos']; ?></span>
@@ -53,7 +52,7 @@
 			</a>
 			<div class="dashboard">
 			<a href="listado_asign.php">
-				<i class="fas fa-users"></i>
+			<i class="fas fa-graduation-cap"></i>
 				<p>
 					<strong>Asignaturas</strong><br>
 					<span><? echo $data_dash['asignaturas']; ?></span>
@@ -61,10 +60,10 @@
 			</a>
 			<div class="dashboard">
 			<a href="listado_alumnos.php">
-				<i class="fas fa-users"></i>
+				<i class="fas fa-user"></i>
 				<p>
 					<strong>Alumnos</strong><br>
-					<span><?echo $data_dash['alumnos']; ?></span>
+					<span>8 </span>
 				</p>
 			</a>
 		
@@ -79,7 +78,7 @@
 			</div>
 				<div class="ContainerPerfil">
 					<div class="ContainerDataUser">
-						<img src="img/user_dash.png">
+						<img class="photouser" src="img/user_dash.png">
 					</div>
 						<div class="divDataUser">
 							<h4>Información personal"</h4>
@@ -89,7 +88,7 @@
 						<div>
 						<label>Correo:</label> <span>ejemplo@gmail.com</span>
 						</div>
-						<h4>Datos de usuario</h4> <span>Ivan2020</span>
+						<h4>Datos de usuario</h4> <span><?echo $data_dash['nombreusuario']; ?></span>
 						<h4>Cambiar contraseña</h4> 
 						<form-action="" method="post" name="frmChangePass" id="frmChangePass">
 							<div>
@@ -159,6 +158,7 @@
 .dashboard a span{
     font-weight: bold;
     font-size: 20pt;
+	color: green;
 }
 
 .containerPerfil{
@@ -179,6 +179,8 @@
 	padding: 10px;
 	margin: auto;
 }
+
+
 .divDataUser > div{
     display: -webkit-flex;
     display: flex;
@@ -186,15 +188,22 @@
 
 }
 
+.divDataUser h4{
+	text-align: left;
+
+}
+
 .divDataUser label{
     width: 150px;
-    margin: 0;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin: 5px;
+    margin-bottom: 0px;
+	margin-top: 0px;
+	text-align: left;
 }
 
 .divDataUser span{
 	padding: 5px;
+	text-align: left;
 	
 }
 
@@ -210,18 +219,23 @@
     padding: 25px;
     background: #E9E9E9;
 }
-.divInfoSistema h4{
-background: #3279a7;
-width: 400px;
+.divInfoSistema{
+background: #898989;
+width: 430px;
 padding: 5px 10px;
 color: #fff;
-border-radius: 5px;
+
 text-align: center;
 margin-bottom: 10px;
 }
 .divInfoSistema form{
     padding: 20px;
 }
+
+.divInfoSistema h1{
+    border-radius: 5px;
+}
+
 
 .divInfoSistema input{
    margin-bottom: 0px;
@@ -232,9 +246,9 @@ margin-bottom: 10px;
    margin-top: 10px;
 }
 .divInfoSistema button{
-	width: 20%;
+	width: 50%;
 	margin: 25px;
 }
 
- 
+
 </style>
