@@ -15,6 +15,7 @@
 	
 	$query_dash = mysqli_query($conection,"CALL dataDashboard();");
 	$result_dash = mysqli_num_rows($query_dash);
+	$data_dash = mysqli_fetch_assoc($query_dash);
 	if(result_dash > 0){
 		$data_dash = mysqli_fetch_assoc($query_dash);
 		mysqli_close($conection);
@@ -64,7 +65,7 @@
 				<i class="fas fa-users"></i>
 				<p>
 					<strong>Alumnos</strong><br>
-					<span><?echo $data_dash['alumnos']; ?></span>
+					<span><?php echo $data_dash['alumnos']; ?></span>
 				</p>
 			</a>
 		

@@ -1,6 +1,10 @@
 <?php
 
-require_once 'sistema/config/conectar.php';
+//require_once 'sistema/config/conectar.php';
+//echo  dirname(__FILE__);
+
+//require_once '../config/conectar.php';
+require_once $_SERVER['DOCUMENT_ROOT']."/laravel/p6/sistema/config/conectar.php";
 
 
 class usuario extends conectar{
