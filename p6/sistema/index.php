@@ -32,7 +32,7 @@
 				<i class="fas fa-users "></i>
 				<p>
 					<strong>Administradores</strong><br>
-					<span><? echo $data_dash['admins']; ?></span>
+					<span><?php echo $data_dash['admins']; ?></span>
 				</p>
 			</a>
 			<div class="dashboard">
@@ -40,7 +40,7 @@
 				<i class="fas fa-users"></i>
 				<p>
 					<strong>Profesores</strong><br>
-					<span><? echo $data_dash['profesores']; ?></span>
+					<span><?php echo $data_dash['profesores']; ?></span>
 				</p>
 			</a>
 			<div class="dashboard">
@@ -48,7 +48,7 @@
 				<i class="fas fa-users"></i>
 				<p>
 					<strong>Cursos</strong><br>
-					<span><? echo $data_dash['cursos']; ?></span>
+					<span><?php echo $data_dash['cursos']; ?></span>
 				</p>
 			</a>
 			<div class="dashboard">
@@ -56,7 +56,7 @@
 				<i class="fas fa-users"></i>
 				<p>
 					<strong>Asignaturas</strong><br>
-					<span><? echo $data_dash['asignaturas']; ?></span>
+					<span><?php echo $data_dash['asignaturas']; ?></span>
 				</p>
 			</a>
 			<div class="dashboard">
