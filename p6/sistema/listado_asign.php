@@ -44,9 +44,9 @@ include "../conexion.php";
                     <td><?php echo $data["id_schedule"]; ?></td>
                     <td><?php echo $data["color"]; ?></td>
                     <td>
-                        <a class="link_edit" href="edit_asign.php?id=<?php echo $data["id_class"];?>">Editar</a>
+                        <a class="link_edit" href="edit_asign.php?id=<?php echo $data["id_class"];?>"><i class="fas fa-edit"></i></a>
                         |
-                        <a class="link_delete" href="delete_asign.php?id=<?php echo $data["id_class"];?>">Eliminar</a>
+                        <a class="link_delete" href="delete_asign.php?id=<?php echo $data["id_class"];?>"><i class="fas fa-trash-alt"></i></a>
                         
                     </td>
                 </tr>

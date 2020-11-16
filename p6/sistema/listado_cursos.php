@@ -38,9 +38,9 @@ include "../conexion.php";
                     <td><?php echo $data["date_start"]; ?></td>
                     <td><?php echo $data["date_end"]; ?></td>
                     <td>
-                        <a class="link_edit" href="edit_course.php?id=<?php echo $data["id_course"];?>">Editar</a>
+                        <a class="link_edit" href="edit_course.php?id=<?php echo $data["id_course"];?>"><i class="fas fa-edit"></i></a>
                         |
-                        <a class="link_delete" href="delete_course.php?id=<?php echo $data["id_course"];?>">Eliminar</a>
+                        <a class="link_delete" href="delete_course.php?id=<?php echo $data["id_course"];?>"><i class="fas fa-trash-alt"></i></a>
                         
                     </td>
                 </tr>

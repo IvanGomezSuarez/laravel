@@ -34,7 +34,7 @@
 					<p>
 						<strong>Administradores</strong><br>
 						<span>
-							<? echo $data_dash['admins']; ?></span>
+							<?php echo $data_dash['admins']; ?></span>
 					</p>
 				</a>
 				<div class="dashboard">
@@ -43,7 +43,7 @@
 						<p>
 							<strong>Profesores</strong><br>
 							<span>
-								<? echo $data_dash['profesores']; ?></span>
+								<?php echo $data_dash['profesores']; ?></span>
 						</p>
 					</a>
 					<div class="dashboard">
@@ -52,7 +52,7 @@
 							<p>
 								<strong>Cursos</strong><br>
 								<span>
-									<? echo $data_dash['cursos']; ?></span>
+									<?php echo $data_dash['cursos']; ?></span>
 							</p>
 						</a>
 						<div class="dashboard">
@@ -61,7 +61,7 @@
 								<p>
 									<strong>Asignaturas</strong><br>
 									<span>
-										<? echo $data_dash['asignaturas']; ?></span>
+										<?php echo $data_dash['asignaturas']; ?></span>
 								</p>
 							</a>
 							<div class="dashboard">
@@ -69,7 +69,7 @@
 									<i class="fas fa-user"></i>
 									<p>
 										<strong>Alumnos</strong><br>
-										<span>8 </span>
+										<span><?php echo $data_dash['alumnos'];//muestra el numero de registros en esta tabla de la BD ?> </span>
 									</p>
 								</a>
 
@@ -246,7 +246,7 @@
                 }
                 ?>
             </select>
-			<input type="submit" value="Crear nuevo horario" class="btn_save">
+			<button type="button" onclick="alert('Hello world!')">Guardar asignación</button>
 			</div>
 	<?php include "includes/footer.php"; ?>
 </body>
@@ -452,4 +452,14 @@ padding: 90px 15px 15px;
  font-weight:normal;
 }
 
+.selectores button {
+		width: 50%;
+		margin: 25px;
+		margin-bottom: 0px;
+		padding: 10px;
+		margin: 10px;
+		width: 300px;
+		background: #12a4c6;
+		margin-top: 10px;
+}
 </style>

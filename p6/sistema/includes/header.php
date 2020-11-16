@@ -22,3 +22,19 @@ if(!isset($_SESSION['role'])){
 		</div>
         <?php include "nav.php"; ?>
 	</header>
+
+	<div class="modal">
+		<div class="bodymodal">
+			<form action="" method="post" name="form_add_enrollment" id="form_add_enrollment">
+				<h1><i class="fas fa cubes" style="font-size:45pt;"></i><br> Guardar matrícula</h1>
+				<h2 class="nombre_alumno">alejandro</h2></br>
+				<h2 class="nombre_curso">Matematicas</h2></br>
+				<input type="hidden" name="action" value="addMatricula" required>
+				<div class="alert alertAddMatricula"><p>Alerta de accion</p></div>
+				<button type="submit" class="btn_new"><i class="fas fa-plus"></i> Guardar matrícula</button>
+				<a ref="#" class="btn_ok closeModal"><i class="fas fa-ban"></i> Cerrar</a>
+				
+			</form>
+		</div>
+
+	</div>
