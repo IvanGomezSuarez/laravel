@@ -3,20 +3,22 @@
 if (!empty($_POST)) {
     $alert = '';
     if (
-        empty($_POST[$valores['id_course']]) || empty($_POST[$valores['id']])
+        empty($_POST['curso']) || empty($_POST['alumno'])
     ) {
         $alert = '<p class="msg_error">Todos los campos son obligatorios</p>'; // funciona bien
     } else {
         include "../conexion.php";
-        $course = $_POST[$valores['id_course']];
-        $alum = $_POST[$valores['id']];
+        $course = $_POST['curso'];
+        $alum = $_POST['alumno'];
 
 
         //echo "SELECT * FROM users_admin WHERE dni = '$dni' ";
         $query = mysqli_query($conection, "SELECT * FROM enrollment WHERE  id_course = '$course AND id_student= '$alum'");
+      //  echo $query;
+        exit;
         $result = mysqli_fetch_array($query);
-       // print_r($result);
-        
+        // print_r($result);
+
         if ($result > 0) {
             $alert = '<p class="msg_error">La matrícula ya existe.</p>'; //no me funciona ya que duplica las entradas
         } else {
@@ -54,30 +56,46 @@ if (!empty($_POST)) {
                 <div class="alert"><?php echo isset($alert) ? $alert : ''; ?></div>
                 <form action="" method="post">
                     <label for="Curso">Curso</label>
-                    <select>
-                        <option id="curso" name="curso" value="0">Seleccione el curso:</option>
-                        <?php
-                        include '../conexion.php';
-                        // Realizamos la consulta para extraer los datos
-                        $query = mysqli_query($conection, " SELECT * FROM courses");
-                        while ($valores = mysqli_fetch_array($query)) {
-                            // En esta sección estamos llenando el select con datos extraidos de una base de datos.
-                            echo '<option value="' . $valores['id_course'] . '">' . $valores['name'] . '</option>';
-                        }
-                        ?>
-                    </select>
+                    <label for="curso">Seleccione el curso</label>
+                    <?php
+                    include '../conexion.php';
+                    $queryCurso = mysqli_query($conection, " SELECT * FROM courses");
+                    $valorcurso = mysqli_num_rows($queryCurso);
+                    ?>
 
-                    <select>
-                        <option id="alumno" name="alumno" value="0">Seleccione el alumno:</option>
+                    <select name="curso" id="curso">
                         <?php
                         include '../conexion.php';
-                        // Realizamos la consulta para extraer los datos
-                        $query = mysqli_query($conection, " SELECT * FROM students");
-                        while ($valores = mysqli_fetch_array($query)) {
-                            // En esta sección estamos llenando el select con datos extraidos de una base de datos.
-                            echo '<option value="'.$valores['id'].'">'.$valores['name'].'</option>';
+                        if ($valorcurso > 0) {
+                        }
+                        while ($valorcurso = mysqli_fetch_array($queryCurso)) {
+                        ?>
+                            <option value="<?php echo $valorcurso["id_course"] ?>"><?php echo $valorcurso["name"] ?></option>
+                        <?php
                         }
                         ?>
+                        
+
+                    </select>
+                    <label for="alumno">Seleccione el alumno</label>
+                    <?php
+                    $query = mysqli_query($conection, " SELECT * FROM students");
+                    $valores = mysqli_num_rows($query);
+                    ?>
+
+                    <select name="alumno" id="alumno">
+                        <?php
+                        include '../conexion.php';
+                        if ($valores > 0) {
+                        }
+                        while ($valores = mysqli_fetch_array($query)) {
+                        ?>
+                            <option value="<?php echo $valores["id"] ?>"><?php echo $valores["name"] ?></option>
+                        <?php
+                        }
+                        ?>
+                        
+
                     </select>
 
                     <input type="submit" value="Guardar matrícula" class="btn_save">
@@ -86,19 +104,16 @@ if (!empty($_POST)) {
         </section>
 
     </header>
-    <!-- <div id="calendar"></div> -->
 
 </body>
+
 </html>
 
 <style>
-
-#container h1 {
-    font-size: 32px;
-    display: inline-block;
-    align-items: center;
-    text-align: center;
-}
-
-
+    #container h1 {
+        font-size: 32px;
+        display: inline-block;
+        align-items: center;
+        text-align: center;
+    }
 </style>
