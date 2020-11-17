@@ -1,6 +1,9 @@
 <?php
 
-require_once 'sistema/config/conectar.php';
+
+//echo  dirname(__FILE__);
+
+require_once $_SERVER['DOCUMENT_ROOT']."/laravel/p6/sistema/config/conectar.php";
 
 
 class usuario extends conectar{
@@ -22,21 +25,23 @@ class usuario extends conectar{
         if(mysqli_num_rows($buscaAdmin)==1){
             $_SESSION['nombreusuario'] = $nombre;
             $_SESSION['role'] = "admin";
-            return 1;
             $buscaAdmin->close();
-            $this->_db->close();           
+            $this->_db->close();
+            return 1;
         } elseif (mysqli_num_rows($buscaStud)==1){
             $_SESSION['nombreusuario'] = $nombre;
             $_SESSION['role'] = "student";
-            return 2;
+            $data = mysqli_fetch_array($buscaStud);
+            $_SESSION['id'] = $data["id"];            
             $buscaStud->close();
             $this->_db->close();           
+            return 2;
         } elseif (mysqli_num_rows($buscaTeacher)==1){
             $_SESSION['nombreusuario'] = $nombre;
             $_SESSION['role'] = "teacher";
-            return 3;
             $buscaTeacher->close();
-            $this->_db->close();    
+            $this->_db->close();  
+            return 3;  
         }  else {     
             return 0;
    

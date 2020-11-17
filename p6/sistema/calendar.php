@@ -13,13 +13,8 @@ $query = mysqli_query($conection, "SELECT sc.id_schedule, cl.name, cl.color, sc.
                                     INNER JOIN courses c ON e.id_course = c.id_course
                                     INNER JOIN class cl ON c.id_course = cl.id_course
                                     INNER JOIN schedule sc ON cl.id_schedule = sc.id_schedule
-                                    WHERE s.id = 7"
+                                    WHERE s.id =".$_SESSION['id']
                                 );
-
-// require_once 'base/eventoCalendario.php';
-// $calendario = new eventoCalendario();
-            
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -56,7 +51,6 @@ $query = mysqli_query($conection, "SELECT sc.id_schedule, cl.name, cl.color, sc.
                 events: [
                     <?php                    
                     while ($events = mysqli_fetch_assoc($query)) {
-                    //while ($events = $eventoCalendario->getCalendariobyId(7)) {
                     ?>
                     {
                         title: '<?php echo $events["name"]?>',

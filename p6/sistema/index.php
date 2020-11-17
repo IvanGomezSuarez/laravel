@@ -22,9 +22,9 @@
 	}
 	print_r($data_dash);
 	?>
-
 	<section id="container">
 		<div class="divContainer">
+
 			<div>
 				<h1 class="titlePanelControl">Panel de control</h1>
 			</div>
@@ -72,7 +72,6 @@
 										<span><?php echo $data_dash['alumnos'];//muestra el numero de registros en esta tabla de la BD ?> </span>
 									</p>
 								</a>
-
 							</div>
 
 
