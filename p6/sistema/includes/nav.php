@@ -40,8 +40,7 @@
 				<li class="principal">
 					<a href="#"><i class="fas fa-edit"></i> Matrícula</a>
 					<ul>
-						<li><a class="link-add addMatricula" href="#">
-							<i class="fas fa-plus"></i> Nueva matrícula</a></li>
+						<li><a href="addMatricula.php"><i class="fas fa-plus"></i> Nueva matrícula</a></li>
 						<li><a href="listado_matriculas.php">Lista de matriculas</a></li>
 					</ul>
 				</li>

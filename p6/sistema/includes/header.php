@@ -24,19 +24,3 @@ if(!isset($_SESSION['role'])){
 		<?php include "js/functions.js"; ?>
 	</header>
 
-	<div class="modal">
-		<div class="bodymodal">
-			<form action="" method="post" name="form_add_enrollment" id="form_add_enrollment" onsubmit="
-			event.preventDefault(); sendDataMatricula();">
-				<h1><i class="fas fa-save" style="font-size:45pt;"></i><br> Guardar matrícula</h1></br>
-				<h2 class="nombre_alumno">alejandro</h2></br>
-				<h2 class="nombre_curso">Matematicas</h2></br>
-				<input type="hidden" name="action" value="addMatricula" required>
-				<div class="alert alertAddMatricula"></div>
-				<button type="submit" class="btn_new"><i class="fas fa-save"></i> Guardar</button>
-				<a ref="#" class="btn_ok closeModal" onclick="closeModal();"><i class="fas fa-ban"></i> Cerrar</a>
-				
-			</form>
-		</div>
-
-	</div>
