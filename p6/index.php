@@ -80,7 +80,7 @@ if (isset($_POST["login"])) {
                 $query = mysqli_query($conection, " SELECT * FROM courses");
                 while ($valores = mysqli_fetch_array($query)) {
             // En esta sección estamos llenando el select con datos extraidos de una base de datos.
-                    echo '<option value="'.$valores[id_course].'">'.$valores[name].'</option>';
+                    echo '<option value="'.$valores['id_course'].'">'.$valores['name'].'</option>';
                 }
                 ?>
             </select>

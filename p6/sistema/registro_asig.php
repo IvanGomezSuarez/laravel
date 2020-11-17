@@ -2,9 +2,9 @@
     // aun no esta hecho, falta ver como guardar en la tabla class no los id de las tablas foraneas sino el nombre de los campos
     if(!empty($_POST))
     {
-        $alert='';
-        if(empty($_POST['nombreasig']) || empty($_POST['favcolor']) || empty($_POST['profesor']) || empty($_POST['curso'])
-        || empty($_POST['horario']))
+        $alert='';//que se pone en los post??
+        if(empty($_POST['nombreasig']) || empty($_POST['profesor']) || empty($_POST['curso'])
+        || empty($_POST['start']) || empty($_POST['horaini']) || empty($_POST['horafin']))
         {
             //echo $_POST['favcolor'];exit;
             $alert='<p class="msg_error">Todos los campos son obligatorios</p>';// funciona bien
@@ -14,7 +14,9 @@
             $color = $_POST['favcolor'];
             $profesor = $_POST['profesor'];
             $curso = $_POST['curso'];
-            $horario = $_POST['horario'];
+            $inicio = $_POST['start'];
+            $inihora = $_POST['horaini'];
+            $finhora = $_POST['horafin'];
 
             //echo "SELECT * FROM users_admin WHERE dni = '$dni' ";
             $query = mysqli_query($conection,"SELECT * FROM class WHERE name = '$nombre' ");
@@ -22,9 +24,9 @@
             if($result > 0){
                 $alert= '<p class="msg_error">La asignatura ya existe.</p>';//no me funciona ya que duplica las entradas
             }else{
-                $query_insert = mysqli_query($conection, "INSERT INTO class (name,color) 
-                VALUES('$nombre','$color')");
-
+                $query_insert = mysqli_query($conection, "INSERT INTO class (name,color,id_teacher,id_course) 
+                VALUES('$nombre','$color','$profesor','$curso')");
+                //echo $query_insert;exit;
                 if($query_insert){
                     $alert='<p class="msg_save">Asignatura creada</p>';
                 }else{
@@ -33,6 +35,7 @@
             }
         }
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +67,7 @@
                 $query = mysqli_query($conection, " SELECT * FROM teachers");
                 while ($valores = mysqli_fetch_array($query)) {
             // En esta sección estamos llenando el select con datos extraidos de una base de datos.
-                    echo '<option value="'.$valores[id_teacher].'">'.$valores[name].'</option>';
+                    echo '<option value="'.$valores['id_teacher'].'">'.$valores['name'].'</option>';
                 }
                 ?>
             </select>
@@ -78,25 +81,22 @@
                 $query = mysqli_query($conection, " SELECT * FROM courses");
                 while ($valores = mysqli_fetch_array($query)) {
             // En esta sección estamos llenando el select con datos extraidos de una base de datos.
-                    echo '<option value="'.$valores[id_course].'">'.$valores[name].'</option>';
+                    echo '<option value="'.$valores['id_course'].'">'.$valores['name'].'</option>';
                 }
                 ?>
             </select>
     
-            <label for="Horario">Horario</label>
-            <select>
-                <option name="horario" value="0">Seleccione:</option>
-            <?php
-            include '../conexion.php';
-            // Realizamos la consulta para extraer los datos, en este select se deben mostrar los horarios solo de la asignatura seleccionada
-                $query = mysqli_query($conection, " SELECT * FROM schedule");
-                while ($valores = mysqli_fetch_array($query)) {
-            // En esta sección estamos llenando el select con datos extraidos de una base de datos.
-                    echo '<option value="'.$valores[id_schedule].'">'.$valores[day].' '.$valores[time_start].'</option>';
-                }
-                ?>
-            </select>
+            <label for="start">Fecha de inicio:</label>
+            <input type="date" id="start" name="start" value="2020-01-01" min="2020-01-01" max="2020-12-31">
+            <label for="horaini">Hora de inicio:</label>
+            <input type="time" id="horaini" name="horaini"
+            min="09:00" max="18:00" required>
+            <label for="horafin">Hora de Fin:</label>
+            <input type="time" id="horafin" name="horafin"
+            min="09:00" max="18:00" required>
             <input type="submit" value="Crear nueva asignatura" class="btn_save">
+
+            
             </form>
         </div>
 	</section>

@@ -38,11 +38,11 @@ include "../conexion.php";
                     <td><?php echo $data["nif"]; ?></td>
                     <td><?php echo $data["email"] ?></td>
                     <td>
-                        <a class="link_edit" href="edit_profesor.php?id=<?php echo $data["id_teacher"];?>">Editar</a>
+                        <a class="link_edit" href="edit_profesor.php?id=<?php echo $data["id_teacher"];?>"><i class="fas fa-edit"></i></a>
 
                         <?php if($data["id_teacher"] !=1){ ?>
                         |
-                        <a class="link_delete" href="delete_profesor.php?id=<?php echo $data["id_teacher"];?>">Eliminar</a>
+                        <a class="link_delete" href="delete_profesor.php?id=<?php echo $data["id_teacher"];?>"><i class="fas fa-trash-alt"></i></a>
                         <?php } ?>
                     </td>
                 </tr>

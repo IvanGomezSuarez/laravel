@@ -46,9 +46,9 @@ include "../conexion.php";
                     <td><?php echo $data["email"]; ?></td>
                     <td><?php echo $data["date_registered"]; ?></td>
                     <td>
-                        <a class="link_edit" href="edit_alumno.php?id=<?php echo $data["id"];?>">Editar</a>
+                        <a class="link_edit" href="edit_alumno.php?id=<?php echo $data["id"];?>"><i class="fas fa-edit"></i></a>
                         |
-                        <a class="link_delete" href="delete_alumno.php?id=<?php echo $data["id"];?>">Eliminar</a>
+                        <a class="link_delete" href="delete_alumno.php?id=<?php echo $data["id"];?>"><i class="fas fa-trash-alt"></i></a>
                         
                     </td>
                 </tr>

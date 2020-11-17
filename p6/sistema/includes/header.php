@@ -20,5 +20,7 @@ if(!isset($_SESSION['role'])){
 				<a href="salir.php"><img class="close" src="img/salir.png" alt="Salir del sistema" title="Salir"></a>
 			</div>
 		</div>
-        <?php include "nav.php"; ?>
+		<?php include "nav.php"; ?>
+		<?php include "js/functions.js"; ?>
 	</header>
+
