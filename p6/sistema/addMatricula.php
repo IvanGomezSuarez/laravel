@@ -40,6 +40,8 @@ if (!empty($_POST)) {
     <meta charset="UTF-8">
     <script src="js/jquery.min.js"></script>
     <?php include "includes/scripts.php"; ?>
+    <?php include "includes/header.php"; ?>
+
     <title>Calendario</title>
 </head>
 

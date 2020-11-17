@@ -2,7 +2,7 @@
     // aun no esta hecho, falta ver como guardar en la tabla class no los id de las tablas foraneas sino el nombre de los campos
     if(!empty($_POST))
     {
-        $alert='';
+        $alert='';//que se pone en los post??
         if(empty($_POST['nombreasig']) || empty($_POST['profesor']) || empty($_POST['curso'])
         || empty($_POST['start']) || empty($_POST['horaini']) || empty($_POST['horafin']))
         {
@@ -26,7 +26,7 @@
             }else{
                 $query_insert = mysqli_query($conection, "INSERT INTO class (name,color,id_teacher,id_course) 
                 VALUES('$nombre','$color','$profesor','$curso')");
-                echo $query_insert;exit;
+                //echo $query_insert;exit;
                 if($query_insert){
                     $alert='<p class="msg_save">Asignatura creada</p>';
                 }else{
