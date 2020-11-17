@@ -14,7 +14,7 @@ if (!empty($_POST)) {
 
         //echo "SELECT * FROM users_admin WHERE dni = '$dni' ";
         $query = mysqli_query($conection, "SELECT * FROM enrollment WHERE  id_course = '$course AND id_student= '$alum'");
-      //  echo $query;
+        echo $query;exit;
         exit;
         $result = mysqli_fetch_array($query);
         // print_r($result);

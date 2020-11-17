@@ -1,7 +1,7 @@
-$(document.readyState(function(){
+/*$(document.readyState(function(){
 
 //modal-form add matricula
-
+/*
 $('.addMatricula').click(function(e){
     e.preventDefault();
     var matricula = $(this).attr('matricula');
@@ -15,6 +15,6 @@ $('.addMatricula').click(function(e){
 function closeModal(){
     $('.modal').fadeOut();
 
-}
-
+)
+*/
 
