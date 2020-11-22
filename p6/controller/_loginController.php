@@ -20,11 +20,10 @@ if (sizeof($resultado)==2){
 
     $_SESSION['id']= $resultado[1]->id;
     $_SESSION['username']= $resultado[1]->username;
-    $_SESSION['pass']= $resultado[1]->pass;
+    $_SESSION['password']= $resultado[1]->pass;
     $_SESSION['email']= $resultado[1]->email;
     $_SESSION['name']= $resultado[1]->name;
     $_SESSION['surname']= $resultado[1]->surname;
-    
     $reload=true;
 
 }
