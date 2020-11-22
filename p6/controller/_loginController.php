@@ -37,7 +37,7 @@ if (sizeof($resultadoAdmin)==2){
     $_SESSION['admin']=true;
     $_SESSION['rol']='admin';
  
-    $_SESSION['id_user_admin'] = $resultadoAdmin[1]->id_user_admin;
+    $_SESSION['id'] = $resultadoAdmin[1]->id_user_admin;
     $_SESSION['username'] = $resultadoAdmin[1]->username;
     $_SESSION['name'] = $resultadoAdmin[1]->name;
     $_SESSION['email'] = $resultadoAdmin[1]->email;

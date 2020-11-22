@@ -44,6 +44,7 @@
         </li> -->
         
       </ul>
+      <h3>Hola <?php echo ucfirst($_SESSION['name']);  ?></h3>
       
     </div>
   </nav>
