@@ -21,7 +21,7 @@ include CONT.'_loginController.php';
     <form class="col-sm-8 col-lg-6 col-md-6 offset-sm-2 offset-md-3 offset-lg-3 border login" action="" method="post">
       Usuario no existente, registrese:
             <div class="form-group">
-              <label for="exampleInputEmail1">Usuaasario</label>
+              <label for="exampleInputEmail1">Usuario</label>
               <input type="text" class="form-control" name="user" id="usuario" aria-describedby="emailHelp" required>
             </div>
             <div class="form-group">
