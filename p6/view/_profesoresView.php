@@ -53,7 +53,7 @@ include CONT.'_profesoresController.php';
         <div class="col-md-8">
             <form class="asignatio" action="?pag=_profesoresView.php" method="post">
                 <div class="form-group editasign">
-                    <label for="exampleFormControlSelect1">Listado de Profesores</label>
+                    <label for="exampleFormControlSelect1">Listado de Profesores Ivan</label>
                     <select size="10" name="borra-id-profs"  class="form-control" id="exampleFormControlSelect1" multiple>
                         <?php
                         for ( $a = 1; $a<$totalProfesores; $a++){?>
