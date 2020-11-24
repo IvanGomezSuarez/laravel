@@ -22,7 +22,7 @@ function cargamosHorarios($idStudent){
     INNER JOIN enrollment e ON s.id = e.id_student
     INNER JOIN courses c ON e.id_course = c.id_course
     INNER JOIN class cl ON c.id_course = cl.id_course
-    INNER JOIN schedule sc ON cl.id_schedule = sc.id_schedule
+    INNER JOIN schedule sc ON cl.id_class = sc.id_class
     WHERE s.id ="'.$idStudent.'"';
     $result = mysqli_query($conn, $sql);
     while($resultado=mysqli_fetch_object($result)){
