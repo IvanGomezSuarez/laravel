@@ -1,5 +1,20 @@
 <?php
 
+function conectar() {
+	$out =  mysqli_connect(HOST_DB, USER_DB, PASS_DB, NAME_DB);
+        
+        if ($out->connect_error){
+            die("Conexion fallida:".$out->connect_error);
+        }
+return $out;
+}
+
+function desconectar($conexion) {
+	mysqli_close($conexion);
+}
+
+
+
 
 function salir(){
     foreach($_SESSION as $key => $value){
@@ -17,20 +32,9 @@ function salir(){
     
 }
 
-date_default_timezone_set('europe/madrid'); 
-	
-function fechaC(){
-  $mes = array("","Enero", 
-          "Febrero", 
-          "Marzo", 
-          "Abril", 
-          "Mayo", 
-          "Junio", 
-          "Julio", 
-          "Agosto", 
-          "Septiembre", 
-          "Octubre", 
-          "Noviembre", 
-          "Diciembre");
-  return date('d')." de ". $mes[date('n')] . " de " . date('Y');
+
+function pre($var){
+$out='<pre>'.$var.'</pre>';
+return $out;
+
 }

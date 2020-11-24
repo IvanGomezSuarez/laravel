@@ -49,10 +49,10 @@ include CONT.'_adminMatriculasController.php';
                               <?php
                                       if($totalAlumnosSinCurso>1){
                                       for ( $a = 1; $a<$totalAlumnosSinCurso; $a++){ ?>
-                                          <option value="<?php echo $arrayAlumnosSinCurso[$a]->id ?>"><?php echo $arrayAlumnosSinCurso[$a]->name.' '.$arrayAlumnosSinCurso[$a]->surname.' '.$arrayAlumnosSinCurso[$a]->nif ?></option>    
+                                          <option value="<?php echo $arrayAlumnosSinCurso[$a]->id ?>"><?php echo $arrayAlumnosSinCurso[$a]->name.' '.$arrayAlumnosSinCurso[$a]->surname.' NIF '.$arrayAlumnosSinCurso[$a]->nif ?></option>    
                                       <?php }
                                       }else{?>
-                                          <option value="">No...</option>
+                                          <option value="">No hay alumnos disponibles...</option>
                                         
                                           <?php 
                                       }
@@ -71,7 +71,7 @@ include CONT.'_adminMatriculasController.php';
                                     <?php
                                     }
                                     }else{ ?>
-                                          <option value="">No hay asignaturas, hay que crearlas</option>
+                                          <option value="">No hay Cursos, hay que crearlos</option>
 
                                           <?php
                                           }

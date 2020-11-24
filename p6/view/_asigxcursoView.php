@@ -43,12 +43,18 @@ include CONT.'_asigxcursoController.php';
                             <label for="exampleFormControlSelect1">Asignatura</label>
                             <select name="clase" class="form-control" id="exampleFormControlSelect1">
                                  <?php 
-                               
+                                   if  ($totalSinAsignar>1){
                                     for ( $a = 1; $a<$totalSinAsignar; $a++){?>
                                         <option value="<?php echo $arraySinAsignar[$a]->id_class ?>"><?php echo $arraySinAsignar[$a]->name;?></option>    
                                     <?php
+                                        }
                                     
-                                    }?>
+                                    }else{?>
+                                          <option value="">No quedan asignaturas...</option>
+                                        
+                                          <?php 
+                                      }
+                                      ?>
                             </select>
                         </div>
                     </div>

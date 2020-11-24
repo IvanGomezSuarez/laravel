@@ -1,14 +1,19 @@
 <?php
 session_start();
 
+/*
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-
+*/
 $title = 'Admin Panel Calendario Asignaturas';      // Título de la página
 
 define('CONT','controller/');
 define('MOD','model/');
 define('VIEW','view/');
+define('CALENDLIBJS','public/lib/main.min.js');
+define('CALENDCSS','public/lib/main.css');
+
+
 
 define('CSS','public/css/style.css');
 define ('IMG', 'public/img/');

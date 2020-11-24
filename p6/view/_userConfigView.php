@@ -27,7 +27,7 @@ include CONT.'_userConfigController.php';
              <form class="asignatio" action="?pag=_userConfigView.php" method="post">
                 <div class="form-group editasign">
              
-                         <input type="hidden" name="id" value="<?php echo $_SESSION['id']; ?>">
+                         <input type="hidden" name="id" value="<?php echo $_SESSION['id_user_admin']; ?>">
                             <div class=" mb-3">
                                 <label for="nombre">Nombre</label>
                                 <input  required type="text" class="form-control" name="name" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" value="<?php echo ucfirst($_SESSION['name']); ?>">

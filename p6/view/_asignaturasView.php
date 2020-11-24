@@ -25,22 +25,7 @@ include CONT.'_asignaturasController.php';
                         </div>
                     
                         
-                    <?php /* ?>
-                        <div class="fdorm-group row mb-3">
-                                <div class="col-sm-6">
-                                    <label for="exampleFormControlTextarea1">Hora Inicio</label>
-                                    <input type="time" class="form-control fullwidth" id="exampleFormControlTextarea1" name="alfaday" placeholder="Dia inicio" value="<?php if($editamos){echo $cursoxID[1]->date_start;}?>" >
-                                </div>
-                                <div class="col-sm-6">
-                                    <label for="exampleFormControlTextarea1">Hora Fin</label>
-                                   <input type="time" class="form-control fullwidth" id="exampleFormControlTextarea1" name="omegaday" placeholder="Dia final" value="<?php if($editamos){echo $cursoxID[1]->date_end;}?>">
-                                </div>    
-                        </div>
-                    
-                     <?php */ ?>
-
-                    
-                    
+               
                     
                     
                         <?php
@@ -62,6 +47,7 @@ include CONT.'_asignaturasController.php';
                     <select name="borra-id-asigns" size="10" class="form-control" id="exampleFormControlSelect1">
                         <?php
                         for ( $a = 1; $a<$totalAsignaturas; $a++){?>
+                           
                             <option style="color:<?php echo $arrayAsignaturas[$a]->color; ?>; font-weight:900;" value="<?php echo $arrayAsignaturas[$a]->id_class; ?>"><?php echo $arrayAsignaturas[$a]->name; ?></span></option>    
                         <?php
                         }

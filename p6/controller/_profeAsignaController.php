@@ -8,19 +8,12 @@ if (isset($_POST['asignacion'])){
        $idclass = $arr[1];
    }
     
-    
     desasignaProfe($idteacher,$idclass);
-//     header("Location: ?pag=_profeAsignaView.php");
-         $reload=true;
-
+    $reload=true;
 }
 
 
 if (isset($_POST['profesor']) && isset($_POST['clase'])){
-    
-    
     empareja($_POST['profesor'], $_POST['clase']);
-  //   header("Location: ?pag=_profeAsignaView.php");
-        $reload=true;
-
+    $reload=true;
 }

@@ -1,5 +1,10 @@
 <?php
-//$reload=false;
+$reload=false;
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 function conectar() {
 	$out =  mysqli_connect(HOST_DB, USER_DB, PASS_DB, NAME_DB);
@@ -33,3 +38,4 @@ function cargamosHorarios($idStudent){
     return $out;       
     
 }
+
