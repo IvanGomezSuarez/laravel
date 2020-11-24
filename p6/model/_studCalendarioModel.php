@@ -6,19 +6,6 @@ $reload=false;
  * and open the template in the editor.
  */
 
-function conectar() {
-	$out =  mysqli_connect(HOST_DB, USER_DB, PASS_DB, NAME_DB);
-        
-    if ($out->connect_error){
-        die("Conexion fallida:".$out->connect_error);
-    }
-    return $out;
-}
-
-function desconectar($conexion) {
-	mysqli_close($conexion);
-}
-
 function cargamosHorarios($idStudent){
        
     $conn = conectar();
