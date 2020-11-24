@@ -46,7 +46,10 @@ include CONT.'_adminAlumnController.php';
                                 <input required type="text" class="form-control" name="user" placeholder="Usuario"  value="<?php if ($editamos){echo $editoAlumno[1]->username; }?>"></div>
                             <div class=" mb-3">
                                 <label>Password</label>
-                                <input data-toggle="password" type="password" required type="password" class="form-control" name="pass" placeholder="Password" value="<?php if ($editamos){echo $editoAlumno[1]->pass; }?>">
+                                <input id="password" data-toggle="password" required type="password" class="form-control" name="pass" placeholder="Password" value="<?php if ($editamos){echo $editoAlumno[1]->pass; }?>">
+                                
+
+
                             </div>
                              <div class=" mb-3">
                                 <label>Desde</label>

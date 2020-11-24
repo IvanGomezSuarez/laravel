@@ -78,7 +78,7 @@ include CONT.'_cursosController.php';
                     <select name="idcourse" size="10" class="form-control" id="exampleFormControlSelect1">
                         <?php
                         for ( $a = 1; $a<$totalCursos; $a++){?>
-                            <option value="<?php echo $arrayCursos[$a]->id_course; ?>"><?php echo $arrayCursos[$a]->name; ?></span></option>    
+                            <option value="<?php echo $arrayCursos[$a]->id_course; ?>"><?php echo $arrayCursos[$a]->name; ?> <?php if(($arrayCursos[$a]->active)=='1'){echo '- Activo';}else{ echo '- No Activo';} ?></span></option>    
                         <?php
                         }
                         ?>

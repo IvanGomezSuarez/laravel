@@ -14,16 +14,18 @@ $resultado = loguea_estudiante($_POST['user'],$_POST['pass']);
 
 if (sizeof($resultado)==2){
    
-    $_SESSION['student']=true;
-    $_SESSION['admin']=false;
+  /*  $_SESSION['student']=true;
+    $_SESSION['admin']=false;*/
     $_SESSION['rol']='student';
 
     $_SESSION['id']= $resultado[1]->id;
     $_SESSION['username']= $resultado[1]->username;
-    $_SESSION['password']= $resultado[1]->pass;
+    $_SESSION['pass']= $resultado[1]->pass;
     $_SESSION['email']= $resultado[1]->email;
     $_SESSION['name']= $resultado[1]->name;
     $_SESSION['surname']= $resultado[1]->surname;
+    $_SESSION['telefono']=$resultado[1]->telephone;
+    $_SESSION['nif']=$resultado[1]->nif;
     $reload=true;
 
 }
@@ -33,11 +35,11 @@ $resultadoAdmin = loguea_admin($_POST['user'],$_POST['pass']);
 
 if (sizeof($resultadoAdmin)==2){
    
-    $_SESSION['student']=false;
-    $_SESSION['admin']=true;
+  /*  $_SESSION['student']=false;
+    $_SESSION['admin']=true;*/
     $_SESSION['rol']='admin';
  
-    $_SESSION['id'] = $resultadoAdmin[1]->id_user_admin;
+    $_SESSION['id_user_admin'] = $resultadoAdmin[1]->id_user_admin;
     $_SESSION['username'] = $resultadoAdmin[1]->username;
     $_SESSION['name'] = $resultadoAdmin[1]->name;
     $_SESSION['email'] = $resultadoAdmin[1]->email;
@@ -56,8 +58,15 @@ if (!isset($_SESSION['rol'])){
 
 /* hemos logeado pero no existe en bs*/
 if (isset($_POST['user']) && isset($_POST['pass']) && (sizeof($resultado)==1) && (sizeof($resultadoAdmin))==1){
-    $_SESSION['rol']='registrar';
+   
+   
+   echo '<script>alert("Usuario y/o Contraseña erroneos")</script>';
     $reload=true;
 
+}
+
+if ((isset($_GET['pag'])&&($_GET['pag']=='registrar'))){
+     $_SESSION['rol']='registrar';
+     $reload=true;
 }
 

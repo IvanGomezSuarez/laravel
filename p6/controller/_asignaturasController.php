@@ -12,9 +12,14 @@ if ( isset($_POST['name']) && isset($_POST['color']) && !isset($_POST['accion'])
 
 
 if ( (isset($_POST['borra-id-asigns'])) &&  (isset($_POST['borra']))){
-    borraAsignatura($_POST['borra-id-asigns']);
- //   header("Location: ?pag=_asignaturasView.php");
-        $reload=true;
+     borraAsignatura($_POST['borra-id-asigns']);
+ 
+    $lista =idteacherfromidclass($_POST['borra-id-asigns']);
+   
+    $idprofesor=$lista[1]->id_teacher;
+    print_r($idprofesor);
+    unasignateacher($idprofesor);
+   $reload=true;
 
 }
 

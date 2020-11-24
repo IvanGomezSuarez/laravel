@@ -5,9 +5,16 @@ $reload=false;
 /* detecta si queremos borrar */
 if ( (isset($_POST['id-alumns'])) && (!isset($_POST['edita'])) ){
     borraAlumno($_POST['id-alumns']);
-   // header("Location: ?pag=_profesoresView.php");
-    $reload=true;
+    /* tambien hemos de borrar en id alumno de enrollment */
+    borraMatricula($_POST['id-alumns']);
+     $reload=true;
+ 
+    
 }
+
+
+
+
 
 
 

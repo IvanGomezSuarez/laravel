@@ -11,7 +11,9 @@ and open the template in the editor.
 body#admin{
     background-color: #e6ebefc4;
 }
-
+body#estudent{
+    background-color: #2f773124;
+}
 
   body#login form{
       margin-top: 50px;

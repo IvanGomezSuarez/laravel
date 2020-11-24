@@ -1,4 +1,5 @@
 <?php 
+
 include MOD.'_studentAdminModel.php'; 
 include CONT.'_studentAdminController.php';
 ?>
@@ -9,11 +10,12 @@ include CONT.'_studentAdminController.php';
         <link rel="stylesheet" href="<?php echo CSS; ?>">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
         <meta charset="UTF-8">
-        <title><?php echo($title); ?></title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Alumnos</title>
     </head>
-    <body>
+    <body id="estudent">
         <?php  
-        include 'common/_studentPanelNav.php';
+        include 'common/_studPanelNav.php';
         include VIEW.$pagina; 
         ?>
         

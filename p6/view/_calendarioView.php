@@ -17,29 +17,33 @@ include CONT.'_calendarioController.php';
                     <input type='hidden' name='idclass' value='asignamos'>
                     <select  name='clase' class="form-control mb-4" id="select" >
                         <?php 
-                        if ($totalAsignaturas>0){
+                       
+                        if ($totalAsignaturas>1){
                                 for ($a=1;$a<$totalAsignaturas;$a++){  ?>
                                     
                                 <?php 
                                 if (($mantiene=='')&&($a==1)){
                                     $elprimero=$arrayAsignaturas[$a]->id_class;
+                                    $nombre=$arrayAsignaturas[$a]->name;
+
                                 }
                                     if (   ($mantiene!='') && (($arrayAsignaturas[$a]->id_class)==($mantiene)))  { ?>
-                        <option selected value="<?php  echo $arrayAsignaturas[$a]->id_class ?>"><?php echo $arrayAsignaturas[$a]->name. ' '.$arrayAsignaturas[$a]->id_class ?></option>
-                              <?php 
+                                        <option selected value="<?php  echo $arrayAsignaturas[$a]->id_class ?>"><?php echo $arrayAsignaturas[$a]->name. ' '.$arrayAsignaturas[$a]->id_class ?></option>
+                                    <?php 
                               
-                                      $elprimero=$arrayAsignaturas[$a]->id_class;
-                              
+                                        $elprimero=$arrayAsignaturas[$a]->id_class;
+                                        $nombre=$arrayAsignaturas[$a]->name;
                                     } else {
-                              
-                                ?>
+                                    ?>
                                    
                                     <option value="<?php  echo $arrayAsignaturas[$a]->id_class ?>"><?php echo $arrayAsignaturas[$a]->name. ' '.$arrayAsignaturas[$a]->id_class ?></option>
-                   
+                                   
                         <?php       }
                                 }                         }  else { ?>
-                                     <option>nada</option>
+                                     <option>No hay asignaturas...</option>
                         <?php
+                        $elprimero =0;
+                                
                         }
                         ?>
 
@@ -89,22 +93,14 @@ include CONT.'_calendarioController.php';
     <hr>
    <br>
    
-       <?php 
-   echo $elprimero;
-    echo $mantiene;
+<?php  $dias = sizeof(horarioAsign($elprimero));
+   if ($dias>1){
+
+?>
    
-   $dias = sizeof(horarioAsign($elprimero));
-      
-   
-   ?>
-   
-   
-   
-   
-   
-   
-   
-   <table class="table table-bordered table-dark table-sm">
+   <h4 class="mb-2"><?php echo $nombre ?></h4>
+   <hr>
+  <table class="table table-bordered table-dark table-sm">
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
@@ -117,6 +113,7 @@ include CONT.'_calendarioController.php';
   <tbody>
   
     <?php 
+   
     for ($a=1;$a<$dias; $a++){
     ?>  
     <tr>
@@ -131,30 +128,21 @@ include CONT.'_calendarioController.php';
       
     
   </tbody>
-</table>
-
-   <script>
-         document.getElementById('select').addEventListener('change', function() {
-  console.log('You selected: ', this.value);
-  $idclase=this.value;
-  window.location = "?pag=_calendarioView.php&ider="+$idclase;
-
-}); 
-       
- 
-
-   </script>
-   
+  </table>
+   <?php } ?>
    
 </div>
+<script>
+      document.getElementById('select').addEventListener('change', function() {
+      $idclase=this.value;
+      window.location = "?pag=_calendarioView.php&ider="+$idclase;
+    }); 
+    </script>
 <script>
 if (window.history.replaceState) { // verificamos disponibilidad
     window.history.replaceState(null, null, window.location.href);
 }
 </script>
-
-
-
 <?php
 if($reload){
 echo '<script>location.reload();</script>';

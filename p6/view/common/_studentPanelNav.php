@@ -31,21 +31,12 @@
         <li class="nav-item">
           <a class="nav-link" href="?pag=_userConfigView.php">Configuración</a>
         </li>
-
-        <li class="nav-item pull-right">
-            <form action="" method="post" class="">
-                <input type="submit" class="nav-link salir" name="exit" value="Salir">
-            </form>
-          
+        
+           <li class="nav-item">
+          <a class="nav-link" href="?pag=salir">Salir</a>
         </li>
         
-           <!-- <li class="nav-item">
-          <a class="nav-link" href="?pag=salir">Salir</a>
-        </li> -->
-        
       </ul>
-      <p>España, <?php echo fechaC(); ?></p>
-      <h3>Hola <?php echo ucfirst($_SESSION['name']);  ?></h3>
       
     </div>
   </nav>

@@ -24,6 +24,8 @@ if ( (isset($_POST['idcourse'])) && (isset($_POST['edita'])) && ($_POST['edita']
 if ( (isset($_POST['idcourse'])) && (isset($_POST['borra'])) && ($_POST['borra']=='Borra' )) {
     
     borraCurso($_POST['idcourse']);
+    /*borrarCursoenClass()*/
+    
     $reload=true;
 }
 

@@ -60,7 +60,7 @@ include CONT.'_profeAsignaController.php';
                             <label for="exampleFormControlSelect1">Asignatura</label>
                             <select name="clase" class="form-control" id="exampleFormControlSelect1">
                                  <?php 
-                                    if($totalSinAsignar>0){
+                                    if($totalSinAsignar>1){
                                     for ( $a = 1; $a<$totalSinAsignar; $a++){?>
                                         <option value="<?php echo $arraySinAsignar[$a]->id_class ?>"><?php echo $arraySinAsignar[$a]->name;?></option>    
                                     <?php

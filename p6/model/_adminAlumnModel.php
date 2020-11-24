@@ -1,17 +1,4 @@
 <?php
-function conectar() {
-	$out =  mysqli_connect(HOST_DB, USER_DB, PASS_DB, NAME_DB);
-        
-        if ($out->connect_error){
-            die("Conexion fallida:".$out->connect_error);
-        }
-return $out;
-}
-
-function desconectar($conexion) {
-	mysqli_close($conexion);
-}
-
 
 /* devuelve TODOS los alumnos esixtentes */
 function cargamosAlumnos(){
@@ -37,6 +24,17 @@ function borraAlumno($id){
     $result = mysqli_query($conn, $sql);
     desconectar($conn);
 }
+
+function borraMatricula($id){
+    $conn = conectar();
+    $sql = 'DELETE FROM enrollment WHERE id_student="'.$id.'"';
+    $result = mysqli_query($conn, $sql);
+    
+    desconectar($conn);
+}
+
+
+
 
 
 /* devuelve un alumno seleccionado para poder editarlo */
@@ -64,7 +62,7 @@ function generaAlumno($nombre,$apellidos,$telefono,$nif,$email,$alfaday,$user,$p
 
 
 
-
+/* Atualiza los datos de alumno */
 function actualizaAlumno($id,$username,$pass,$email,$name,$surname,$telephone,$nif,$date_reistered){
     $conn = conectar();
     $sql = "UPDATE students SET id='$id', username='$username', pass='$pass', email='$email', name='$name', surname='$surname', telephone='$telephone', nif='$nif', date_registered='$date_reistered'  WHERE id='$id'";

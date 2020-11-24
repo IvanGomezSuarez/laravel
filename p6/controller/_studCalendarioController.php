@@ -1,6 +1,8 @@
 <?php
 
-if($_SESSION['rol']=='student'){
-    $eventos = cargamosHorarios($_SESSION['id']);
-    $totalEventos = sizeof($eventos);
-}
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+

@@ -1,19 +1,4 @@
 <?php
-function conectar() {
-	$out =  mysqli_connect(HOST_DB, USER_DB, PASS_DB, NAME_DB);
-        
-        if ($out->connect_error){
-            die("Conexion fallida:".$out->connect_error);
-        }
-return $out;
-}
-
-function desconectar($conexion) {
-	mysqli_close($conexion);
-}
-
-
-
 
 /* Carga las asignaturas*/
 function cargamosAsignaturas(){
@@ -66,7 +51,42 @@ function borraHorarioID($id){
 
 function guardaHorario($idclass,$dia,$horaini,$horafin){
     $conn = conectar();
-    $sql = "INSERT INTO schedule (id_class, time_start, time_end, day) VALUES ('$idclass','$horaini','$horafin','$dia')";
+    $sql = "INSERT INTO schedule (id_class, time_start, time_end, day) VALUES ('$idclass','$horaini','$horafin','$dia');";
     $result = mysqli_query($conn, $sql);
+    
+   // $idschedule=mysqli_insert_id($conn);
     desconectar($conn);
+
+    //$conn = conectar();
+    
+   // $sql2 = "UPDATE class SET id_schedule='$idschedule' WHERE id_class='$idclass'";
+   // $result = mysqli_query($conn, $sql2);
+    
+    //desconectar($conn);
 }
+
+
+function actualizAsignatura($nombre,$color,$id){
+    
+    $conn = conectar();
+    $sql = "UPDATE class SET name='$nombre', color='$color' WHERE id_class='$id'";
+    $result = mysqli_query($conn, $sql);
+    
+    desconectar($conn);
+
+}
+
+
+
+
+
+/*
+function obtieneultimoIdschedule(){
+     $conn = conectar();
+     $sql="SELECT LAST_INSERT_ID()";
+     $result = mysqli_query($conn, $sql);
+    desconectar($conn);
+    return $result;
+}
+
+ */

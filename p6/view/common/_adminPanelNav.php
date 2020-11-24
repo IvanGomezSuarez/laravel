@@ -1,7 +1,5 @@
-<?php
-?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <a class="navbar-brand" href="#">Colegio</a>
+    <a class="navbar-brand" href="?"><i class="fa fa-home" aria-hidden="true"></i></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -35,9 +33,15 @@
               </div>
         </li>
       
-        <li class="nav-item">
-          <a class="nav-link" href="?pag=_calendarioView.php">Calendario</a>
+        
+           <li class="nav-item">
+          <a class="nav-link" href="?pag=_calendarioView.php">Horarios</a>
         </li>
+        
+      
+        
+        
+
         <li class="nav-item">
           <a class="nav-link" href="?pag=_userConfigView.php">Configuración</a>
         </li>
@@ -51,5 +55,5 @@
       </div>
   </nav>
 <script>
-   $('.dropdown-toggle').dropdown()
+   jQuery('.dropdown-toggle').dropdown();
 </script>
