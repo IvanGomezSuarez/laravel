@@ -1,6 +1,6 @@
 <?php 
 include MOD.'_registerModel.php';
-include CONT.'_registerController.php';echo $regok;
+include CONT.'_registerController.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,7 +18,7 @@ include CONT.'_registerController.php';echo $regok;
     </head>
     <body id="login" style="<?php /* ?>background-image: url(<?php echo IMG.'fondo.jpg'?>);background-size:cover; <?php */ ?>">
        <?php if ($regok==true){
-           echo '<script>alert("Usuario Guardado"); window.location.href = "index.php";</script>';
+           echo '<script>alert("Usuario Guardado correctamente"); window.location.href = "?pag=back";</script>';
          
        } ?>
     <div id="" class="container-md" >

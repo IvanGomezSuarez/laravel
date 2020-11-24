@@ -21,7 +21,7 @@ if (isset( $_POST['email']) &&isset($_POST['name']) && isset($_POST['user']) && 
     
     
     if (sizeof($resultado) >1){
-       echo '<script>alert("Usuario ya registrado");</script>';
+       echo '<script>alert("Usuario no valido, ya existe un nombre de usuario igual");</script>';
        $classAlertUser='alert alert-danger';
     }elseif($pas1!=$pas2){
        echo '<script>alert("Las contraseñas no coinciden");</script>';
