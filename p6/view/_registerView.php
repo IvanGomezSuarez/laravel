@@ -23,7 +23,7 @@ include CONT.'_registerController.php';
        } ?>
     <div id="" class="container-md" >
         <form class="col-sm-8 col-lg-6 col-md-6 offset-sm-2 offset-md-3 offset-lg-3 border login" action="?pag=registerView.php" method="post">
-            Regístrate:<hr>
+            Regístrate como usuario Administrador:<hr>
              <div class="form-group">
                   <label>Nombre</label>
                   <input type="text" class="form-control" name="name" id="name" required>
