@@ -33,7 +33,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', _welcomeController::class);
+/*Route::get('/', _welcomeController::class);
 Route::get('/', _adminAlumnController::class);
 Route::get('/', _adminMatriculasController::class);
 Route::get('/', _asigxcursoController::class);
@@ -41,9 +41,9 @@ Route::get('/', _asignaturasController::class);
 Route::get('/', _calendarioController::class);
 Route::get('/', _cursosController::class);
 Route::get('/', _graphCalendarController::class);
-Route::get('/', _indexController::class);
+Route::get('/', _indexController::class);*/
 Route::get('/', _loginController::class);
-Route::get('/', _profesoresController::class);
+/*Route::get('/', _profesoresController::class);
 Route::get('/', _profeAsignaController::class);
 Route::get('/', _registerController::class);
 Route::get('/', _studAsignaturasController::class);
@@ -52,7 +52,7 @@ Route::get('/', _studConfigController::class);
 Route::get('/', _studCursosController::class);
 Route::get('/', _studWelcomeController::class);
 Route::get('/', _studentAdminController::class);
-Route::get('/', _userConfigController::class);
+Route::get('/', _userConfigController::class);*/
 
 
 
