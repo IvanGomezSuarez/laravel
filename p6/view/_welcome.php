@@ -1,1 +1,0 @@
-<h1>Aplicativo para la docencia y planificacion</h1>
