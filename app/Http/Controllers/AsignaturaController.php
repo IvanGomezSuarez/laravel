@@ -3,7 +3,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Asignatura;
 use Illuminate\Http\Request;
-use DB;
+
+use Illuminate\Support\Facades\DB;
 
 class AsignaturaController extends Controller
 {
