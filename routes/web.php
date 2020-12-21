@@ -125,3 +125,23 @@ use App\Http\Controllers\CalificablesController;
     Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/asignaturas', function () {
+    return view('asignaturas');
+})->name('asignaturas');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/cursos', function () {
+    return view('cursos');
+})->name('cursos');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/profesores', function () {
+    return view('profesores');
+})->name('profesores');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/adminalumn', function () {
+    return view('adminalumn');
+})->name('adminalumn');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/calendario', function () {
+    return view('calendario');
+})->name('calendario');
