@@ -149,3 +149,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/adminalumn', function () 
 Route::middleware(['auth:sanctum', 'verified'])->get('/calendario', function () {
     return view('calendario');
 })->name('calendario');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/layout', function () {
+    return view('layout');
+})->name('layout');
