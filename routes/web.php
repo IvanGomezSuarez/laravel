@@ -30,6 +30,10 @@ use App\Http\Controllers\CalificablesController;
         return view('welcome');
     });
 
+    Route::get('dashboard', function () {
+        return view('dashboard');
+    });
+
     Route::get('/asignaturas', function () {
     return view('asignaturas');
     });
