@@ -3,6 +3,7 @@
 namespace App\Http\Responses;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Laravel\Fortify\Contracts\LoginResponse as LoginResponseContract;
 
 class LoginResponse implements LoginResponseContract
@@ -19,7 +20,7 @@ class LoginResponse implements LoginResponseContract
        
         if (in_array('admin', $checkrole)) {
 
-            //Session::put('isadmin', 'admin');
+            Session::put('role', 'admin');
 
            return redirect('profesores');
         } else {
