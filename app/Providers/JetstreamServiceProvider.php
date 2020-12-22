@@ -37,7 +37,7 @@ class JetstreamServiceProvider extends ServiceProvider
         Jetstream::deleteTeamsUsing(DeleteTeam::class);
         Jetstream::deleteUsersUsing(DeleteUser::class);
 
-        // register new LoginResponse
+        // register new LoginResponse (new!!)
         $this->app->singleton(
             \Laravel\Fortify\Contracts\LoginResponse::class,
             \App\Http\Responses\LoginResponse::class
