@@ -1,3 +1,9 @@
+@if(Session::has('role'))
+
+<p class="alert
+{{ Session::get('alert-class', 'alert-info') }}">{{Session::get('role') }}</p>
+
+@endif
 @extends('layout')
 @section('content')
 <?php
