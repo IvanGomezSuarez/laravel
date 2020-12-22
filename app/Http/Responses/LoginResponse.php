@@ -20,10 +20,10 @@ class LoginResponse implements LoginResponseContract
         if (in_array('admin', $checkrole)) {
 
             //Session::put('isadmin', 'admin');
-            
+
            return redirect('profesores');
         } else {
-            return redirect('welcome');
+            return redirect('dashboard');
         }
         
         return $request->wantsJson()
