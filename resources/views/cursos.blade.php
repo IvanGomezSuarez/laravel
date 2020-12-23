@@ -1,5 +1,6 @@
 @extends('layout')
 @section('content')
+
 <?php
     $cursos = App\Models\Course::get();
     $cursoId = App\Models\Course::find(Request::get('idcourse'));
@@ -120,5 +121,5 @@
 
 </script>
 
-
 @endsection
+

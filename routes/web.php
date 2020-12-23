@@ -150,6 +150,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/calendario', function () 
     return view('calendario');
 })->name('calendario');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/layout', function () {
-    return view('layout');
-})->name('layout');
+Route::middleware(['auth:sanctum', 'verified'])->get('/navbarstudent', function () {
+    return view('navbarstudent');
+})->name('navbarstudent');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/navbar', function () {
+    return view('navbar');
+})->name('navbar');

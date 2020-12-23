@@ -1,5 +1,6 @@
 @extends('layout')
 @section('content')
+
 <?php
     use App\Models\Calendario;
 
@@ -199,5 +200,6 @@ print_r($calenda);
             window.history.replaceState(null, null, window.location.href);
         }
     </script>
+
 
 @endsection

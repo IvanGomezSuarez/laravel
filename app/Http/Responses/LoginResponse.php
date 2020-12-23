@@ -22,7 +22,7 @@ class LoginResponse implements LoginResponseContract
 
             Session::put('role', 'admin');
 
-           return redirect('profesores');
+           return redirect('dashboard');
         } else {
             return redirect('dashboard');
         }

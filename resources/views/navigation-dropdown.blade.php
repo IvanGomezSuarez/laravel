@@ -11,16 +11,20 @@
                 </div>
 
                 <!-- Navigation Links -->
+
+            
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('asignaturas') }}" :active="request()->routeIs('asignaturas')">
                         {{ __('Asignaturas') }}
                     </x-jet-nav-link>
                 </div>
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('cursos') }}" :active="request()->routeIs('cursos')">
                         {{ __('Cursos') }}
                     </x-jet-nav-link>
                 </div>
+    
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('profesores') }}" :active="request()->routeIs('profesores')">
                         {{ __('Profesorado') }}

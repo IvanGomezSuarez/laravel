@@ -1,5 +1,6 @@
 @extends('layout')
 @section('content')
+
 <?php
     $alumnos = App\Models\Adminalumn::get();
    $alumnId = App\Models\Adminalumn::find(Request::get('id-alumns'));
@@ -114,4 +115,5 @@
     </div>
 
 
-@endsection
+    @endsection
+
