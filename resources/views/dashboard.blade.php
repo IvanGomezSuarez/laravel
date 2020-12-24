@@ -193,10 +193,16 @@
                                                 Name
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                id Teacher
+                                                Surname
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                id Course
+                                                Dni
+                                            </th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Telephone
+                                            </th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Email
                                             </th>
                                             <th scope="col" class="relative px-6 py-3">
                                                 <span class="sr-only">Edit</span>
@@ -204,7 +210,7 @@
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">
-                                        @foreach ($asignaturas as $asignatura)
+                                        @foreach ($profesores as $profesor)
                                         <tr>
 
                                             <td class="px-6 py-4 whitespace-nowrap">
@@ -215,25 +221,31 @@
 
                                                         </div>
                                                         <div class="text-sm text-gray-500">
-                                                            {{$asignatura->id_class}}
+                                                            {{$profesor->id_teacher}}
                                                         </div>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                {{$asignatura->name}}
+                                                {{$profesor->name}}
 
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                {{$asignatura->id_teacher}}
+                                                {{$profesor->surname}}
                                                 </span>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            {{$asignatura->id_course}}
+                                            {{$profesor->nif}}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            {{$profesor->telephone}}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            {{$profesor->email}}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href="{{ route('asignaturas') }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                                <a href="{{ route('profesores') }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                             </td>
                                         </tr>
                                         @endforeach
