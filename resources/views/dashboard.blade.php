@@ -10,6 +10,7 @@
     $asignaturas = App\Models\Asignatura::get();
     $profesores = App\Models\Profesor::get();
     $alumnos = App\Models\Adminalumn::get();
+    $cursos = App\Models\Course::get();
     $asignaturaId = App\Models\Asignatura::find(Request::get('borra-id-asigns'));
 
     ?>
@@ -65,11 +66,11 @@
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                {{$asignatura->id_teacher}}
+                                                    {{$asignatura->id_teacher}}
                                                 </span>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            {{$asignatura->id_course}}
+                                                {{$asignatura->id_course}}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                 <a href="{{ route('asignaturas') }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
@@ -145,17 +146,17 @@
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                {{$alumno->name}}
+                                                    {{$alumno->name}}
                                                 </span>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            {{$alumno->email}}
+                                                {{$alumno->email}}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            {{$alumno->nif}}
+                                                {{$alumno->nif}}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            {{$alumno->telephone}}
+                                                {{$alumno->telephone}}
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
@@ -172,10 +173,10 @@
                 </div>
             </div>
         </div>
-        
+
         <br>
         <!-- tabla para profesores-->
-        
+
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <!-- This example requires Tailwind CSS v2.0+ -->
@@ -232,17 +233,17 @@
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                {{$profesor->surname}}
+                                                    {{$profesor->surname}}
                                                 </span>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            {{$profesor->nif}}
+                                                {{$profesor->nif}}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            {{$profesor->telephone}}
+                                                {{$profesor->telephone}}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            {{$profesor->email}}
+                                                {{$profesor->email}}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                 <a href="{{ route('profesores') }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
@@ -258,7 +259,87 @@
                 </div>
             </div>
         </div>
+        <br>
+        <!-- tabla para cursos-->
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <!-- This example requires Tailwind CSS v2.0+ -->
+                <div class="flex flex-col">
+                    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-gray-50">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                id_course
+                                            </th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Name
+                                            </th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Description
+                                            </th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Start
+                                            </th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Finish
+                                            </th>
+                                            <th scope="col" class="relative px-6 py-3">
+                                                <span class="sr-only">Edit</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200">
+                                        @foreach ($cursos as $curso)
+                                        <tr>
+
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="flex items-center">
+
+                                                    <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">
+
+                                                        </div>
+                                                        <div class="text-sm text-gray-500">
+                                                            {{$curso->id_course}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                {{$curso->name}}
+
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                    {{$curso->description}}
+                                                </span>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                {{$curso->date_start}}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                {{$curso->date_end}}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                <a href="{{ route('cursos') }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                        <!-- More rows... -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
+
 
 
 </x-app-layout>
