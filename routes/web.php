@@ -157,3 +157,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/navbarstudent', function 
 Route::middleware(['auth:sanctum', 'verified'])->get('/navbar', function () {
     return view('navbar');
 })->name('navbar');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dropdown', function () {
+    return view('dropdown');
+})->name('dropdown');
