@@ -7,7 +7,7 @@
 @extends('layout')
 @section('content')
 <?php
-
+use Illuminate\support\Facades\Request;
 $profesores = App\Models\Profesor::get();
 
 $profesorId = App\Models\Profesor::find(Request::get('borra-id-profs'));

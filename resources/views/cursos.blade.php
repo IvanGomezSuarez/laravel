@@ -2,6 +2,7 @@
 @section('content')
 
 <?php
+use Illuminate\support\Facades\Request;
     $cursos = App\Models\Course::get();
     $cursoId = App\Models\Course::find(Request::get('idcourse'));
 ?>

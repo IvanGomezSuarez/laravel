@@ -34,6 +34,7 @@
 
 ?>
 <?php
+use Illuminate\support\Facades\Request;
     $usuario = App\Models\Configuracion_usuario::get();
     $cursoId = App\Models\Course::find(Request::get('idcourse'));
 

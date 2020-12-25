@@ -23,6 +23,7 @@
 
 <?php
 $asignaturas = App\Models\Asigxcurso::get();
+use Illuminate\support\Facades\Request;
 $profesores = App\Models\Profesor::get();
 $asignaturaAsigned = App\Models\Course::find(Request::get('idcourse'));
 

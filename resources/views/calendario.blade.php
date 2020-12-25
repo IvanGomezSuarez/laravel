@@ -3,7 +3,8 @@
 
 <?php
     use App\Models\Calendario;
-
+    use Illuminate\support\Facades\Request;
+    use Illuminate\support\Facades\DB;
     $asignaturas = App\Models\Asigxcurso::get();
   //  $profesores = App\Models\Profesor::get();
   //  $asignaturaAsigned = App\Models\Course::find(Request::get('idcourse'));

@@ -2,6 +2,7 @@
 @section('content')
 
 <?php
+use Illuminate\support\Facades\Request;
     $alumnos = App\Models\Adminalumn::get();
    $alumnId = App\Models\Adminalumn::find(Request::get('id-alumns'));
     //$qefaig = Request::get();

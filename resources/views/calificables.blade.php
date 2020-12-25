@@ -19,7 +19,7 @@
 
 
 <?php
-
+use Illuminate\support\Facades\Request;
     $asignaturaId = App\Models\Asignatura::find(Request::get('ider'));
     $asignaturas = App\Models\Asignatura::get();
     $percentiles  = App\Models\Calificable::get();

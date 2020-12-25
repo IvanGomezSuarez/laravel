@@ -19,6 +19,8 @@
 
 
 <?php
+use Illuminate\support\Facades\Request;
+use Illuminate\support\Facades\DB;
     $cursos = App\Models\Course::get();
     $cursoId = App\Models\Course::find(Request::get('idcourse'));
     $curso2Id = App\Models\Course::find(Request::get('idcourse'));
