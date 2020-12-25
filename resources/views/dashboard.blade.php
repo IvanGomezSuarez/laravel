@@ -6,7 +6,7 @@
     </x-slot>
 
     <?php
-use Illuminate\support\Facades\Request;
+   // use Illuminate\support\Facades\Request;
     $asignaturas = App\Models\Asignatura::get();
     $profesores = App\Models\Profesor::get();
     $alumnos = App\Models\Adminalumn::get();

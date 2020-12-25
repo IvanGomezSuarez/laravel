@@ -24,7 +24,7 @@ class LoginResponse implements LoginResponseContract
 
            return redirect('dashboard');
         } else {
-            return redirect('cursos');
+            return redirect('studwelcome');
         }
         
         return $request->wantsJson()
