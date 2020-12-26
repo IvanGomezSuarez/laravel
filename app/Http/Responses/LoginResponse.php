@@ -23,6 +23,11 @@ class LoginResponse implements LoginResponseContract
             Session::put('role', 'admin');
 
            return redirect('dashboard');
+        } else if (in_array('teacher', $checkrole)) {
+
+            Session::put('role', 'teacher');
+
+           return redirect('profesores');
         } else {
             return redirect('studwelcome');
         }
