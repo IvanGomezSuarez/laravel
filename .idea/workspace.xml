@@ -4,18 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/resources/views/asigxcurso.blade.php" line="107" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="362cba2f-ef7f-4f09-9eaf-0fca23c28cf4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/p6-4.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/p6-4.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/asigxcurso.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/asigxcurso.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profesores.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profesores.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="362cba2f-ef7f-4f09-9eaf-0fca23c28cf4" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -653,8 +642,37 @@
       <workItem from="1609102993082" duration="3876000" />
       <workItem from="1609149225939" duration="12074000" />
       <workItem from="1609181189064" duration="373000" />
-      <workItem from="1609181730585" duration="8397000" />
+      <workItem from="1609181730585" duration="8792000" />
     </task>
+    <task id="LOCAL-00001" summary="Prepara to Laravel">
+      <created>1609195046883</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1609195046883</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Prepara to Laravel&#10;Laravel Plugin">
+      <created>1609195071927</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1609195071927</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Prepara to Laravel&#10;Laravel Plugin&#10;DropDown Nav">
+      <created>1609195121757</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1609195121757</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Prepara to Laravel&#10;Laravel Plugin&#10;DropDown Nav">
+      <created>1609195135913</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1609195135913</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -720,6 +738,12 @@
     <option name="RECENTLY_FILTERED_USER_GROUPS">
       <collection />
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Prepara to Laravel" />
+    <MESSAGE value="Prepara to Laravel&#10;Laravel Plugin" />
+    <MESSAGE value="Prepara to Laravel&#10;Laravel Plugin&#10;DropDown Nav" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prepara to Laravel&#10;Laravel Plugin&#10;DropDown Nav" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
