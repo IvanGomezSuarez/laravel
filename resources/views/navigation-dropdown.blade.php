@@ -12,19 +12,62 @@
 
                 <!-- Navigation Links -->
 
-            
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('asignaturas') }}" :active="request()->routeIs('asignaturas')">
                         {{ __('Asignaturas') }}
                     </x-jet-nav-link>
                 </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('cursos') }}" :active="request()->routeIs('cursos')">
-                        {{ __('Cursos') }}
-                    </x-jet-nav-link>
+{{--                <div class="hidden sm:flex sm:items-center sm:ml-6">--}}
+{{--                    <x-jet-dropdown align="top" width="48">--}}
+{{--                        <x-slot name="trigger">--}}
+{{--                            <div class="hidden sm:flex sm:items-center sm:ml-6">--}}
+{{--                            <x-jet-nav-link href="#" :active="request()->routeIs('cursos') || request()->routeIs('asigxcurso')">--}}
+{{--                                {{ __('Cursos') }}--}}
+{{--                            </x-jet-nav-link>--}}
+{{--                            </div>--}}
+{{--                        </x-slot>--}}
+
+{{--                        <x-slot name="content">--}}
+{{--                            <x-jet-nav-link href="{{ route('cursos') }}" :active="request()->routeIs('cursos')">--}}
+{{--                                {{ __('Edición Cursos') }}--}}
+{{--                            </x-jet-nav-link>--}}
+{{--                            <x-jet-nav-link href="{{ route('asigxcurso') }}" :active="request()->routeIs('asigxcurso')">--}}
+{{--                                {{ __('Asignaturas por curso') }}--}}
+{{--                            </x-jet-nav-link>--}}
+{{--                        </x-slot>--}}
+{{--                    </x-jet-dropdown>--}}
+{{--                </div>--}}
+
+
+{{--                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">--}}
+{{--                    <x-jet-nav-link href="{{ route('cursos') }}" :active="request()->routeIs('cursos')">--}}
+{{--                        {{ __('Cursos') }}--}}
+{{--                    </x-jet-nav-link>--}}
+{{--                </div>--}}
+
+                <div class="hidden sm:flex sm:items-center sm:ml-6">
+                    <x-jet-dropdown align="top" width="48">
+                        <x-slot name="trigger">
+                            <div class="hidden sm:flex sm:items-center sm:ml-6">
+                                <x-jet-nav-link href="#" :active="request()->routeIs('cursos') || request()->routeIs('asigxcurso')">
+                                    {{ __('Cursos') }}
+                                </x-jet-nav-link>
+                            </div>
+                        </x-slot>
+
+                        <x-slot name="content">
+                            <x-jet-dropdown-link  href="{{ route('cursos') }}">
+                                {{ __('Edición Cursos') }}
+                            </x-jet-dropdown-link>
+                            <x-jet-dropdown-link href="{{ route('asigxcurso') }}">
+                                {{ __('Asignaturas por curso') }}
+                            </x-jet-dropdown-link>
+                        </x-slot>
+                    </x-jet-dropdown>
                 </div>
-  
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('profesores') }}" :active="request()->routeIs('profesores')">
                         {{ __('Profesorado') }}
@@ -147,6 +190,12 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
+            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                {{ __('Dashboard') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                {{ __('Dashboard') }}
+            </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
