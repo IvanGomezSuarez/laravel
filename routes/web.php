@@ -1,30 +1,28 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CoursesController;
-use App\Http\Controllers\AsignaturaController;
-use App\Http\Controllers\AsigxcursoController;
-use App\Http\Controllers\ProfesoresController;
-use App\Http\Controllers\ProfeasignaController;
 use App\Http\Controllers\AdminalumnController;
 use App\Http\Controllers\AdminmatriculasController;
+use App\Http\Controllers\AsignaturaController;
+use App\Http\Controllers\AsigxcursoController;
 use App\Http\Controllers\CalendarioController;
-use App\Http\Controllers\Configuracion_usuarioController;
 use App\Http\Controllers\CalificablesController;
-    use App\Http\Controllers\ExamsController;
-    use App\Http\Controllers\WorksController;
+use App\Http\Controllers\Configuracion_usuarioController;
+use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\ProfeasignaController;
+use App\Http\Controllers\ProfesoresController;
+use Illuminate\Support\Facades\Route;
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | Web Routes
-    |--------------------------------------------------------------------------
-    |
-    | Here is where you can register web routes for your application. These
-    | routes are loaded by the RouteServiceProvider within a group which
-    | contains the "web" middleware group. Now create something great!
-    |
-    */
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
 
     Route::get('/', function () {
         return view('welcome');
@@ -137,6 +135,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/asignaturas', function ()
 Route::middleware(['auth:sanctum', 'verified'])->get('/cursos', function () {
     return view('cursos');
 })->name('cursos');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/asigxcurso', function () {
+    return view('asigxcurso');
+})->name('asigxcurso');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/profesores', function () {
     return view('profesores');

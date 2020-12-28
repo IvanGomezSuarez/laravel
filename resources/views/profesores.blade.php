@@ -1,13 +1,19 @@
-@if(Session::has('role'))
+{{--<x-app-layout>--}}
+{{--    <x-slot name="header">--}}
+{{--        <h2 class="font-semibold text-xl text-gray-800 leading-tight">--}}
+{{--            {{ __('Administrador') }}--}}
+{{--        </h2>--}}
+{{--    </x-slot>--}}
+{{--@if(Session::has('role'))--}}
 
-<p class="alert
-{{ Session::get('alert-class', 'alert-info') }}">{{Session::get('role') }}</p>
+{{--<p class="alert--}}
+{{--{{ Session::get('alert-class', 'alert-info') }}">{{Session::get('role') }}</p>--}}
 
-@endif
+{{--@endif--}}
 @extends('layout')
 @section('content')
 <?php
-use Illuminate\support\Facades\Request;
+//use Illuminate\support\Facades\Request;
 $profesores = App\Models\Profesor::get();
 
 $profesorId = App\Models\Profesor::find(Request::get('borra-id-profs'));
@@ -96,3 +102,4 @@ echo '<pre>';
     </div>
 
 @endsection
+{{--    </x-app-layout>--}}
