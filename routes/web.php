@@ -175,3 +175,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/studwelcome', function ()
 Route::middleware(['auth:sanctum', 'verified'])->get('/register', function () {
     return view('register');
 })->name('register');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/adminmatriculas', function () {
+    return view('adminmatriculas');
+})->name('adminmatriculas');
