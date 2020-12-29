@@ -144,6 +144,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/profesores', function () 
     return view('profesores');
 })->name('profesores');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/profeasigna', function () {
+    return view('profeasigna');
+})->name('profeasigna');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/adminalumn', function () {
     return view('adminalumn');
 })->name('adminalumn');
