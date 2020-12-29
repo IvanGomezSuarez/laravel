@@ -1,4 +1,10 @@
-@extends('navigation-dropdown')
+{{--@extends('navigation-dropdown')--}}
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center">
+            {{ __('Administrador') }}
+        </h2>
+    </x-slot>
 
 <style>
     /*
@@ -73,3 +79,4 @@ and open the template in the editor.
 <script>
   //  jQuery('.dropdown-toggle').dropdown();
 </script>
+</x-app-layout>
