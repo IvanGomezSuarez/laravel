@@ -19,7 +19,7 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="h-auto bg-indigo-50">
             @livewire('navigation-dropdown')
 
             <!-- Page Heading -->
@@ -36,7 +36,7 @@
             </main>
         </div>
 
-        @stack('modals')
+{{--        @stack('modals')--}}
 
         @livewireScripts
     </body>
