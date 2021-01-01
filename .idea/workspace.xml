@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="362cba2f-ef7f-4f09-9eaf-0fca23c28cf4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profeasigna.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profeasigna.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -651,7 +645,8 @@
       <workItem from="1609149225939" duration="12074000" />
       <workItem from="1609181189064" duration="373000" />
       <workItem from="1609181730585" duration="8912000" />
-      <workItem from="1609195631975" duration="4166000" />
+      <workItem from="1609195631975" duration="4797000" />
+      <workItem from="1609501893788" duration="313000" />
     </task>
     <task id="LOCAL-00001" summary="Prepara to Laravel">
       <created>1609195046883</created>
@@ -688,7 +683,56 @@
       <option name="project" value="LOCAL" />
       <updated>1609195200217</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="change bg color">
+      <created>1609200215732</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1609200215732</updated>
+    </task>
+    <task id="LOCAL-00007" summary="adding app-layout component">
+      <created>1609200307902</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1609200307902</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add dropdown profesorado">
+      <created>1609200353465</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1609200353465</updated>
+    </task>
+    <task id="LOCAL-00009" summary="view profeasigna.blade.php">
+      <created>1609200387289</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1609200387289</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Project_Default.xml">
+      <created>1609200410943</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1609200410943</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add middleware profeasigna">
+      <created>1609200438053</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1609200438053</updated>
+    </task>
+    <task id="LOCAL-00012" summary="change workspace.xml">
+      <created>1609200457617</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1609200457617</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -759,7 +803,14 @@
     <MESSAGE value="Prepara to Laravel" />
     <MESSAGE value="Prepara to Laravel&#10;Laravel Plugin" />
     <MESSAGE value="Prepara to Laravel&#10;Laravel Plugin&#10;DropDown Nav" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prepara to Laravel&#10;Laravel Plugin&#10;DropDown Nav" />
+    <MESSAGE value="change bg color" />
+    <MESSAGE value="adding app-layout component" />
+    <MESSAGE value="add dropdown profesorado" />
+    <MESSAGE value="view profeasigna.blade.php" />
+    <MESSAGE value="Project_Default.xml" />
+    <MESSAGE value="add middleware profeasigna" />
+    <MESSAGE value="change workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="change workspace.xml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
