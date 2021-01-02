@@ -1,5 +1,4 @@
-@extends('layout')
-@section('content')
+
 <?php
     /*
 include MOD.'_loginModel.php';
@@ -15,8 +14,10 @@ include CONT.'_loginController.php';
         <meta charset="UTF-8">
         <title>Login Colegio</title>
     </head>
+
+    <br><br><br><br>
     <body id="login">
-        
+
     <div id="" class="container-md mb-4" >
         <form class="col-sm-8 col-lg-6 col-md-6 offset-sm-2 offset-md-3 offset-lg-3 border login" action="" method="">
 
@@ -29,13 +30,13 @@ include CONT.'_loginController.php';
                   <input type="password" class="form-control" id="pass" name="pass" required>
                 </div>
 
-            <button type="submit" class="btn btn-primary text-center">Enviar</button> 
+            <button type="submit" class="btn btn-primary text-center">Enviar</button>
 
         </form>
-       
+
     </div>
         <span class="text-center d-block ">¿Nuevo Usuario? <a href="?pag=registrar">Regístrate</a> </span>
-         
+
 <script>
 if (window.history.replaceState) { // verificamos disponibilidad
     window.history.replaceState(null, null, window.location.href);
@@ -44,4 +45,4 @@ if (window.history.replaceState) { // verificamos disponibilidad
 
 </body>
 </html>
-@endsection
+
