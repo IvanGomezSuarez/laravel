@@ -35,7 +35,7 @@ include CONT.'_loginController.php';
         </form>
 
     </div>
-        <span class="text-center d-block ">¿Nuevo Usuario? <a href="?pag=registrar">Regístrate</a> </span>
+
 
 <script>
 if (window.history.replaceState) { // verificamos disponibilidad

@@ -27,7 +27,7 @@ use App\Http\Controllers\EmailController;
     */
 
     Route::get('/', function () {
-        return view('loginView');
+        return view('_loginView');
     });
 
     Route::get('/asignaturas', function () {
