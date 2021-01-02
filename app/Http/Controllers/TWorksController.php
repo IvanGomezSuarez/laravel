@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Profesor;
+use App\Models\TWork;
 use Illuminate\Http\Request;
 use DB;
 
-class ProfesoresController extends Controller
+class TWorksController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +25,7 @@ class ProfesoresController extends Controller
      */
     public function create()
     {
-        Course::create($request->all());
+        //
     }
 
     /**
@@ -36,17 +36,16 @@ class ProfesoresController extends Controller
      */
     public function store(Request $request)
     {
-        Profesor::create($request->all());
-        return back();
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Profesor  $profesor
+     * @param  \App\Models\TWork  $tWork
      * @return \Illuminate\Http\Response
      */
-    public function show(Profesor $profesor)
+    public function show(TWork $tWork)
     {
         //
     }
@@ -54,10 +53,10 @@ class ProfesoresController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Profesor  $profesor
+     * @param  \App\Models\TWork  $tWork
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profesor $profesor)
+    public function edit(TWork $tWork)
     {
         //
     }
@@ -66,34 +65,22 @@ class ProfesoresController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Profesor  $profesor
+     * @param  \App\Models\TWork  $tWork
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, TWork $tWork)
     {
-
-            DB::update('UPDATE teachers SET name = ?, surname = ?, telephone = ?, nif = ?, email = ?, password = ? WHERE id_teacher=?', [$request['name'], $request['surname'], $request['telephone'], $request['nif'], $request['email'],$request['password'], $request['id'] ]);
-          // return back();
-            return redirect('/profesores');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Profesor  $profesor
+     * @param  \App\Models\TWork  $tWork
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy(TWork $tWork)
     {
-
-         DB::delete('DELETE FROM teachers WHERE id_teacher = ?', [$request['borra-id-profs']]);
-
-
-          /* updatear id_teacher en tabla clases */
-         DB::update('UPDATE class SET  id_teacher = null WHERE id_teacher =?', [$request['borra-id-profs']]);
-
-
-          return back();
-
+        //
     }
 }

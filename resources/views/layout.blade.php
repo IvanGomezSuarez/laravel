@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -23,18 +22,27 @@
         }
 
     </style>
-<?php $student=false; ?>
+<?php
+    $student=false;
+    $admin=true;
+    $teacher=false;
+?>
 </head>
 <body>
 
     @if ($student)
         @include('navbarstudent')
-    @else
+    @endif
+    @if ($admin)
         @include('navbar')
     @endif
-<div class="container">
+    @if ($teacher)
+        @include('navbarteacher')
+    @endif
+
+    <div class="container">
     @yield('content')
-</div>
+    </div>
 
     <script src="{{ asset('js/app.js') }}" type="text/js"></script>
 </body>

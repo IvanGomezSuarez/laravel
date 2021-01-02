@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Adminmatriculas;
+use App\Models\Evaluacion;
 use Illuminate\Http\Request;
-use DB;
 
-class AdminmatriculasController extends Controller
+class EvaluacionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,19 +35,16 @@ class AdminmatriculasController extends Controller
      */
     public function store(Request $request)
     {
-
-        DB::insert('insert into enrollment (id_student, id_course, status) values (?, ?, ?)', [$request['alumno'], $request['curso'], 1 ]);
-
-        return back();
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Adminmatriculas  $adminmatriculas
+     * @param  \App\Models\Evaluacion  $evaluacion
      * @return \Illuminate\Http\Response
      */
-    public function show(Adminmatriculas $adminmatriculas)
+    public function show(Evaluacion $evaluacion)
     {
         //
     }
@@ -56,10 +52,10 @@ class AdminmatriculasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Adminmatriculas  $adminmatriculas
+     * @param  \App\Models\Evaluacion  $evaluacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Adminmatriculas $adminmatriculas)
+    public function edit(Evaluacion $evaluacion)
     {
         //
     }
@@ -68,10 +64,10 @@ class AdminmatriculasController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Adminmatriculas  $adminmatriculas
+     * @param  \App\Models\Evaluacion  $evaluacion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Adminmatriculas $adminmatriculas)
+    public function update(Request $request, Evaluacion $evaluacion)
     {
         //
     }
@@ -79,14 +75,11 @@ class AdminmatriculasController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Adminmatriculas  $adminmatriculas
+     * @param  \App\Models\Evaluacion  $evaluacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy(Evaluacion $evaluacion)
     {
-        DB::delete('DELETE FROM enrollment WHERE id_student = ?', [$request['asignacion']]);
-
-        return back();
-
+        //
     }
 }

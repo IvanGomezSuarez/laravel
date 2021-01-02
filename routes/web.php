@@ -1,40 +1,43 @@
 <?php
 
-use App\Http\Controllers\AdminalumnController;
-use App\Http\Controllers\AdminmatriculasController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\AsignaturaController;
 use App\Http\Controllers\AsigxcursoController;
-use App\Http\Controllers\CalendarioController;
-use App\Http\Controllers\CalificablesController;
-use App\Http\Controllers\Configuracion_usuarioController;
-use App\Http\Controllers\CoursesController;
-use App\Http\Controllers\ProfeasignaController;
 use App\Http\Controllers\ProfesoresController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfeasignaController;
+use App\Http\Controllers\AdminalumnController;
+use App\Http\Controllers\AdminmatriculasController;
+use App\Http\Controllers\CalendarioController;
+use App\Http\Controllers\Configuracion_usuarioController;
+use App\Http\Controllers\CalificablesController;
+    use App\Http\Controllers\ExamsController;
+    use App\Http\Controllers\WorksController;
+use App\Http\Controllers\EmailController;
 
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+    /*
+    |--------------------------------------------------------------------------
+    | Web Routes
+    |--------------------------------------------------------------------------
+    |
+    | Here is where you can register web routes for your application. These
+    | routes are loaded by the RouteServiceProvider within a group which
+    | contains the "web" middleware group. Now create something great!
+    |
+    */
 
     Route::get('/', function () {
-        return view('welcome');
-    });
-
-    Route::get('dashboard', function () {
-        return view('dashboard');
+        return view('loginView');
     });
 
     Route::get('/asignaturas', function () {
     return view('asignaturas');
     });
+
+    Route::get('/docente', function () {
+        return view('profeHome');
+    });
+
     Route::get('/asignaturas/edita', function () {
         return view('asignaturas');
     });
@@ -65,6 +68,13 @@ use Illuminate\Support\Facades\Route;
         return view('adminmatriculas');
     });
 
+    Route::get('/evaluacion', function () {
+        return view('evaluacion');
+    });
+    Route::get('/evaluacion-alumno', function () {
+        return view('evaluacion');
+    });
+
     Route::get('/configuracion_usuario', function () {
         return view('userconfig');
     });
@@ -74,10 +84,28 @@ use Illuminate\Support\Facades\Route;
     });
 
 
-
+    /* estudiantes*/
     Route::get('/estudiante', function () {
         return view('studwelcome');
     });
+    Route::get('/notas', function () {
+        return view('notas-estudiante');
+    });
+
+    Route::get('/calendario-estud', function () {
+        return view('_studCalendarioView');
+    });
+
+    Route::get('/fullcalendar', function () {
+        return view('/fullcdalendar/');
+    });
+
+
+    /* profesores*/
+    Route::get('/evaluar-alumnos', function () {
+        return view('profeEvalua');
+    });
+
 
 
     /*ADMIN */
@@ -118,60 +146,27 @@ use Illuminate\Support\Facades\Route;
 /* STUDENTS */
 
     Route::get('/studwelcome/update', [Configuracion_usuarioController::class, 'update']);
+    Route::get('/studwelcome/update', [Configuracion_usuarioController::class, 'update']);
+
+
+
 
     Route::get('/calificables/percent', [CalificablesController::class, 'update']);
     Route::get('/calificables/examen', [CalendarioController::class, 'store']);
     Route::get('/calificables/work', [CalendarioController::class, 'store']);
 
 
-    Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    Route::get('/ponernota/update', [ExamsController::class, 'update']);
+    Route::get('/ponernota/new', [ExamsController::class, 'create']);
+
+    Route::get('/ponernota-work/update', [WorksController::class, 'update']);
+    Route::get('/ponernota-work/new', [WorksController::class, 'create']);
+
+
+    Route::get('/mail', [EmailController::class, 'create']);
+
+
+
+    Route::middleware(['auth:sanctum', 'verified'])->get('/s', function () {
     return view('dashboard');
 })->name('dashboard');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/asignaturas', function () {
-    return view('asignaturas');
-})->name('asignaturas');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/cursos', function () {
-    return view('cursos');
-})->name('cursos');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/asigxcurso', function () {
-    return view('asigxcurso');
-})->name('asigxcurso');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/profesores', function () {
-    return view('profesores');
-})->name('profesores');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/profeasigna', function () {
-    return view('profeasigna');
-})->name('profeasigna');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/adminalumn', function () {
-    return view('adminalumn');
-})->name('adminalumn');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/calendario', function () {
-    return view('calendario');
-})->name('calendario');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/navbarstudent', function () {
-    return view('navbarstudent');
-})->name('navbarstudent');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/navbar', function () {
-    return view('navbar');
-})->name('navbar');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dropdown', function () {
-    return view('dropdown');
-})->name('dropdown');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/studwelcome', function () {
-    return view('studwelcome');
-})->name('studwelcome');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/register', function () {
-    return view('register');
-})->name('register');

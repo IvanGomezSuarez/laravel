@@ -1,37 +1,24 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Student</title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
-    <!-- jQuery and JS bundle w/ Popper.js -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
-
-
+@extends('layout')
+@section('content')
 <?php
-use Illuminate\support\Facades\Request;
+
     $asignaturaId = App\Models\Asignatura::find(Request::get('ider'));
     $asignaturas = App\Models\Asignatura::get();
     $percentiles  = App\Models\Calificable::get();
-
+    $calendario = App\Models\Calendario::get();
+    $works = App\Models\TWork::get();
+    $exams = App\Models\TExam::get();
  // print_r($percentiles);
  // print_r($percentiles->find(Request::get('ider'),['id_class'])->continuous_assessment);
  // print_r($percentiles->first()->continuous_assessment);
  //  print_r($asignaturas);
-    echo '<pre>';
- print_r($asignaturaId);
-echo '</pre>';
+   /* echo '<pre>';
+ //print_r($asignaturaId);
 
+    print_r($exams);
+
+    echo '</pre>';
+*/
 
 ?>
 
@@ -215,6 +202,7 @@ echo '</pre>';
 
                         </div>
 
+
                         <input type="submit" formaction="calificables/examen" name="examen" value="Crear"  class="btn btn-primary mb-2">
 
                     </div>
@@ -231,6 +219,9 @@ echo '</pre>';
                         <div class="input-group">
 
                             @if (Request::get('ider'))<input type="hidden" name="id_class" value="{{$asignaturaId->id_class}}"> @endif
+
+
+
 
                             <input autofocus="true" required type="text" class="form-control fullwidth"
                                    name="name" placeholder="Nombre" value="">
@@ -336,43 +327,38 @@ echo '</pre>';
                         <th scope="col">Descripcion</th>
                         <th scope="col">Fecha</th>
                         <th scope="col">Evaluaciones</th>
-                        <th scope="col">Notificar</th>
+
                         <th scope="col">Borrar</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @ foreach ($calenda as $calendar)
+                    @foreach ($calendario as $calendar)
+                        @if ((($calendar->id_t_exam))!=null)
+                            <tr>
+                                <th scope="row">{{($calendar->id_t_work!==null)?  'Trabajo' : 'Examen' }}</th>
+                                <td>@foreach ($exams as $exam) @if ($exam->id_t_exam==$calendar->id_t_exam) {{$exam->name}} @endif  @endforeach</td>
+                                <td>{{$calendar->day}}</td>
+                                <td><a href="/evaluacion">Evaluar alumnos</a></td>
+
+                                <td><form name="borra" action="/calendario/borra" method="get">@csrf<button type="submit" name="erasethis" value="{$calendar->id_schedule}}"><i class="fa fa-trash" aria-hidden="true"></i></button></form></td>
+                            </tr>
+                        @endif
+
+                    @endforeach
+                    @foreach ($calendario as $calendar)
+                    @if ((($calendar->id_t_work))!=null)
                     <tr>
-                        <th scope="row">{$loop->index}}</th>
-                        <td> {$calendar->day}}</td>
-                        <td>{$calendar->time_start}}</td>
-                        <td>{$calendar->time_end}}</td>
-                        <td>{$calendar->time_end}}</td>
+                        <th scope="row">{{($calendar->id_t_exam!==null)?  'Examen' : 'Trabajo' }}</th>
+                        <td>@foreach ($works as $work) @if ($work->id_t_work==$calendar->id_t_work) {{$work->name}} @endif  @endforeach</td>
+                        <td>{{$calendar->day}}</td>
+                        <td><a href="/evaluacion">Evaluar alumnos</a></td>
+
                         <td><form name="borra" action="/calendario/borra" method="get">@csrf<button type="submit" name="erasethis" value="{$calendar->id_schedule}}"><i class="fa fa-trash" aria-hidden="true"></i></button></form></td>
                     </tr>
+                    @endif
 
+                    @endforeach
 
-                    @ endforeach
-
-
-                    <tr>
-
-                        <td>Examen</td>
-                        <td>Examen Temas 1-2 </td>
-                        <td>{$calendar->time_start}}</td>
-                        <td>{$calendar->time_end}}</td>
-                        <td>{$calendar->time_end}}</td>
-                        <td><form name="borra" action="/calendario/borra" method="get">@csrf<button type="submit" name="erasethis" value="{$calendar->id_schedule}}"><i class="fa fa-trash" aria-hidden="true"></i></button></form></td>
-                    </tr>
-                    <tr>
-
-                        <td>Trabajo P1</td>
-                        <td>P1 - Bucles y Arrays </td>
-                        <td>12/12/2020</td>
-                        <td>{$calendar->time_end}}</td>
-                        <td>{$calendar->time_end}}</td>
-                        <td><form name="borra" action="/calendario/borra" method="get">@csrf<button type="submit" name="erasethis" value="{$calendar->id_schedule}}"><i class="fa fa-trash" aria-hidden="true"></i></button></form></td>
-                    </tr>
 
 
                     </tbody>
@@ -393,3 +379,4 @@ echo '</pre>';
     });
 </script>
 
+@endsection

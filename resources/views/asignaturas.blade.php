@@ -1,8 +1,8 @@
-
 @extends('layout')
+
 @section('content')
 <?php
-use Illuminate\support\Facades\Request;
+
 $asignaturas = App\Models\Asignatura::get();
 $asignaturaId = App\Models\Asignatura::find(Request::get('borra-id-asigns'));
 

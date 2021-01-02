@@ -18,7 +18,9 @@ class Calendario extends Model
         'id_class',
         'time_start',
         'time_end',
-        'day'
+        'day',
+        'id_t_work',
+        'id_t_exam'
 
     ];
 

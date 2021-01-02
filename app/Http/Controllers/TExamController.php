@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Profesor;
+use App\Models\TExam;
 use Illuminate\Http\Request;
 use DB;
 
-class ProfesoresController extends Controller
+
+
+class TExamController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +27,7 @@ class ProfesoresController extends Controller
      */
     public function create()
     {
-        Course::create($request->all());
+        //
     }
 
     /**
@@ -36,17 +38,16 @@ class ProfesoresController extends Controller
      */
     public function store(Request $request)
     {
-        Profesor::create($request->all());
-        return back();
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Profesor  $profesor
+     * @param  \App\Models\TExam  $tExam
      * @return \Illuminate\Http\Response
      */
-    public function show(Profesor $profesor)
+    public function show(TExam $tExam)
     {
         //
     }
@@ -54,10 +55,10 @@ class ProfesoresController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Profesor  $profesor
+     * @param  \App\Models\TExam  $tExam
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profesor $profesor)
+    public function edit(TExam $tExam)
     {
         //
     }
@@ -66,34 +67,22 @@ class ProfesoresController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Profesor  $profesor
+     * @param  \App\Models\TExam  $tExam
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, TExam $tExam)
     {
-
-            DB::update('UPDATE teachers SET name = ?, surname = ?, telephone = ?, nif = ?, email = ?, password = ? WHERE id_teacher=?', [$request['name'], $request['surname'], $request['telephone'], $request['nif'], $request['email'],$request['password'], $request['id'] ]);
-          // return back();
-            return redirect('/profesores');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Profesor  $profesor
+     * @param  \App\Models\TExam  $tExam
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy(TExam $tExam)
     {
-
-         DB::delete('DELETE FROM teachers WHERE id_teacher = ?', [$request['borra-id-profs']]);
-
-
-          /* updatear id_teacher en tabla clases */
-         DB::update('UPDATE class SET  id_teacher = null WHERE id_teacher =?', [$request['borra-id-profs']]);
-
-
-          return back();
-
+        //
     }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Exam;
 use Illuminate\Http\Request;
+use DB;
+
 
 class ExamsController extends Controller
 {
@@ -22,9 +24,13 @@ class ExamsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+
+        DB::insert('insert into exams (id_class, id_student, name, mark, id_t_exam) values (?, ?, ?, ?,?)', [$request['asignatura'], $request['alumno'], $request['name'], $request['nota'], $request['id_t_exam'] ]);
+            return back();
+
     }
 
     /**
@@ -68,10 +74,14 @@ class ExamsController extends Controller
      * @param  \App\Models\Exam  $exam
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Exam $exam)
+    public function update(Request $request)
     {
-        //
-    }
+      // return $request;
+        ///DB::insert('insert into exams (id_class, id_student, name, mark, id_t_exam) values (?, ?, ?, ?,?)', [$request['asignatura'], $request['alumno'], $request['name'], $request['nota'], $request['id_t_exam'] ]);
+        DB::update('UPDATE exams SET id_class = ?, id_student = ?, name=?, mark=?, id_t_exam=? WHERE id_exam=?', [$request['asignatura'], $request['alumno'], $request['name'],$request['nota'], $request['id_t_exam'],$request['id_exam'] ]);
+
+
+        return back();    }
 
     /**
      * Remove the specified resource from storage.

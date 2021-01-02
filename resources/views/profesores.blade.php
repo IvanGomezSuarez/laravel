@@ -1,19 +1,7 @@
-{{--<x-app-layout>--}}
-{{--    <x-slot name="header">--}}
-{{--        <h2 class="font-semibold text-xl text-gray-800 leading-tight">--}}
-{{--            {{ __('Administrador') }}--}}
-{{--        </h2>--}}
-{{--    </x-slot>--}}
-{{--@if(Session::has('role'))--}}
-
-{{--<p class="alert--}}
-{{--{{ Session::get('alert-class', 'alert-info') }}">{{Session::get('role') }}</p>--}}
-
-{{--@endif--}}
 @extends('layout')
 @section('content')
 <?php
-//use Illuminate\support\Facades\Request;
+
 $profesores = App\Models\Profesor::get();
 
 $profesorId = App\Models\Profesor::find(Request::get('borra-id-profs'));
@@ -61,11 +49,16 @@ echo '<pre>';
                             <label>Nif</label>
                             <input required type="text" class="form-control" name="nif" placeholder="NIF" aria-label="NIF" aria-describedby="basic-addon1" value="@if (Request::post('edita')) {{$profesorId['nif']}} @endif"></div>
                         <div class=" mb-3">
-                            <label>Email</label>
+                            <label>Email (Usuario Aplicación)</label>
                             <input required type="text" class="form-control" name="email" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" value="@if (Request::post('edita')) {{$profesorId['email']}} @endif">
                         </div>
+                            <div class=" mb-3">
+                                <label>Password (Password Aplicación)</label>
+                                <input required type="password" class="form-control" name="password" placeholder="Default: 1234" aria-label="Email" aria-describedby="basic-addon1" value="@if (Request::post('edita')) {{$profesorId['password']}} @else {{1234}} @endif">
+                            </div>
 
-                        @if (Request::get('edita'))
+
+                          @if (Request::get('edita'))
                             <input type="submit" formaction="profesores/update" name="accion" value="Edita" class="btn btn-primary mb-2">
                         @else
                             <button type="submit" formaction='profesores/crea'class="btn btn-primary mb-2">Crear Profesor</button>
@@ -102,4 +95,3 @@ echo '<pre>';
     </div>
 
 @endsection
-{{--    </x-app-layout>--}}

@@ -38,8 +38,38 @@ class CalendarioController extends Controller
      */
     public function store(Request $request)
     {
-        DB::insert('insert into schedule (id_class, time_start, time_end,day) values (?, ?, ?, ?)', [$request['ider'], $request['time_start'], $request['time_end'], $request['day'] ]);
+
+        /*creamos ficha t_exam o t_work*/
+        if ($request['examen']=='Crear'){
+       // DB::insert('insert into t_exam (name,id_class) values (?, ?)', [$request['name'], $request['id_class']]);
+
+        $id = DB::table('t_exam')-> insertGetId(array(
+                'name' => $request['name'],
+                'id_class' => $request['id_class']
+            ));
+        DB::insert('insert into schedule (id_class, time_start, time_end, day, id_t_exam) values (?, ?, ?, ?, ?)', [$request['id_class'], $request['time_start'], $request['time_end'], $request['day'], $id ]);
+
+
         return back();
+
+        }
+
+        if ($request['work']=='Crear'){
+            $id = DB::table('t_work')-> insertGetId(array(
+                'name' => $request['name'],
+                'id_class' => $request['id_class']
+            ));
+            DB::insert('insert into schedule (id_class, time_start, time_end, day, id_t_work) values (?, ?, ?, ?, ?)', [$request['id_class'], $request['time_start'], $request['time_end'], $request['day'], $id ]);
+
+
+            return back();
+        }
+
+
+
+        /* creamos evento schedule de exam o weork*/
+      //  DB::insert('insert into schedule (id_class, time_start, time_end, day, id_t_wok, id_t_exam) values (?, ?, ?, ?, ?, ?)', [$request['i_class'], $request['time_start'], $request['time_end'], $request['day'] ]);
+        //return back();
     }
 
     /**
@@ -85,7 +115,7 @@ class CalendarioController extends Controller
     public function destroy(Request $request)
     {
         DB::delete('DELETE FROM schedule WHERE id_schedule = ?', [$request['erasethis']]);
-        echo ("User Record deleted successfully.");
+
         return back();
     }
 }

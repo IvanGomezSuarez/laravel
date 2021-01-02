@@ -78,43 +78,13 @@ and open the template in the editor.
 
 
 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Asignaturas</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="asignaturas">Crear Asignatura</a>
-                    <a class="dropdown-item" href="calificables">Trabajos y Examemes</a>
-                </div>
-            </li>
-
-
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cursos</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="cursos">Edición Cursos</a>
-                    <a class="dropdown-item" href="asigxcurso">Asignaturas por Curso</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Profesorado</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="profesores">Alta Profesor</a>
-                    <a class="dropdown-item" href="profeasigna">Asignar Asignaturas</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Alumnos</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="adminalumn">Alta Alumno</a>
-                    <a class="dropdown-item" href="adminmatriculas">Matricular Alumno</a>
-                    <a class="dropdown-item" href="evaluacion">Evaluar Alumno</a>
-                </div>
+            <li class="nav-item">
+                <a class="nav-link" href="/calendario">Horarios</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="calendario">Horarios</a>
+                <a class="nav-link" href="/evaluar-alumnos">Calificar</a>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link" href="/configuracion_usuario">Configuración</a>
             </li>
@@ -128,5 +98,5 @@ and open the template in the editor.
     </div>
 </nav>
 <script>
-  //  jQuery('.dropdown-toggle').dropdown();
+    //  jQuery('.dropdown-toggle').dropdown();
 </script>
