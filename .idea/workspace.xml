@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="362cba2f-ef7f-4f09-9eaf-0fca23c28cf4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -602,7 +605,7 @@
       <recent name="C:\xamp\htdocs\p6-4\resources\views" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHPUnit.phpunit.xml">
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
@@ -613,6 +616,21 @@
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
@@ -647,6 +665,7 @@
       <workItem from="1609181730585" duration="8912000" />
       <workItem from="1609195631975" duration="4797000" />
       <workItem from="1609501893788" duration="313000" />
+      <workItem from="1609509538180" duration="6796000" />
     </task>
     <task id="LOCAL-00001" summary="Prepara to Laravel">
       <created>1609195046883</created>
