@@ -170,3 +170,4 @@ use App\Http\Controllers\EmailController;
     Route::middleware(['auth:sanctum', 'verified'])->get('/s', function () {
     return view('dashboard');
 })->name('dashboard');
+

@@ -1,16 +1,18 @@
 <?php
-include MOD.'_loginModel.php';
-include CONT.'_loginController.php';
+use App\Models\_loginModel;
+use App\Http\Controllers\_loginController;
+use App\config;
 ?>
     <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo CSS; ?>">
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <title>Login Colegio</title>
 </head>
+<br><br><br><br>
 <body id="login" style="<?php /* ?>background-image: url(<?php echo IMG.'fondo.jpg'?>);background-size:cover; <?php */ ?>">
 
 <div id="" class="container-md mb-4" >
@@ -30,11 +32,6 @@ include CONT.'_loginController.php';
     </form>
 
 </div>
-<span class="text-center d-block ">¿Nuevo Usuario? <a href="?pag=registrar">Regístrate</a> </span>
-
-
-
-
 
 <script>
     if (window.history.replaceState) { // verificamos disponibilidad
@@ -42,6 +39,7 @@ include CONT.'_loginController.php';
     }
 </script>
 <?php
+$reload =false;
 if($reload){
     echo '<script>location.reload();</script>';
 }
