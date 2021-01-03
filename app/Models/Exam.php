@@ -16,7 +16,8 @@ class Exam extends Model
         'id_class',
         'id_student',
         'name',
-        'mark'
+        'mark',
+        'id_t_exam'
 
     ];
 
