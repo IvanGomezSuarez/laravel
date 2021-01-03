@@ -142,7 +142,21 @@
                             </x-jet-nav-link>
                         </div>
                     </div>
-    @endif
+ @endif
+
+ @if(Session::get('role') == 'teacher')
+            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <x-jet-nav-link href="{{ route('calendario') }}" :active="request()->routeIs('calendario')">
+                    {{ __('Horarios') }}
+                </x-jet-nav-link>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('profeEvalua') }}" :active="request()->routeIs('profeEvalua')">
+                        {{ __('Calificar') }}
+                    </x-jet-nav-link>
+                </div>
+            </div>
+ @endif
 
 <!-- Settings Dropdown -->
 <div class="hidden sm:flex sm:items-center sm:ml-6">

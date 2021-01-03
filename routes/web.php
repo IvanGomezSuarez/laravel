@@ -236,6 +236,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/notas', function () {
     return view('notas-estudiante');
 })->name('notas-estudiante');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/evaluar-alumnos', function () {
+    return view('profeEvalua');
+})->name('profeEvalua');
+
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/register', function () {
     return view('register');
 })->name('register');

@@ -27,7 +27,7 @@ class LoginResponse implements LoginResponseContract
 
             Session::put('role', 'teacher');
 
-           return redirect('profesores');
+           return redirect('docente');
         } else {
             Session::put('role', 'student');
             return redirect('studwelcome');
