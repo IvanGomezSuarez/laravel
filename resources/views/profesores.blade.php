@@ -61,9 +61,14 @@ echo '<pre>';
                             <label>Nif</label>
                             <input required type="text" class="form-control" name="nif" placeholder="NIF" aria-label="NIF" aria-describedby="basic-addon1" value="@if (Request::post('edita')) {{$profesorId['nif']}} @endif"></div>
                         <div class=" mb-3">
-                            <label>Email</label>
+                            <label>Email (Usuario Aplicación)</label>
                             <input required type="text" class="form-control" name="email" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" value="@if (Request::post('edita')) {{$profesorId['email']}} @endif">
                         </div>
+                            <div class=" mb-3">
+                                <label>Password (Password Aplicación)</label>
+                                <input required type="password" class="form-control" name="password" placeholder="Default: 1234" aria-label="Email" aria-describedby="basic-addon1" value="@if (Request::post('edita')) {{$profesorId['password']}} @else {{1234}} @endif">
+                            </div>
+
 
                         @if (Request::get('edita'))
                             <input type="submit" formaction="profesores/update" name="accion" value="Edita" class="btn btn-primary mb-2">
