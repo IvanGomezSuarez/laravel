@@ -72,7 +72,7 @@ class ProfesoresController extends Controller
     public function update(Request $request)
     {
 
-            DB::update('UPDATE teachers SET name = ?, surname = ?, telephone = ?, nif = ?, email = ? WHERE id_teacher=?', [$request['name'], $request['surname'], $request['telephone'], $request['nif'], $request['email'], $request['id'] ]);
+            DB::update('UPDATE teachers SET name = ?, surname = ?, telephone = ?, nif = ?, email = ?, password = ? WHERE id_teacher=?', [$request['name'], $request['surname'], $request['telephone'], $request['nif'], $request['email'],$request['password'], $request['id'] ]);
           // return back();
             return redirect('/profesores');
     }
