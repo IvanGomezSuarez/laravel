@@ -66,6 +66,8 @@ $asignaturaAsigned = App\Models\Course::find(Request::get('idcourse'));
                             <div class="form-group ">
                                 <label for="">Profesor</label>
                                 <select name='profesor' class="form-control" id="">
+                                    <option disabled value="">Seleccionar profesores docentes...</option>
+
                                     @foreach ($profesores as $profesor)
                                             @if ($profesor->asignado==null)
                                             <option value="{{$profesor->id_teacher}}">{{$profesor->name}} {{$profesor->surname}}</option>
@@ -85,7 +87,9 @@ $asignaturaAsigned = App\Models\Course::find(Request::get('idcourse'));
                                      @if (sizeof($asignaturas)==0)
                                         <option value="">No hay asignaturas, hay que crearlas</option>
                                      @else
+                                        @if (($asignatura->id_teacher) == null)
                                        <option value="{{$asignatura->id_class}}">{{$asignatura->name}}</option>
+                                        @endif
                                     @endif
                                      @endforeach
 
