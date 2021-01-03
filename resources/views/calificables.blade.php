@@ -328,16 +328,17 @@ use Illuminate\support\Facades\Request;
                     </tr>
                     </thead>
                     <tbody>
-                    @ foreach ($calenda as $calendar)
-                    <tr>
-                        <th scope="row">{$loop->index}}</th>
-                        <td> {$calendar->day}}</td>
-                        <td>{$calendar->time_start}}</td>
-                        <td>{$calendar->time_end}}</td>
-                        <td>{$calendar->time_end}}</td>
-                        <td><form name="borra" action="/calendario/borra" method="get">@csrf<button type="submit" name="erasethis" value="{$calendar->id_schedule}}"><i class="fa fa-trash" aria-hidden="true"></i></button></form></td>
-                    </tr>
+                    @foreach ($calendario as $calendar)
+                        @if ((($calendar->id_t_exam))!=null)
+                            <tr>
+                                <th scope="row">{{($calendar->id_t_work!==null)?  'Trabajo' : 'Examen' }}</th>
+                                <td>@foreach ($exams as $exam) @if ($exam->id_t_exam==$calendar->id_t_exam) {{$exam->name}} @endif  @endforeach</td>
+                                <td>{{$calendar->day}}</td>
+                                <td><a href="/evaluacion">Evaluar alumnos</a></td>
 
+                                <td><form name="borra" action="/calendario/borra" method="get">@csrf<button type="submit" name="erasethis" value="{$calendar->id_schedule}}"><i class="fa fa-trash" aria-hidden="true"></i></button></form></td>
+                            </tr>
+                        @endif
 
                     @endforeach
                     @foreach ($calendario as $calendar)
