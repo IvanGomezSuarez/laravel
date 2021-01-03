@@ -227,6 +227,15 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/studwelcome', function ()
     return view('studwelcome');
 })->name('studwelcome');
 
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/calendario-estud', function () {
+    return view('_studCalendarioView');
+})->name('calendario-estud');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/notas', function () {
+    return view('notas-estudiante');
+})->name('notas-estudiante');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/register', function () {
     return view('register');
 })->name('register');

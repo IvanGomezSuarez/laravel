@@ -132,13 +132,13 @@
             <!-- Navigation Student -->
 @if(Session::get('role') == 'student')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-jet-nav-link href="{{ route('calendario') }}" :active="request()->routeIs('calendario')">
-                            {{ __('Horarios') }}
+                        <x-jet-nav-link href="{{ route('calendario-estud') }}" :active="request()->routeIs('calendario-estud')">
+                            {{ __('Calendario') }}
                         </x-jet-nav-link>
 
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <x-jet-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')">
-                                {{ __('Registrar usuario') }}
+                            <x-jet-nav-link href="{{ route('notas-estudiante') }}" :active="request()->routeIs('notas-estudiante')">
+                                {{ __('Notas') }}
                             </x-jet-nav-link>
                         </div>
                     </div>

@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="362cba2f-ef7f-4f09-9eaf-0fca23c28cf4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Responses/LoginResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Responses/LoginResponse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navbar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -668,7 +666,7 @@
       <workItem from="1609195631975" duration="4797000" />
       <workItem from="1609501893788" duration="313000" />
       <workItem from="1609509538180" duration="6796000" />
-      <workItem from="1609645488108" duration="12911000" />
+      <workItem from="1609645488108" duration="13826000" />
     </task>
     <task id="LOCAL-00001" summary="Prepara to Laravel">
       <created>1609195046883</created>
@@ -761,7 +759,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609679675973</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="navbar student">
+      <created>1609687790312</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1609687790312</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -840,7 +845,8 @@
     <MESSAGE value="add middleware profeasigna" />
     <MESSAGE value="change workspace.xml" />
     <MESSAGE value="Merge JetStream" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge JetStream" />
+    <MESSAGE value="navbar student" />
+    <option name="LAST_COMMIT_MESSAGE" value="navbar student" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
