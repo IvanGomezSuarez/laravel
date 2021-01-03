@@ -175,6 +175,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/asignaturas', function ()
     return view('asignaturas');
 })->name('asignaturas');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/calificables', function () {
+    return view('calificables');
+})->name('calificables');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/cursos', function () {
     return view('cursos');
 })->name('cursos');
@@ -194,6 +198,14 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/profeasigna', function ()
 Route::middleware(['auth:sanctum', 'verified'])->get('/adminalumn', function () {
     return view('adminalumn');
 })->name('adminalumn');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/adminmatriculas', function () {
+    return view('adminmatriculas');
+})->name('adminmatriculas');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/evaluacion', function () {
+    return view('evaluacion');
+})->name('evaluacion');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/calendario', function () {
     return view('calendario');

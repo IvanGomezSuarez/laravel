@@ -13,11 +13,35 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('asignaturas') }}" :active="request()->routeIs('asignaturas')">
-                        {{ __('Asignaturas') }}
-                    </x-jet-nav-link>
+{{--                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">--}}
+{{--                    <x-jet-nav-link href="{{ route('asignaturas') }}" :active="request()->routeIs('asignaturas')">--}}
+{{--                        {{ __('Asignaturas') }}--}}
+{{--                    </x-jet-nav-link>--}}
+{{--                </div>--}}
+
+                <!-- Asignaturas -->
+                <div class="hidden sm:flex sm:items-center sm:ml-6">
+                    <x-jet-dropdown align="top" width="48">
+                        <x-slot name="trigger">
+                            <div class="hidden sm:flex sm:items-center sm:ml-6">
+                                <x-jet-nav-link href="#" :active="request()->routeIs('asignaturas') || request()->routeIs('calificables')" >
+                                    {{ __('Asignaturas') }}
+                                </x-jet-nav-link>
+                            </div>
+                        </x-slot>
+
+                        <x-slot name="content">
+                            <x-jet-dropdown-link  href="{{ route('asignaturas') }}">
+                                {{ __('Crear Asignatura') }}
+                            </x-jet-dropdown-link>
+                            <x-jet-dropdown-link href="{{ route('calificables') }}">
+                                {{ __('Trabajos y Examenes') }}
+                            </x-jet-dropdown-link>
+                        </x-slot>
+                    </x-jet-dropdown>
                 </div>
+
+                <!-- Cursos -->
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
                     <x-jet-dropdown align="top" width="48">
                         <x-slot name="trigger">
@@ -65,14 +89,40 @@
 {{--                        {{ __('Profesorado') }}--}}
 {{--                    </x-jet-nav-link>--}}
 {{--                </div>--}}
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('adminalumn') }}" :active="request()->routeIs('adminalumn')">
-                        {{ __('Alumnos') }}
-                    </x-jet-nav-link>
+{{--                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">--}}
+{{--                    <x-jet-nav-link href="{{ route('adminalumn') }}" :active="request()->routeIs('adminalumn')">--}}
+{{--                        {{ __('Alumnos') }}--}}
+{{--                    </x-jet-nav-link>--}}
+{{--                </div>--}}
+
+                <!-- Asignaturas -->
+                <div class="hidden sm:flex sm:items-center sm:ml-6">
+                    <x-jet-dropdown align="top" width="48">
+                        <x-slot name="trigger">
+                            <div class="hidden sm:flex sm:items-center sm:ml-6">
+                                <x-jet-nav-link href="#" :active="request()->routeIs('adminalumn') || request()->routeIs('adminmatriculas') || request()->routeIs('evaluacion')" >
+                                    {{ __('Alumnos') }}
+                                </x-jet-nav-link>
+                            </div>
+                        </x-slot>
+
+                        <x-slot name="content">
+                            <x-jet-dropdown-link  href="{{ route('adminalumn') }}">
+                                {{ __('Alta Alumno') }}
+                            </x-jet-dropdown-link>
+                            <x-jet-dropdown-link href="{{ route('adminmatriculas') }}">
+                                {{ __('Matricular Alumno') }}
+                            </x-jet-dropdown-link>
+                            <x-jet-dropdown-link href="{{ route('evaluacion') }}">
+                                {{ __('Evaluar Alumno') }}
+                            </x-jet-dropdown-link>
+                        </x-slot>
+                    </x-jet-dropdown>
                 </div>
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('calendario') }}" :active="request()->routeIs('calendario')">
-                        {{ __('Horario') }}
+                        {{ __('Horarios') }}
                     </x-jet-nav-link>
 
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">

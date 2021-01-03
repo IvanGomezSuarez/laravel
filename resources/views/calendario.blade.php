@@ -9,14 +9,14 @@
   //  $profesores = App\Models\Profesor::get();
   //  $asignaturaAsigned = App\Models\Course::find(Request::get('idcourse'));
     $calendario = App\Models\Calendario::get();
-    echo '<pre>';
+//    echo '<pre>';
      //print_r($calendario);
-    echo '</pre>';
+//    echo '</pre>';
     $calenda = DB::select('select * from schedule where id_class=?', [Request::get('ider')]);
 
 
 
-print_r($calenda);
+//print_r($calenda);
 ?>
 
 
