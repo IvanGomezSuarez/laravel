@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Configuracion_usuario;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Session;
+
+
 class Configuracion_usuarioController extends Controller
 {
     /**
@@ -70,11 +73,58 @@ class Configuracion_usuarioController extends Controller
     public function update(Request $request)
     {
 
-          if ($request['password']!=$request['passwordcmp']){
-               return redirect('/configuracion_usuario?warning=true&passdsnmatch=true');
-          }
 
-        return $request;
+
+          if ($request['password']!=$request['passwordcmp']){
+
+            if ( Session::get('role') == 'teacher'){
+              // return $request;
+                DB::update('UPDATE teachers SET name = ?, email = ?, password = ? WHERE id_teacher = ?', [$request['name'], $request['username'],$request['password'],$request['id'] ]);
+                Session::put('username', $request['email']);
+                Session::put('name', $request['name']);
+                Session::put('email', $request['username']);
+
+                Session::put('pass', $request['password']);
+                return redirect('/configuracion_usuario');
+
+
+            }
+            if ( Session::get('role') == 'student'){
+                //return $request;
+
+                DB::update('UPDATE students SET username = ?, pass = ?, email = ?, name = ? WHERE id = ?', [$request['username'], $request['password'],$request['email'],$request['name'],$request['id'] ]);
+                Session::put('username', $request['username']);
+                Session::put('name', $request['name']);
+                Session::put('email', $request['email']);
+                Session::put('pass', $request['password']);
+                return redirect('/configuracion_usuario');
+
+
+            }
+            if ( Session::get('role') == 'admin'){
+
+                //return $request;
+                 DB::update('UPDATE users_admin SET username = ?, name = ?, email = ?, password = ? WHERE id_user_admin = ?', [$request['username'], $request['name'],$request['email'],$request['password'],$request['id'] ]);
+                Session::put('username', $request['username']);
+                Session::put('name', $request['name']);
+                Session::put('email', $request['email']);
+                Session::put('pass', $request['password']);
+
+
+
+
+                return redirect('/configuracion_usuario');
+            }
+              // DB::update('UPDATE users_admin SET user_name = ?, name = ?, email = ?, password = ? WHERE id_user_admin = ?', [$request['name'], $request['color'],$request['id'] ]);
+
+
+
+
+
+
+          }
+        return redirect('/configuracion_usuario?warning=true&passdsnmatch=true');
+
 
 
 

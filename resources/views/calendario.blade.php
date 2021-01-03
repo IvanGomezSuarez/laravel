@@ -1,31 +1,17 @@
 @extends('layout')
 @section('content')
-
 <?php
     use App\Models\Calendario;
-    use Illuminate\support\Facades\Request;
-    use Illuminate\support\Facades\DB;
+
     $asignaturas = App\Models\Asigxcurso::get();
-  //  $profesores = App\Models\Profesor::get();
-  //  $asignaturaAsigned = App\Models\Course::find(Request::get('idcourse'));
+
     $calendario = App\Models\Calendario::get();
-//    echo '<pre>';
-     //print_r($calendario);
-//    echo '</pre>';
+
     $calenda = DB::select('select * from schedule where id_class=?', [Request::get('ider')]);
 
 
-
-//print_r($calenda);
 ?>
 
-
-
-@foreach ($calendario as $calendario)
-    @if (($calendario->id_class)==(Request::get('ider')))
-        {{$calendario->id_class}}
-    @endif
-@endforeach
 
     <br><br>
     <div class="container">
@@ -42,7 +28,7 @@
 
                         <input type='hidden' name='idclass' value='asignamos'>
                         <select  name='id_class' class="form-control mb-4" id="select" >
-
+                            <option disabled selected >Elegir</option>
                             @foreach ($asignaturas as $asignatura)
                                 <option @if (Request::get('ider')==$asignatura->id_class) selected @endif value="{{$asignatura->id_class}}">{{$asignatura->name}}</option>
                             @endforeach
@@ -201,6 +187,5 @@
             window.history.replaceState(null, null, window.location.href);
         }
     </script>
-
 
 @endsection

@@ -11,27 +11,41 @@ use App\Http\Controllers\AdminmatriculasController;
 use App\Http\Controllers\CalendarioController;
 use App\Http\Controllers\Configuracion_usuarioController;
 use App\Http\Controllers\CalificablesController;
-    use App\Http\Controllers\ExamsController;
-    use App\Http\Controllers\WorksController;
+use App\Http\Controllers\ExamsController;
+use App\Http\Controllers\WorksController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\loginViewController;
+use App\Http\Controllers\SalirController;
+    use App\Http\Controllers\registrarController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
+    use App\Http\Middleware\Authenticate;
+    /*
+    |--------------------------------------------------------------------------
+    | Web Routes
+    |--------------------------------------------------------------------------
+    |
+    | Here is where you can register web routes for your application. These
+    | routes are loaded by the RouteServiceProvider within a group which
+    | contains the "web" middleware group. Now create something great!
+    |
+    */
+
+
+
+
+ /*   Route::get('/', function () {
+        return view('welcome');
+    });
 */
 
     Route::get('/', function () {
-        return view('welcome');
+        return view('loginView');
     });
-
-    Route::get('dashboard', function () {
-        return view('dashboard');
+    Route::get('/registrar', function () {
+        return view('registrar');
+    });
+    Route::get('/welcome', function () {
+        return view('loggedwelcome');
     });
 
     Route::get('/asignaturas', function () {
@@ -87,10 +101,13 @@ use App\Http\Controllers\EmailController;
         return view('calendario');
     });
 
+  Route::get('/dashboard', function () {
+        return view('dashboard');
+    });
 
     /* estudiantes*/
     Route::get('/estudiante', function () {
-        return view('studwelcome');
+        return view('loggedwelcome');
     });
     Route::get('/notas', function () {
         return view('notas-estudiante');
@@ -103,13 +120,10 @@ use App\Http\Controllers\EmailController;
     Route::get('/fullcalendar', function () {
         return view('/fullcdalendar/');
     });
-
-
     /* profesores*/
     Route::get('/evaluar-alumnos', function () {
         return view('profeEvalua');
     });
-
 
 
     /*ADMIN */
@@ -147,14 +161,16 @@ use App\Http\Controllers\EmailController;
     Route::get('/calendario/crea', [CalendarioController::class, 'create']);
 
     Route::get('/configuracion_usuario/update', [Configuracion_usuarioController::class, 'update']);
+
+
 /* STUDENTS */
 
+    Route::get('/studwelcome/update', [Configuracion_usuarioController::class, 'update']);
     Route::get('/studwelcome/update', [Configuracion_usuarioController::class, 'update']);
 
     Route::get('/calificables/percent', [CalificablesController::class, 'update']);
     Route::get('/calificables/examen', [CalendarioController::class, 'store']);
     Route::get('/calificables/work', [CalendarioController::class, 'store']);
-
 
     Route::get('/ponernota/update', [ExamsController::class, 'update']);
     Route::get('/ponernota/new', [ExamsController::class, 'create']);
@@ -162,85 +178,15 @@ use App\Http\Controllers\EmailController;
     Route::get('/ponernota-work/update', [WorksController::class, 'update']);
     Route::get('/ponernota-work/new', [WorksController::class, 'create']);
 
+    Route::get('/login', [loginViewController::class, 'show']);
+    Route::get('/registro', [registrarController::class, 'create']);
 
     Route::get('/mail', [EmailController::class, 'create']);
+
+    Route::get('/salir', [SalirController::class, 'destroy']);
 
 
 
     Route::middleware(['auth:sanctum', 'verified'])->get('/s', function () {
     return view('dashboard');
 })->name('dashboard');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/asignaturas', function () {
-    return view('asignaturas');
-})->name('asignaturas');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/calificables', function () {
-    return view('calificables');
-})->name('calificables');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/cursos', function () {
-    return view('cursos');
-})->name('cursos');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/asigxcurso', function () {
-    return view('asigxcurso');
-})->name('asigxcurso');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/profesores', function () {
-    return view('profesores');
-})->name('profesores');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/profeasigna', function () {
-    return view('profeasigna');
-})->name('profeasigna');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/adminalumn', function () {
-    return view('adminalumn');
-})->name('adminalumn');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/adminmatriculas', function () {
-    return view('adminmatriculas');
-})->name('adminmatriculas');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/evaluacion', function () {
-    return view('evaluacion');
-})->name('evaluacion');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/calendario', function () {
-    return view('calendario');
-})->name('calendario');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/navbarstudent', function () {
-    return view('navbarstudent');
-})->name('navbarstudent');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/navbar', function () {
-    return view('navbar');
-})->name('navbar');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dropdown', function () {
-    return view('dropdown');
-})->name('dropdown');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/studwelcome', function () {
-    return view('studwelcome');
-})->name('studwelcome');
-
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/calendario-estud', function () {
-    return view('_studCalendarioView');
-})->name('calendario-estud');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/notas', function () {
-    return view('notas-estudiante');
-})->name('notas-estudiante');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/evaluar-alumnos', function () {
-    return view('profeEvalua');
-})->name('profeEvalua');
-
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/register', function () {
-    return view('register');
-})->name('register');

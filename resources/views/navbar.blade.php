@@ -1,11 +1,3 @@
-{{--@extends('navigation-dropdown')--}}
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center">
-            {{ __('Bienvenido ') }}{{ Auth::user()->name }}
-        </h2>
-    </x-slot>
-
 <style>
     /*
 To change this license header, choose License Headers in Project Properties.
@@ -75,8 +67,66 @@ and open the template in the editor.
         background-color: transparent;
     }
 </style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" href="?"><i class="fa fa-home" aria-hidden="true"></i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+
+
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Asignaturas</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="asignaturas">Crear Asignatura</a>
+                    <a class="dropdown-item" href="calificables">Trabajos y Examemes</a>
+                </div>
+            </li>
+
+
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cursos</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="cursos">Edición Cursos</a>
+                    <a class="dropdown-item" href="asigxcurso">Asignaturas por Curso</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Profesorado</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="profesores">Alta Profesor</a>
+                    <a class="dropdown-item" href="profeasigna">Asignar Asignaturas</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Alumnos</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="adminalumn">Alta Alumno</a>
+                    <a class="dropdown-item" href="adminmatriculas">Matricular Alumno</a>
+                    <a class="dropdown-item" href="evaluacion">Evaluar Alumno</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="calendario">Horarios</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/configuracion_usuario">Configuración</a>
+            </li>
+            <li class="nav-item pull-right">
+                <form >
+                    <input formaction="salir" type="submit" class="nav-link salir" name="exit" value="Salir">
+                </form>
+
+            </li>
+        </ul>
+    </div>
+</nav>
 <script>
   //  jQuery('.dropdown-toggle').dropdown();
 </script>
-</x-app-layout>

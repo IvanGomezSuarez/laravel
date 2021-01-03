@@ -19,15 +19,7 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
-<!--    --><?php
-//    $student=false;
-//    $admin=true;
-//    $teacher=false;
-//    ?>
-        <div class="h-auto bg-indigo-50">
-{{--            @if ($admin)--}}
-{{--                @livewire('navigation-dropdown')--}}
-{{--            @endif--}}
+        <div class="min-h-screen bg-gray-100">
             @livewire('navigation-dropdown')
 
             <!-- Page Heading -->
@@ -44,7 +36,7 @@
             </main>
         </div>
 
-{{--        @stack('modals')--}}
+        @stack('modals')
 
         @livewireScripts
     </body>

@@ -89,8 +89,8 @@ and open the template in the editor.
                 <a class="nav-link" href="/configuracion_usuario">Configuración</a>
             </li>
             <li class="nav-item pull-right">
-                <form action="" method="post" class="">
-                    <input type="submit" class="nav-link salir" name="exit" value="Salir">
+                <form >
+                    <input formaction="salir" type="submit" class="nav-link salir" name="exit" value="Salir">
                 </form>
 
             </li>

@@ -112,7 +112,7 @@
                 @php $estaAsigna = Request::get('id-asigns') @endphp
                 @php $esteAlumno = Request::get('id-alumns') @endphp
 
-             <h5>Examenes</h5>
+                <h5>Examenes</h5>
 
 
                 @foreach ($exams as $exam) {{-- bucle en t_exam tabla unica de examenes --}}
@@ -123,7 +123,6 @@
                         @foreach ($examenes as $examen)
 
                             @if (($exam->id_t_exam == $examen->id_t_exam)&&($examen->id_student == $esteAlumno))
-
 
                                 <form id="{{$exam->id_t_exam}}" class="asignatio  form-group ">
                                     <div class="form-group editasign ">
@@ -147,8 +146,6 @@
 
                         @endforeach
 
-
-
                         <form id="{{$exam->id_t_exam}}" class="asignatio form-group ">
                             <div class="form-group editasign">
                                 @csrf
@@ -168,16 +165,8 @@
                             </div>
                         </form>
 
-
-
-
                     @endif
                 @endforeach
-
-
-
-
-
 
             @endif
 
@@ -186,70 +175,62 @@
 
             @if (Request::get('asignatura')=='Elegir')
 
-            @php $estaAsigna = Request::get('id-asigns') @endphp
-            @php $esteAlumno = Request::get('id-alumns') @endphp
+                @php $estaAsigna = Request::get('id-asigns') @endphp
+                @php $esteAlumno = Request::get('id-alumns') @endphp
 
 
-            <h5>Trabajos</h5>
+                <h5>Trabajos</h5>
 
-            @foreach ($works as $work) {{-- bucle en t_work tabla unica de trabajos --}}
-
-
-            @if (($work->id_class)==($estaAsigna))
-
-            {{-- bucle en exams si ya hay examenes calificados --}}
-            @foreach ($trabajos as $trabajo)
+                @foreach ($works as $work) {{-- bucle en t_work tabla unica de trabajos --}}
 
 
-            @if (($work->id_t_work == $trabajo->id_t_work)&&($trabajo->id_student == $esteAlumno))
+                    @if  ($work->id_class == $estaAsigna)
 
+                        {{-- bucle en exams si ya hay examenes calificados --}}
+                        @foreach ($trabajos as $trabajo)
+                            @if (($work->id_t_work == $trabajo->id_t_work)&&($trabajo->id_student == $esteAlumno))
+                                <form id="{{$work->id_t_work}}" class="asignatio">
+                                    <div class="form-group editasign">
+                                        @csrf
+                                        <input hidden type="number" name="alumno" value="{{Request::get('id-alumns')}}">
+                                        <input hidden type="number" name="asignatura" value="{{Request::get('id-asigns')}}">
+                                        <input hidden type="text"  name="name" value="{{$work->name}}" >
+                                        <input hidden type="text" name="id_work" value="{{$trabajo->id_work}}">
+                                        <input type="text"  readonly value="{{$work->name}}">
+                                        @if ($trabajo->mark)
+                                            <input type="number" step=".01" placeholder="nota" name="nota" value="{{$trabajo->mark}}">
+                                        @else
+                                            <input type="number" step=".01" placeholder="nota" name="nota" value="">
+                                        @endif
+                                        <input hidden type="number" name="id_t_work" value="{{$work->id_t_work}}" >
 
-            <form id="{{$work->id_t_work}}" class="asignatio">
-                <div class="form-group editasign">
-                    @csrf
-                    <input hidden type="number" name="alumno" value="{{Request::get('id-alumns')}}">
-                    <input hidden type="number" name="asignatura" value="{{Request::get('id-asigns')}}">
-                    <input hidden type="text"  name="name" value="{{$work->name}}" >
-                    <input hidden type="text" name="id_work" value="{{$trabajo->id_work}}">
-                    <input type="text"  readonly value="{{$work->name}}">
-                    @if ($trabajo->mark)
-                    <input type="number" step=".01" placeholder="nota" name="nota" value="{{$trabajo->mark}}">
-                    @else
-                    <input type="number" step=".01" placeholder="nota" name="nota" value="">
+                                        <input type="submit" formaction="/ponernota-work/update"  class="btn btn-primary btn-sm mb-2">
+                                    </div>
+                                </form>
+                            @endif
+                        @endforeach
+
+                        <form id="{{$work->id_t_work}}" class="asignatio">
+                            <div class="form-group editasign">
+                                @csrf
+                                <input hidden type="number" name="alumno" value="{{Request::get('id-alumns')}}">
+                                <input hidden type="number" name="asignatura" value="{{Request::get('id-asigns')}}">
+                                <input hidden type="text"  name="name" value="{{$work->name}}">
+                                <input hidden type="text" name="id_work" value="{{$work->id_work}}">
+                                <input type="text"  readonly value="{{$work->name}}" >
+                                @if ($work->mark)
+                                    <input type="number" step=".01" placeholder="nota" name="nota" value="{{$work->mark}}">
+                                @else
+                                    <input type="number" step=".01" placeholder="nota" name="nota" value="">
+                                @endif
+                                <input hidden type="number" name="id_t_work" value="{{$work->id_t_work}}" >
+
+                                <input type="submit" formaction="/ponernota-work/new"  class="btn btn-primary btn-sm mb-2">
+                            </div>
+                        </form>
+
                     @endif
-                    <input hidden type="number" name="id_t_work" value="{{$work->id_t_work}}" >
-
-                    <input type="submit" formaction="/ponernota-work/update"  class="btn btn-primary btn-sm mb-2">
-                </div>
-            </form>
-            @endif
-
-            @endforeach
-
-
-
-
-            <form id="{{$work->id_t_work}}" class="asignatio">
-                <div class="form-group editasign">
-                    @csrf
-                    <input hidden type="number" name="alumno" value="{{Request::get('id-alumns')}}">
-                    <input hidden type="number" name="asignatura" value="{{Request::get('id-asigns')}}">
-                    <input hidden type="text"  name="name" value="{{$work->name}}">
-                    <input hidden type="text" name="id_work" value="{{$work->id_work}}">
-                    <input type="text"  readonly value="{{$work->name}}" >
-                    @if ($work->mark)
-                    <input type="number" step=".01" placeholder="nota" name="nota" value="{{$work->mark}}">
-                    @else
-                    <input type="number" step=".01" placeholder="nota" name="nota" value="">
-                    @endif
-                    <input hidden type="number" name="id_t_work" value="{{$work->id_t_work}}" >
-
-                    <input type="submit" formaction="/ponernota-work/new"  class="btn btn-primary btn-sm mb-2">
-                </div>
-            </form>
-
-            @endif
-            @endforeach
+                @endforeach
 
             @endif
 

@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 <?php
-
+    $alumnId = Session::get('id_user');
     /* alumnos y alumno en concreto  tabla students  id, username, pass, email, name, surname, telephone, nif, date registered*/
     $alumnos = App\Models\Adminalumn::get();
   //  $alumnId = App\Models\Adminalumn::find(Request::get('id-alumns'));
@@ -16,8 +16,8 @@
     /* tabla enrollment id_enrollmen, id_student, id_course, status*/
     $enrollments = App\Models\Enrollment::get();
 
-    if ((Request::get('id-alumns'))){
-        $cursoxAlumno = DB::table('enrollment')->where('id_student',Request::get('id-alumns'))->get();
+    if ((Session::get('id_user'))){
+        $cursoxAlumno = DB::table('enrollment')->where('id_student',$alumnId)->get();
     }else{
         $cursoxAlumno = DB::table('enrollment')->get();
     }
@@ -36,6 +36,7 @@
     /* todas las clasees pertencientes a un curso */
     $clasesxCurso = DB::table('class')->where('id_course',$cursoxAlumno[0]->id_course)->get();
 
+
     $cursos = App\Models\Course::get();
     $cursoId = App\Models\Course::find(Request::get('idcourse'));
 
@@ -53,7 +54,21 @@
     $asignaturaAsigned = App\Models\Course::find(Request::get('idcourse'));
 /******************************************************/
     $profeId=79;
-    $alumnId = 12;
+
+    if (isset($_GET['id-asigns'])&&($_GET['id-asigns']!='')){
+        foreach ($clasesxCurso as $clasexCurso)
+        {
+            if ($clasexCurso->id_class == ($_GET['id-asigns'])){
+            $profeId = $clasexCurso->id_teacher;
+
+            }
+        }
+
+    }
+
+
+
+
 /*******************************************************/
 
 
@@ -88,29 +103,7 @@
 <hr>
 <br>
 <div class="row">
-<?php /* ?>
-    <div class="col-md-6">
-        <form class="asignatio" action="" method="get">
-            @csrf
 
-            <div class="form-group editasign">
-                <label for="">Alumnos</label>
-                <select size="4" name="id-alumns"  class="form-control" id="" >
-                    @foreach ($alumnos as $alumno) {{$alumno->id}}
-                    @foreach ($enrollments as $enrollment)
-                    {{$enrollment}}
-                    @if ( ($alumno->id==$enrollment->id_student) && ($enrollment->id_course==$asignaturaCourse) )
-                    <option value="{{$alumno->id}}"><span>{{$alumno->name}} {{$alumno->surname}} -- {{$alumno->nif}}</span></option>
-                    @endif
-                    @endforeach
-                    @endforeach
-                </select>
-                <br>
-                <input type="submit" formaction="/evaluar-alumnos" name="evaluar" value="Evaluar" class="btn btn-primary mb-2">
-            </div>
-        </form>
-    </div>
-<?php */ ?>
     <div class="col-md-6 asignatio">
 
         <div class="form-group editasign marks">
@@ -125,14 +118,11 @@
         </div>
     </div>
 
-
-    <?php  ?>
-
     <div class="col-md-6">
         <form class="asignatio" action="" method="get">
             @csrf
             <div class="form-group editasign">
-                <input hidden type="number" name="id-alumns" value="{{Request::get('id-alumns')}}">
+                <input hidden type="number" name="id-alumns" value="{{$alumnId}}">
                 <input hidden  name="evaluar" value="Evaluar">
 
                 <label for="">Lista de Asignaturas</label>
@@ -151,7 +141,7 @@
         </form>
     </div>
 
-    <?php ?>
+
 
 
 </div>

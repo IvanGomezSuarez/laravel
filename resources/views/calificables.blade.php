@@ -1,29 +1,16 @@
 @extends('layout')
 @section('content')
 <?php
-use Illuminate\support\Facades\Request;
+
+
     $asignaturaId = App\Models\Asignatura::find(Request::get('ider'));
     $asignaturas = App\Models\Asignatura::get();
     $percentiles  = App\Models\Calificable::get();
     $calendario = App\Models\Calendario::get();
     $works = App\Models\TWork::get();
     $exams = App\Models\TExam::get();
- // print_r($percentiles);
- // print_r($percentiles->find(Request::get('ider'),['id_class'])->continuous_assessment);
- // print_r($percentiles->first()->continuous_assessment);
- //  print_r($asignaturas);
-   /* echo '<pre>';
- //print_r($asignaturaId);
-
-    print_r($exams);
-
-    echo '</pre>';
-*/
 
 ?>
-
-
-<?php // echo $asignaturas->find(Request::get('ider'))->name ?>
 <style>
     input.passive{
         border: none;
@@ -202,6 +189,7 @@ use Illuminate\support\Facades\Request;
 
                         </div>
 
+
                         <input type="submit" formaction="calificables/examen" name="examen" value="Crear"  class="btn btn-primary mb-2">
 
                     </div>
@@ -218,6 +206,9 @@ use Illuminate\support\Facades\Request;
                         <div class="input-group">
 
                             @if (Request::get('ider'))<input type="hidden" name="id_class" value="{{$asignaturaId->id_class}}"> @endif
+
+
+
 
                             <input autofocus="true" required type="text" class="form-control fullwidth"
                                    name="name" placeholder="Nombre" value="">
@@ -323,7 +314,7 @@ use Illuminate\support\Facades\Request;
                         <th scope="col">Descripcion</th>
                         <th scope="col">Fecha</th>
                         <th scope="col">Evaluaciones</th>
-                        <th scope="col">Notificar</th>
+
                         <th scope="col">Borrar</th>
                     </tr>
                     </thead>
@@ -349,11 +340,6 @@ use Illuminate\support\Facades\Request;
                         <td>{{$calendar->day}}</td>
                         <td><a href="/evaluacion">Evaluar alumnos</a></td>
 
-                        <td>Examen</td>
-                        <td>Examen Temas 1-2 </td>
-                        <td>{$calendar->time_start}}</td>
-                        <td>{$calendar->time_end}}</td>
-                        <td>{$calendar->time_end}}</td>
                         <td><form name="borra" action="/calendario/borra" method="get">@csrf<button type="submit" name="erasethis" value="{$calendar->id_schedule}}"><i class="fa fa-trash" aria-hidden="true"></i></button></form></td>
                     </tr>
                     @endif

@@ -1,10 +1,9 @@
 @extends('layout')
 @section('content')
 <?php
-    /*
-include MOD.'_loginModel.php';
-include CONT.'_loginController.php';
-    */
+    echo '<pre>';
+    print_r(Session::get('id_user'));
+    echo '</pre>';
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,9 +14,16 @@ include CONT.'_loginController.php';
         <meta charset="UTF-8">
         <title>Login Colegio</title>
     </head>
+    <style>
+        form.border.login{
+            padding: 25px 20px;
+            border-radius:15px;
+        }
+
+    </style>
     <body id="login">
         
-    <div id="" class="container-md mb-4" >
+    <div id="" class="container-md mt-14" >
         <form class="col-sm-8 col-lg-6 col-md-6 offset-sm-2 offset-md-3 offset-lg-3 border login" action="" method="">
 
                 <div class="form-group">
@@ -29,12 +35,12 @@ include CONT.'_loginController.php';
                   <input type="password" class="form-control" id="pass" name="pass" required>
                 </div>
 
-            <button type="submit" class="btn btn-primary text-center">Enviar</button> 
+            <button type="submit" formaction="login" class="btn btn-primary text-center">Enviar</button>
 
         </form>
        
     </div>
-        <span class="text-center d-block ">¿Nuevo Usuario? <a href="?pag=registrar">Regístrate</a> </span>
+        <span class="text-center d-block ">¿Nuevo Usuario? <a href="/registrar">Regístrate</a> </span>
          
 <script>
 if (window.history.replaceState) { // verificamos disponibilidad

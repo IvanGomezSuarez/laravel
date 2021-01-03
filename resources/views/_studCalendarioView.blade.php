@@ -2,9 +2,8 @@
 @section('content')
 <?php
 
-/* del proceso de login */
-    $idStudent=12;
-/* **************      */
+
+    $idStudent=Session::get('id_user');
 
     $cargamosHorarios = DB::select('SELECT sc.id_schedule, cl.name, cl.color, sc.day, sc.time_start, sc.time_end, sc.id_t_work, sc.id_t_exam FROM students s
     INNER JOIN enrollment e ON s.id = e.id_student
@@ -100,10 +99,5 @@ if (window.history.replaceState) { // verificamos disponibilidad
 }
 
 </script>
-<?php
-// if($reload){
-// echo '<script>location.reload();</script>';
-// }
-?>
 
 @endsection

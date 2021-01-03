@@ -22,27 +22,39 @@
         }
 
     </style>
-<?php
-    $student=false;
-    $admin=true;
-    $teacher=false;
-?>
+
 </head>
-<body>
+<body >
 
-    @if ($student)
-        @include('navbarstudent')
-    @endif
-    @if ($admin)
-        @include('navbar')
-    @endif
-    @if ($teacher)
-        @include('navbarteacher')
-    @endif
+    <?php /* ?>
+    @guest
+    hay que loguearse
+    @endguest
+    <?php */ ?>
 
-    <div class="container">
-    @yield('content')
-    </div>
+
+
+
+        @if (Session::get('role')=='student')
+            @include('navbarstudent')
+        @endif
+
+        @if (Session::get('role')=='admin')
+            @include('navbar')
+        @endif
+
+        @if (Session::get('role')=='teacher')
+            @include('navbarteacher')
+        @endif
+
+        <div class="container">
+        @yield('content')
+        </div>
+
+
+
+
+
 
     <script src="{{ asset('js/app.js') }}" type="text/js"></script>
 </body>

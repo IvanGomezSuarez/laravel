@@ -87,7 +87,7 @@ class AsignaturaController extends Controller
     {
         if ($request['accion']=='Edita'){
             DB::update('UPDATE class SET name = ?, color = ? WHERE id_class=?', [$request['name'], $request['color'],$request['id'] ]);
-            //echo ("User Record deleted successfully.");
+
             return back();
         }
     }

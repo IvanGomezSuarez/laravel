@@ -174,73 +174,69 @@ if ( (isset($_GET['evaluar'])) && $_GET['evaluar']=='Evaluar')
 
         @if (($exam->id_class)==($estaAsigna))
 
-        {{-- bucle en exams si ya hay examenes calificados --}}
-        @foreach ($examenes as $examen)
+            {{-- bucle en exams si ya hay examenes calificados --}}
+            @foreach ($examenes as $examen)
 
-        @if (($exam->id_t_exam == $examen->id_t_exam)&&($examen->id_student == $esteAlumno))
+                @if (($exam->id_t_exam == $examen->id_t_exam)&&($examen->id_student == $esteAlumno))
 
-        @php ++$mediaItems @endphp
-        <form id="{{$exam->id_t_exam}}" class="asignatio  form-group ">
-            <div class="form-group editasign ">
-                @csrf
-                <input hidden type="number" name="alumno" value="{{Request::get('id-alumns')}}">
-                <input hidden type="number" name="asignatura" value="{{$estaAsigna}}">
-                <input hidden type="text"  name="name" value="{{$exam->name}}" >
-                <input hidden type="text" name="id_exam" value="{{$examen->id_exam}}">
-                <input type="text"  readonly value="{{$exam->name}}" >
-                @if ($examen->mark)
-                <input type="number" step=".01" placeholder="nota" name="nota" value="{{$examen->mark}}@php $media=$media+$examen->mark @endphp">
-                @else
-                <input type="number" step=".01" placeholder="nota" name="nota" value="">
+                    @php ++$mediaItems @endphp
+
+                    <form id="{{$exam->id_t_exam}}" class="asignatio  form-group ">
+                        <div class="form-group editasign ">
+                            @csrf
+                            <input hidden type="number" name="alumno" value="{{Request::get('id-alumns')}}">
+                            <input hidden type="number" name="asignatura" value="{{$estaAsigna}}">
+                            <input hidden type="text"  name="name" value="{{$exam->name}}" >
+                            <input hidden type="text" name="id_exam" value="{{$examen->id_exam}}">
+                            <input type="text"  readonly value="{{$exam->name}}" >
+                            @if ($examen->mark)
+                                <input type="number" step=".01" placeholder="nota" name="nota" value="{{$examen->mark}}@php $media=$media+$examen->mark @endphp">
+                            @else
+                                <input type="number" step=".01" placeholder="nota" name="nota" value="">
+                            @endif
+                            <input hidden type="number" name="id_t_exam" value="{{$exam->id_t_exam}}" >
+                            <input type="submit" formaction="/ponernota/update"  class="btn btn-primary btn-sm mb-2">
+                        </div>
+                    </form>
                 @endif
-                <input hidden type="number" name="id_t_exam" value="{{$exam->id_t_exam}}" >
 
-                <input type="submit" formaction="/ponernota/update"  class="btn btn-primary btn-sm mb-2">
-            </div>
-        </form>
-        @endif
-
-        @endforeach
+            @endforeach
 
 
 
-        <form id="{{$exam->id_t_exam}}" class="asignatio form-group ">
-            <div class="form-group editasign">
-                @csrf
-                <input hidden type="number" name="alumno" value="{{Request::get('id-alumns')}}">
-                <input hidden type="number" name="asignatura" value="{{$estaAsigna}}">
-                <input hidden type="text"  name="name" value="{{$exam->name}}" >
-                <input hidden type="text" name="id_exam" value="{{$exam->id_exam}}">
-                <input type="text"  readonly value="{{$exam->name}}" >
-                @if ($examen->mark)
-                <input type="number" step=".01" placeholder="nota" name="nota" value="{{$exam->mark}}">
-                @else
-                <input type="number" step=".01" placeholder="nota" name="nota" value="">
-                @endif
-                <input hidden type="number" name="id_t_exam" value="{{$exam->id_t_exam}}" >
+            <form id="{{$exam->id_t_exam}}" class="asignatio form-group ">
+                <div class="form-group editasign">
+                    @csrf
+                    <input hidden type="number" name="alumno" value="{{Request::get('id-alumns')}}">
+                    <input hidden type="number" name="asignatura" value="{{$estaAsigna}}">
+                    <input hidden type="text"  name="name" value="{{$exam->name}}" >
+                    <input hidden type="text" name="id_exam" value="{{$exam->id_exam}}">
+                    <input type="text"  readonly value="{{$exam->name}}" >
+                    @if ($examen->mark)
+                        <input type="number" step=".01" placeholder="nota" name="nota" value="{{$exam->mark}}">
+                    @else
+                        <input type="number" step=".01" placeholder="nota" name="nota" value="">
+                    @endif
+                    <input hidden type="number" name="id_t_exam" value="{{$exam->id_t_exam}}" >
 
-                <input type="submit" formaction="/ponernota/new"  class="btn btn-primary btn-sm mb-2">
-            </div>
-        </form>
+                    <input type="submit" formaction="/ponernota/new"  class="btn btn-primary btn-sm mb-2">
+                </div>
+            </form>
 
-        @endif
+            @endif
         @endforeach
 
 
 
 
         @if (($exam->id_class)==($estaAsigna))
+            @if ($mediaItems==0)
+                @php $mediaItems=1; @endphp
 
-
-        @if ($mediaItems==0)
-       @php $mediaItems=1; @endphp
-
-        @endif
-        @if ($media==0)
-        @php $media=1; @endphp
-
-        @endif
-
+            @endif
+            @if ($media==0)
+                @php $media=1; @endphp
+            @endif
         @endif
 
 
@@ -316,29 +312,23 @@ if ( (isset($_GET['evaluar'])) && $_GET['evaluar']=='Evaluar')
         @endif
     @endforeach
 
-    @if (isset($work))&&(($work->id_class)==($estaAsigna))
-
-
-
+    @if ((isset($work))&&(($work->id_class)==($estaAsigna)))
             @if ($mediaItemsW==0)
                 @php $mediaItemsW=1; @endphp
-
             @endif
             @if ($mediaW==0)
-            @php $mediaW=1; @endphp
-
+                @php $mediaW=1; @endphp
             @endif
-
     @endif
-    @if ($mediaItemsW==0)
-    @php $mediaItemsW=1; @endphp
 
+    @if ($mediaItemsW==0)
+        @php $mediaItemsW=1; @endphp
     @endif
     @if ($mediaW==0)
-    @php $mediaW=1; @endphp
-
+        @php $mediaW=1; @endphp
     @endif
-<span id="lanota" hidden>{{(($percentExam*($media/$mediaItems))/100)  +   (($percentWork*($mediaW/$mediaItemsW))/100)}}</span>
+
+        <span id="lanota" hidden>{{(($percentExam*($media/$mediaItems))/100)  +   (($percentWork*($mediaW/$mediaItemsW))/100)}}</span>
 
 
     </div>
@@ -346,19 +336,19 @@ if ( (isset($_GET['evaluar'])) && $_GET['evaluar']=='Evaluar')
 </div>
 <hr>
 
-<div class="row">
-    <div class="col-md-12">
-        <form class="form-group">
-            <h5>Enviar Mail:</h5>
-            @if (Request::get('evaluar')=='Evaluar')
-            <input id="texter" type="text" hidden name="email" value="{{$alumnId->email}}">
-            <textarea style="padding: 10px; width:100%" name="mensaje" cols="50" class="mb-3">Hola {{$alumnId->name}}, </textarea>
-            <input type="submit" formaction="/mail" name="mail" value="Enviar" class="btn btn-primary btn-sm mb-2">
-            @endif
-        </form>
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-group">
+                <h5>Enviar Mail:</h5>
+                @if (Request::get('evaluar')=='Evaluar')
+                <input id="texter" type="text" hidden name="email" value="{{$alumnId->email}}">
+                <textarea style="padding: 10px; width:100%" name="mensaje" cols="50" class="mb-3">Hola {{$alumnId->name}}, </textarea>
+                <input type="submit" formaction="/mail" name="mail" value="Enviar" class="btn btn-primary btn-sm mb-2">
+                @endif
+            </form>
 
+        </div>
     </div>
-</div>
 
 
 @endif

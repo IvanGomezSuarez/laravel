@@ -1,13 +1,16 @@
-
 @extends('layout')
+
 @section('content')
 <?php
-use Illuminate\support\Facades\Request;
-$asignaturas = App\Models\Asignatura::get();
-$asignaturaId = App\Models\Asignatura::find(Request::get('borra-id-asigns'));
+
+
+
+    $asignaturas = App\Models\Asignatura::get();
+    $asignaturaId = App\Models\Asignatura::find(Request::get('borra-id-asigns'));
 
 ?>
-    <br><br>
+
+<br><br>
 <div id="adminasign" class="container">
     <h3>Edición de asignaturas</h3>
     <hr>
