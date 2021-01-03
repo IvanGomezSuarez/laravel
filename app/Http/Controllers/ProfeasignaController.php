@@ -88,8 +88,18 @@ class ProfeasignaController extends Controller
     public function destroy(Request $request)
     {
 
-        DB::update('UPDATE class SET id_teacher = ? WHERE id_class=?', [$request['profesor'], $request['clase']]);
-        DB::update('UPDATE teachers SET asignado = null WHERE id_teacher=?', [$request['profesor']]);
+        $arr = explode('|', $request['asignacion']);
+        if (count($arr) == 2){
+
+            $profesor = intval(trim($arr[0]));
+            $clase = intval(trim($arr[1]));;
+            $campo['profesor']=$profesor;
+            $campo['clase']=$clase;
+
+        }
+        //return $request;
+        DB::update('UPDATE class SET id_teacher = null WHERE id_class=?', [$campo['clase']]);
+        DB::update('UPDATE teachers SET asignado = null WHERE id_teacher=?', [$campo['profesor']]);
 
         return back();
     }
