@@ -19,6 +19,7 @@ class Profesor extends Model
         'telephone',
         'nif',
         'email',
+        'password',
         'asignado'
 
     ];
