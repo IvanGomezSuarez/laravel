@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Work;
 use Illuminate\Http\Request;
+use DB;
+
 
 class WorksController extends Controller
 {
@@ -22,9 +24,12 @@ class WorksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+        //return $request;
+        DB::insert('insert into works (id_class, id_student, name, mark, id_t_work) values (?, ?, ?, ?, ?)', [$request['asignatura'], $request['alumno'], $request['name'], $request['nota'], $request['id_t_work'] ]);
+        return back();
     }
 
     /**
@@ -35,7 +40,8 @@ class WorksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::insert('insert into works (id_class,  time_end,day) values (?, ?, ?, ?)', [$request['id_class'], $request['time_start'], $request['time_end'], $request['day'] ]);
+        return back();
     }
 
     /**
@@ -67,9 +73,12 @@ class WorksController extends Controller
      * @param  \App\Models\Work  $work
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Work $work)
+    public function update(Request $request)
     {
-        //
+        DB::update('UPDATE works SET id_class = ?, id_student = ?, name=?, mark=?, id_t_work=? WHERE id_work=?', [$request['asignatura'], $request['alumno'], $request['name'],$request['nota'], $request['id_t_work'],$request['id_work']]);
+
+
+        return back();
     }
 
     /**
