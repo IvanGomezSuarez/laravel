@@ -37,7 +37,7 @@ class AdminmatriculasController extends Controller
     public function store(Request $request)
     {
 
-        DB::insert('insert into enrollment (id_student, id_course, status) values (?, ?, ?)', [$request['alumno'], $request['curso'], 0 ]);
+        DB::insert('insert into enrollment (id_student, id_course, status) values (?, ?, ?)', [$request['alumno'], $request['curso'], 1 ]);
 
         return back();
     }
@@ -85,7 +85,7 @@ class AdminmatriculasController extends Controller
     public function destroy(Request $request)
     {
         DB::delete('DELETE FROM enrollment WHERE id_student = ?', [$request['asignacion']]);
-        echo ("User Record deleted successfully.");
+
         return back();
 
     }
