@@ -19,16 +19,16 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
-    <?php
-    $student=false;
-    $admin=true;
-    $teacher=false;
-    ?>
+<!--    --><?php
+//    $student=false;
+//    $admin=true;
+//    $teacher=false;
+//    ?>
         <div class="h-auto bg-indigo-50">
-            @if ($admin)
-                @livewire('navigation-dropdown')
-            @endif
-{{--            @livewire('navigation-dropdown')--}}
+{{--            @if ($admin)--}}
+{{--                @livewire('navigation-dropdown')--}}
+{{--            @endif--}}
+            @livewire('navigation-dropdown')
 
             <!-- Page Heading -->
             <header class="bg-white shadow">

@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="362cba2f-ef7f-4f09-9eaf-0fca23c28cf4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/fortify.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/fortify.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/calendario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/calendario.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Responses/LoginResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Responses/LoginResponse.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navbar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -590,7 +589,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistory" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="options.lastSelected" value="appearance" />
     <property name="options.searchVisible" value="true" />
@@ -601,6 +600,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\laravel8\resources\views" />
       <recent name="C:\xamp\htdocs\p6-4\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -668,7 +668,7 @@
       <workItem from="1609195631975" duration="4797000" />
       <workItem from="1609501893788" duration="313000" />
       <workItem from="1609509538180" duration="6796000" />
-      <workItem from="1609645488108" duration="7076000" />
+      <workItem from="1609645488108" duration="12911000" />
     </task>
     <task id="LOCAL-00001" summary="Prepara to Laravel">
       <created>1609195046883</created>
@@ -754,7 +754,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609200457617</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Merge JetStream">
+      <created>1609679675973</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1609679675973</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -832,7 +839,8 @@
     <MESSAGE value="Project_Default.xml" />
     <MESSAGE value="add middleware profeasigna" />
     <MESSAGE value="change workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="change workspace.xml" />
+    <MESSAGE value="Merge JetStream" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge JetStream" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -841,6 +849,16 @@
           <url>file://$PROJECT_DIR$/app/Http/Controllers/AsignaturaController.php</url>
           <line>3</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/vendor/symfony/finder/Finder.php</url>
+          <line>13</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php</url>
+          <line>7</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

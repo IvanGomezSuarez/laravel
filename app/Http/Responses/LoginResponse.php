@@ -11,13 +11,13 @@ class LoginResponse implements LoginResponseContract
 
     public function toResponse($request)
     {
-        
+
         // below is the existing response
         // replace this with your own code
         // the user can be located with Auth facade
         $role = Auth::user()->role;
         $checkrole = explode(',', $role);  // However you get role
-       
+
         if (in_array('admin', $checkrole)) {
 
             Session::put('role', 'admin');
@@ -29,9 +29,10 @@ class LoginResponse implements LoginResponseContract
 
            return redirect('profesores');
         } else {
+            Session::put('role', 'student');
             return redirect('studwelcome');
         }
-        
+
         return $request->wantsJson()
                     ? response()->json(['two_factor' => false])
                     : redirect()->intended(config('fortify.home'));
